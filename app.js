@@ -539,8 +539,9 @@ function pageSheet(sheet) {
         if (missing.length === items.length) return `<td class="price-cell muted">no price</td>`;
         return `<td class="price-cell">${formatSilver(cost)}</td>`;
       }).join('');
+      const itemName = stripTierFromItem(r);
       body += `<tr>
-        <td class="item-name">${r.item}</td>
+        <td class="item-name">${itemName}</td>
         <td class="tier-cell">${r.tierLabel}</td>
         ${cells}
       </tr>`;
@@ -579,6 +580,19 @@ function pageSheet(sheet) {
       </div>
     </div>
   `;
+}
+
+/** Display name with the trailing tier removed.
+ *  "Bow Tier 1" -> "Bow"  /  "Harvester Cap Tier 4" -> "Harvester Cap"
+ *  Leaves names alone when the tier doesn't appear as a suffix
+ *  (e.g. "Carrot Soup T1" — the tier IS the item name in Food). */
+function stripTierFromItem(r) {
+  if (!r.tierLabel) return r.item;
+  const suffix = ' ' + r.tierLabel;
+  if (r.item.endsWith(suffix)) {
+    return r.item.slice(0, -suffix.length).trim();
+  }
+  return r.item;
 }
 
 function formatSilver(n) {
