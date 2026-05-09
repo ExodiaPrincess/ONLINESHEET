@@ -318,6 +318,137 @@ def extract_gathering_gear(ws):
     return recipes
 
 
+# ---------- ARTIFACT CATALOG PER SHEET ----------
+# Each weapon/armor/accessory sheet has up to 6 artifact items in row 5
+# (cols I/K/M/O/Q, plus S for CapesFurniture). Tier rows 6/8/10/12/14 = T4-T8.
+ARTIFACT_TIER_ROWS = {6: 'T4', 8: 'T5', 10: 'T6', 12: 'T7', 14: 'T8'}
+ARTIFACT_COLS = ['I', 'K', 'M', 'O', 'Q', 'S']
+
+# Per-sheet artifact maps: sheet_name -> { local_coord (e.g. 'I6') -> material_id }
+sheet_artifact_maps = {}
+
+def slug(s):
+    return re.sub(r'[^A-Z0-9]+', '_', s.upper().strip()).strip('_')
+
+def build_artifact_catalog(wb):
+    for sn in wb.sheetnames:
+        if sn in SKIP or sn == 'GatheringGear':
+            continue
+        ws = wb[sn]
+        # Read artifact NAMES in row 5
+        names = {}  # col_letter -> name
+        for col in ARTIFACT_COLS:
+            v = ws[f'{col}5'].value
+            if isinstance(v, str) and v.strip() and v.strip().upper() != 'ARTIFACTS':
+                names[col] = v.strip()
+        if not names:
+            continue
+        local_map = {}
+        for col, name in names.items():
+            for row, tier in ARTIFACT_TIER_ROWS.items():
+                mid = f'ART_{slug(sn)}_{slug(name)}_{tier}'
+                local_map[f'{col}{row}'] = mid
+                mat_meta[mid] = {
+                    'id': mid,
+                    'family': f'ARTIFACT_{sn}',
+                    'tier': tier,
+                    'kind': 'artifact',
+                    'name': f'{name} {tier}',
+                    'sheet': sn,
+                }
+        sheet_artifact_maps[sn] = local_map
+
+build_artifact_catalog(wb)
+
+
+# ---------- UPDATE FORMULA PARSER FOR ARTIFACT REFS ----------
+# Detect local-sheet refs like `$I$6`, `$K$8` (NOT prefixed with Materials!).
+# These point to artifact prices on the same sheet.
+LOCAL_REF = re.compile(r"(?<!Materials!)\$([A-Z])\$(\d+)")
+
+def parse_formula_with_artifacts(formula, sheet_name):
+    """Wraps parse_formula; additionally detects local artifact refs."""
+    items = parse_formula(formula) or []
+    if not formula or not isinstance(formula, str):
+        return items if items else None
+    f = formula.strip()
+    if not f.startswith('='):
+        return items if items else None
+
+    sheet_map = sheet_artifact_maps.get(sheet_name, {})
+    # Find local refs that don't follow `Materials!`
+    # Simple approach: iterate matches and check the prefix.
+    for m in LOCAL_REF.finditer(f):
+        coord = f'{m.group(1)}{m.group(2)}'
+        # Skip if this happens to be at a position right after 'Materials!' (already covered)
+        start = m.start()
+        if start >= len('Materials!'):
+            preceding = f[max(0, start - len('Materials!')):start]
+            if preceding.endswith('Materials!'):
+                continue
+        # Only consider artifact rows (6, 8, 10, 12, 14) and artifact cols
+        row = int(m.group(2))
+        col = m.group(1)
+        if row not in ARTIFACT_TIER_ROWS or col not in ARTIFACT_COLS:
+            continue
+        mid = sheet_map.get(coord)
+        if not mid:
+            continue
+        # Avoid duplicates
+        if any(it['mat'] == mid for it in items):
+            continue
+        # Artifacts are added OUTSIDE the (1-returnFactor) bracket — flag as noReturnDiscount
+        items.append({'mat': mid, 'qty': 1, 'noReturnDiscount': True})
+    return items if items else None
+
+
+def extract_sheet_v2(ws):
+    """Like extract_sheet, but uses parse_formula_with_artifacts."""
+    sheet_name = ws.title
+    starts = find_recipe_block_starts(ws)
+    recipes = []
+    for header_row in starts:
+        section = None
+        for rr in range(header_row, max(0, header_row - 20), -1):
+            v = ws.cell(row=rr, column=1).value
+            if isinstance(v, str) and v.strip() and not v.strip().startswith('*'):
+                section = v.strip()
+                break
+        end_row = ws.max_row
+        for next_start in starts:
+            if next_start > header_row:
+                end_row = min(end_row, next_start - 1)
+                break
+        for r in range(header_row + 1, end_row + 1):
+            tier_label = ws.cell(row=r, column=7).value
+            if not isinstance(tier_label, str) or not tier_label.strip():
+                continue
+            tier_label = tier_label.strip()
+            has_recipe = False
+            row_recipes = {}
+            for col_letter, ench in ENCHANT_COLS.items():
+                cell = ws[f'{col_letter}{r}']
+                f = cell.value
+                items = (parse_formula_with_artifacts(f, sheet_name)
+                         if isinstance(f, str) and f.startswith('=') else None)
+                if items:
+                    has_recipe = True
+                    row_recipes[ench] = items
+            if has_recipe:
+                if section and tier_label.lower().startswith('tier'):
+                    item_name = f'{section} {tier_label}'
+                else:
+                    item_name = tier_label
+                recipes.append({
+                    'sheet': sheet_name,
+                    'section': section,
+                    'item': item_name,
+                    'tierLabel': tier_label,
+                    'enchantments': row_recipes,
+                })
+    return recipes
+
+
 all_recipes = []
 for sn in wb.sheetnames:
     if sn in SKIP:
@@ -326,7 +457,7 @@ for sn in wb.sheetnames:
     if sn == 'GatheringGear':
         rs = extract_gathering_gear(ws)
     else:
-        rs = extract_sheet(ws)
+        rs = extract_sheet_v2(ws)
     all_recipes.extend(rs)
     print(f'{sn}: {len(rs)} recipes')
 

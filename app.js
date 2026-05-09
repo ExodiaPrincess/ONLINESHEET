@@ -161,9 +161,10 @@ function computeRecipeCost(items, sheet) {
       missing.push(it.mat);
       continue;
     }
-    // Hearts cost (heartGated) is outside the (1 - returnFactor) bracket in the
-    // spreadsheet formula — they're not affected by return rate.
-    const factor = it.heartGated ? 1 : (1 - ret);
+    // Hearts and artifact items are outside the (1 - returnFactor) bracket
+    // in the spreadsheet formula — they're not affected by return rate.
+    const noDiscount = it.heartGated || it.noReturnDiscount;
+    const factor = noDiscount ? 1 : (1 - ret);
     total += qty * Number(price) * factor;
   }
   return { cost: total, missing };
@@ -338,29 +339,72 @@ function pageMaterials() {
 
   // Render tabs
   const groups = [
-    { id: 'refined', label: 'Refined', families: ['PLANKS','STEEL','LEATHER','CLOTH','BLOCKS'] },
-    { id: 'raw',     label: 'Raw',     families: ['LOGS','ORE','HIDE','FIBER','STONE'] },
-    { id: 'hearts',  label: 'Hearts',  families: ['HEART'] },
-    { id: 'misc',    label: 'Misc',    families: ['MISC'] },
-    { id: 'food',    label: 'Food / Potion', families: ['FOOD_POTION'] },
+    { id: 'refined',  label: 'Refined', families: ['PLANKS','STEEL','LEATHER','CLOTH','BLOCKS'] },
+    { id: 'raw',      label: 'Raw',     families: ['LOGS','ORE','HIDE','FIBER','STONE'] },
+    { id: 'hearts',   label: 'Hearts',  families: ['HEART'] },
+    { id: 'misc',     label: 'Misc',    families: ['MISC'] },
+    { id: 'food',     label: 'Food / Potion', families: ['FOOD_POTION'] },
+    { id: 'artifacts',label: 'Artifacts',     families: ['__ARTIFACTS__'] },
   ];
 
   const activeTab = State._matsTab || 'refined';
   const grp = groups.find(g => g.id === activeTab) || groups[0];
 
   let cards = '';
-  for (const fam of grp.families) {
-    const mats = (byFamily[fam] || []).slice().sort(sortByTier);
-    if (!mats.length) continue;
-    cards += `<div class="mat-card"><h4>${fam}</h4>` +
-      mats.map(m => `
-        <div class="row">
-          <label title="${m.id}">${m.name}</label>
-          <input type="number" min="0" step="1" data-mat="${m.id}"
-                 value="${State.prices[m.id] ?? ''}" placeholder="0" />
-        </div>
-      `).join('') +
-      `</div>`;
+  if (grp.id === 'artifacts') {
+    // Group all ARTIFACT_* families by sheet
+    const bySheet = {};
+    for (const m of State.data.materials) {
+      if (m.kind === 'artifact') (bySheet[m.sheet] ||= []).push(m);
+    }
+    const sortedSheets = Object.keys(bySheet).sort((a, b) =>
+      (SHEET_LABELS[a] || a).localeCompare(SHEET_LABELS[b] || b));
+    for (const sheet of sortedSheets) {
+      // Group within sheet by artifact base name (everything except the trailing tier)
+      const mats = bySheet[sheet];
+      // Determine unique artifact names
+      const byName = {};
+      for (const m of mats) {
+        const base = m.name.replace(/ T[1-8](\.\d)?$/, '');
+        (byName[base] ||= []).push(m);
+      }
+      const artNames = Object.keys(byName);
+      // Card header per sheet
+      cards += `<div class="mat-card" style="grid-column: 1 / -1;">`;
+      cards += `<h4>${SHEET_LABELS[sheet] || sheet}</h4>`;
+      cards += `<div class="art-grid">
+        <div class="art-grid__row art-grid__head">
+          <span>Artifact</span>
+          <span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>T8</span>
+        </div>`;
+      for (const name of artNames) {
+        const tierMap = {};
+        for (const m of byName[name]) tierMap[m.tier] = m;
+        cards += `<div class="art-grid__row">
+          <span class="art-grid__name" title="${name}">${name}</span>` +
+          ['T4','T5','T6','T7','T8'].map(t => {
+            const m = tierMap[t];
+            return m ? `<input type="number" min="0" step="1" data-mat="${m.id}" value="${State.prices[m.id] ?? ''}" placeholder="0" />`
+                     : `<span class="muted">—</span>`;
+          }).join('') +
+          `</div>`;
+      }
+      cards += `</div></div>`;
+    }
+  } else {
+    for (const fam of grp.families) {
+      const mats = (byFamily[fam] || []).slice().sort(sortByTier);
+      if (!mats.length) continue;
+      cards += `<div class="mat-card"><h4>${fam}</h4>` +
+        mats.map(m => `
+          <div class="row">
+            <label title="${m.id}">${m.name}</label>
+            <input type="number" min="0" step="1" data-mat="${m.id}"
+                   value="${State.prices[m.id] ?? ''}" placeholder="0" />
+          </div>
+        `).join('') +
+        `</div>`;
+    }
   }
 
   return `

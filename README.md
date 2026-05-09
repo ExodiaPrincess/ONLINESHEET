@@ -26,6 +26,7 @@ cd ONLINESHEET
 - **Accessories** — Bags, Capes, Gloves, Shapeshifter Staves.
 - **Gathering Gear** — Harvester, Skinner, Miner, Quarrier, Lumberjack, Fisherman.
 - **Consumables** — Food (53 recipes), Potions (43 recipes).
+- **Artifacts** — every artifact recipe (Clarent Blade, Kingmaker, Galatine Pair, Carving Blade, Infinity Blade, etc.) for all weapon, armor and accessory families. Artifact prices live on their own tab on the Materials page and are added outside the return-rate bracket, matching the spreadsheet's behaviour.
 
 ## How the math works
 
