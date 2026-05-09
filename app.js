@@ -360,36 +360,7 @@ function pageMaterials() {
     const sortedSheets = Object.keys(bySheet).sort((a, b) =>
       (SHEET_LABELS[a] || a).localeCompare(SHEET_LABELS[b] || b));
     for (const sheet of sortedSheets) {
-      // Group within sheet by artifact base name (everything except the trailing tier)
-      const mats = bySheet[sheet];
-      // Determine unique artifact names
-      const byName = {};
-      for (const m of mats) {
-        const base = m.name.replace(/ T[1-8](\.\d)?$/, '');
-        (byName[base] ||= []).push(m);
-      }
-      const artNames = Object.keys(byName);
-      // Card header per sheet
-      cards += `<div class="mat-card" style="grid-column: 1 / -1;">`;
-      cards += `<h4>${SHEET_LABELS[sheet] || sheet}</h4>`;
-      cards += `<div class="art-grid">
-        <div class="art-grid__row art-grid__head">
-          <span>Artifact</span>
-          <span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>T8</span>
-        </div>`;
-      for (const name of artNames) {
-        const tierMap = {};
-        for (const m of byName[name]) tierMap[m.tier] = m;
-        cards += `<div class="art-grid__row">
-          <span class="art-grid__name" title="${name}">${name}</span>` +
-          ['T4','T5','T6','T7','T8'].map(t => {
-            const m = tierMap[t];
-            return m ? `<input type="number" min="0" step="1" data-mat="${m.id}" value="${State.prices[m.id] ?? ''}" placeholder="0" />`
-                     : `<span class="muted">—</span>`;
-          }).join('') +
-          `</div>`;
-      }
-      cards += `</div></div>`;
+      cards += renderArtifactCard(sheet, bySheet[sheet], { showSheetTitle: true });
     }
   } else {
     for (const fam of grp.families) {
@@ -421,6 +392,38 @@ function pageMaterials() {
   `;
 }
 
+/** Render a per-sheet artifact-price grid card.
+ *  `mats` is an array of materials with kind='artifact' for this sheet. */
+function renderArtifactCard(sheet, mats, { showSheetTitle = false } = {}) {
+  if (!mats || !mats.length) return '';
+  // Group by artifact base name (strip trailing " T4"-" T8")
+  const byName = {};
+  for (const m of mats) {
+    const base = m.name.replace(/ T[1-8](\.\d)?$/, '');
+    (byName[base] ||= []).push(m);
+  }
+  const tierLetters = ['T4','T5','T6','T7','T8'];
+  const head = `<div class="art-grid__row art-grid__head">
+    <span>Artifact</span>${tierLetters.map(t => `<span>${t}</span>`).join('')}
+  </div>`;
+  const rows = Object.keys(byName).map(name => {
+    const tierMap = {};
+    for (const m of byName[name]) tierMap[m.tier] = m;
+    return `<div class="art-grid__row">
+      <span class="art-grid__name" title="${name}">${name}</span>` +
+      tierLetters.map(t => {
+        const m = tierMap[t];
+        return m
+          ? `<input type="number" min="0" step="1" data-mat="${m.id}" value="${State.prices[m.id] ?? ''}" placeholder="0" />`
+          : `<span class="muted">—</span>`;
+      }).join('') +
+      `</div>`;
+  }).join('');
+  const title = showSheetTitle ? `<h4>${SHEET_LABELS[sheet] || sheet}</h4>` : `<h4>Artifacts</h4>`;
+  const widthStyle = showSheetTitle ? 'grid-column: 1 / -1;' : '';
+  return `<div class="mat-card" style="${widthStyle}">${title}<div class="art-grid">${head}${rows}</div></div>`;
+}
+
 function sortByTier(a, b) {
   const pa = parseTier(a.tier), pb = parseTier(b.tier);
   return pa - pb;
@@ -430,6 +433,54 @@ function parseTier(t) {
   const m = String(t).match(/(\d+)(?:\.(\d+))?/);
   if (!m) return 0;
   return Number(m[1]) * 10 + Number(m[2] || 0);
+}
+
+/** Wire artifact-price inputs on a sheet page. Edits save and re-render the
+ *  recipe table so costs update live, but we keep focus on the input being
+ *  edited so typing isn't interrupted. */
+function bindSheetHandlers() {
+  document.querySelectorAll('input[data-mat]').forEach(inp => {
+    inp.addEventListener('input', () => {
+      const id = inp.dataset.mat;
+      const v = inp.value;
+      if (v === '') delete State.prices[id]; else State.prices[id] = Number(v);
+      savePrices();
+      // Update only the recipe table cells (avoid re-rendering inputs which kills focus)
+      updateSheetCosts();
+    });
+  });
+}
+
+/** Recompute and rewrite recipe cost cells without disturbing input focus. */
+function updateSheetCosts() {
+  if (State.view.type !== 'sheet') return;
+  const sheet = State.view.sheet;
+  const recipes = (State.data.recipes || []).filter(r => r.sheet === sheet);
+  // Determine enchant column count from first recipe
+  let maxEnch = 0;
+  for (const r of recipes) {
+    for (const k of Object.keys(r.enchantments)) maxEnch = Math.max(maxEnch, Number(k));
+  }
+  const tbody = document.querySelector('.tbl tbody');
+  if (!tbody) return;
+  const rows = Array.from(tbody.children).filter(tr => !tr.classList.contains('group-row'));
+  let i = 0;
+  for (const r of recipes) {
+    const tr = rows[i++];
+    if (!tr) continue;
+    const cells = tr.querySelectorAll('td.price-cell');
+    let ci = 0;
+    for (let e = 0; e <= maxEnch; e++) {
+      const cell = cells[ci++];
+      if (!cell) continue;
+      const items = r.enchantments[String(e)] || r.enchantments[e];
+      if (!items) { cell.textContent = '—'; cell.className = 'price-cell muted'; continue; }
+      const { cost, missing } = computeRecipeCost(items, sheet);
+      if (missing.length === items.length) { cell.textContent = 'no price'; cell.className = 'price-cell muted'; continue; }
+      cell.textContent = formatSilver(cost);
+      cell.className = 'price-cell';
+    }
+  }
 }
 
 function bindMaterialsHandlers() {
@@ -507,12 +558,21 @@ function pageSheet(sheet) {
     ? `<div class="banner">⚠️ ${totalMissing.size} material price${totalMissing.size>1?'s are':' is'} missing — open <strong>Material Prices</strong> to fill them in.</div>`
     : '';
 
+  // Artifact-price grid for this sheet (if any artifacts are defined for it).
+  const sheetArtifacts = (State.data.materials || []).filter(m => m.kind === 'artifact' && m.sheet === sheet);
+  const artBlock = sheetArtifacts.length ? `
+    <div class="panel">
+      <h2 class="panel__title">Artifact Prices</h2>
+      <div class="mat-grid" style="grid-template-columns: 1fr;">${renderArtifactCard(sheet, sheetArtifacts)}</div>
+    </div>` : '';
+
   return `
     <div class="page-header">
       <h1 class="page-title">${SHEET_LABELS[sheet] || sheet}</h1>
       <p class="page-sub">${recipes.length} recipes · effective return saved: <strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}</p>
     </div>
     ${missingNote}
+    ${artBlock}
     <div class="panel" style="padding:0;">
       <div class="tbl-wrap">
         <table class="tbl">${head}<tbody>${body}</tbody></table>
@@ -545,6 +605,7 @@ function render() {
   // Bind page-specific handlers
   if (State.view.type === 'settings')   bindSettingsHandlers();
   if (State.view.type === 'materials')  bindMaterialsHandlers();
+  if (State.view.type === 'sheet')      bindSheetHandlers();
   if (State.view.type === 'home') {
     document.querySelectorAll('.landing-card[data-grp]').forEach(card => {
       card.addEventListener('click', () => {
