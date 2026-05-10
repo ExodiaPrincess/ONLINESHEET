@@ -192,16 +192,36 @@ HEART_IF_REF = re.compile(
 SIMPLE_REF = re.compile(r"Materials!\$?([A-Z])\$?(\d+)")
 
 def parse_formula(formula):
-    """Returns list of {mat, qty, heartReducesQty?, heartGated?}.
+    """Returns list of {mat, qty, heartReducesQty?, heartGated?, noReturnDiscount?}.
 
     - heartReducesQty: when useHearts is on, subtract 1 from qty.
     - heartGated: when useHearts is off, omit (qty *= 0).
+    - noReturnDiscount: ingredient lives OUTSIDE the (1 - returnFactor) bracket.
+      In Albion this means specialty drops (Runestone Tooth, Imp's Horns, etc.)
+      that the crafting station's return rate doesn't refund.
     """
     if not formula or not isinstance(formula, str):
         return None
     f = formula.strip()
     if not f.startswith('='):
         return None
+
+    # ---- detect (1 - <ref>) factor & batch-divisor positions ----
+    # Anything between the factor's end and the batch-divisor `/N` lives OUTSIDE
+    # the discount bracket and must NOT be multiplied by (1 - returnFactor).
+    factor_match = re.search(r"\(\s*1\s*-\s*\$?[A-Z]\$?\d+\s*\)", f)
+    factor_end   = factor_match.end() if factor_match else None
+    batch_pos    = None
+    for m in re.finditer(r"/\s*(\d+(?:\.\d+)?)", f):
+        n = float(m.group(1))
+        if 1 < n <= 50:
+            batch_pos = m.start()
+            break
+    def outside_discount(pos):
+        if factor_end is None or pos <= factor_end:
+            return False
+        return batch_pos is None or pos < batch_pos
+
     items = []
     found = set()  # coords already captured
 
@@ -222,7 +242,10 @@ def parse_formula(formula):
         qty = float(m.group(1))
         mid = mat_map.get(coord)
         if mid:
-            items.append({'mat': mid, 'qty': qty})
+            it = {'mat': mid, 'qty': qty}
+            if outside_discount(m.start()):
+                it['noReturnDiscount'] = True
+            items.append(it)
             found.add(coord)
 
     # 3) Heart references (gated by useHearts toggle): IF($I$21, Materials!$X$33, 0)
@@ -242,7 +265,10 @@ def parse_formula(formula):
             continue
         mid = mat_map.get(coord)
         if mid:
-            items.append({'mat': mid, 'qty': 1})
+            it = {'mat': mid, 'qty': 1}
+            if outside_discount(m.start()):
+                it['noReturnDiscount'] = True
+            items.append(it)
             found.add(coord)
 
     return items if items else None
@@ -255,11 +281,10 @@ STATION_FEE_RE = re.compile(
     r"\(\s*(\d+(?:\.\d+)?)\s*\*\s*0\.1125\s*\*\s*\$?[A-Z]\$?\d+\s*/\s*100\s*\)"
 )
 
-# Batch-divisor pattern: ` / N` placed right after the `(1 - V15)` factor.
-# Matches a few variants: "(1 - V15)) / 10", "(1 - V15) / 5", etc.
-BATCH_RE = re.compile(
-    r"\(\s*1\s*-\s*\$?[A-Z]\$?\d+\s*\)\s*\)?\s*/\s*(\d+(?:\.\d+)?)"
-)
+# Generic /N divisor finder. Used for batch-size detection in food/potion
+# formulas. The first small-N divisor in the formula (left-to-right) is the
+# batch divisor; later /100 is the station-fee normaliser, so we cap N at 50.
+BATCH_RE = re.compile(r"/\s*(\d+(?:\.\d+)?)")
 
 def parse_station_fee(formula):
     """Returns nutrition value (float) embedded in the station-fee term, or None."""
@@ -269,15 +294,18 @@ def parse_station_fee(formula):
     return float(m.group(1)) if m else None
 
 def parse_batch_divisor(formula):
-    """Returns the batch divisor (e.g. 10 for soups, 5 for potions) or None."""
+    """Returns the batch divisor (e.g. 10 for soups, 5 for potions) or None.
+    Scans for the first /N where 1 < N <= 50; this skips the /100 that's
+    part of the station-fee normaliser and tolerates a `+ Materials!XY)`
+    sitting between (1 - V15) and the batch divisor (the Gathering/Tornado
+    potion pattern)."""
     if not formula or not isinstance(formula, str):
         return None
-    m = BATCH_RE.search(formula)
-    if not m:
-        return None
-    n = float(m.group(1))
-    # Sanity: batch sizes are small. Reject garbage like /100 (which is the SF normalizer).
-    return n if 1 < n <= 50 else None
+    for m in BATCH_RE.finditer(formula):
+        n = float(m.group(1))
+        if 1 < n <= 50:
+            return n
+    return None
 
 
 # ---------- WALK CRAFT SHEETS ----------
@@ -739,7 +767,8 @@ POST_FIXES = {
     ('GatheringQuarrier',   'Quarrier Backpack'):   _fix_gathering_backpack,
     ('GatheringLumberjack', 'Lumberjack Backpack'): _fix_gathering_backpack,
     ('GatheringFisherman',  'Fisherman Backpack'):  _fix_gathering_backpack,
-    ('GatheringQuarrier',   'Avalonian Hammer'):    _fix_avalonian_hammer,
+    ('GatheringQuarrier',     'Avalonian Hammer'):  _fix_avalonian_hammer,
+    ('BagsSatchelsTracking',  'Avalonian Hammer'):  _fix_avalonian_hammer,
 }
 
 for rec in all_recipes:
