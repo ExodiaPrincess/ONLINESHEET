@@ -618,6 +618,8 @@ table.tbl {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
+  align-items: start;   /* each card hugs its content height instead of
+                            stretching to match the tallest in its row */
 }
 .mat-card {
   background: var(--bg-2);
