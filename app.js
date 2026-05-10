@@ -452,7 +452,7 @@ function pageHome() {
   return `
     <div class="page-header">
       <h1 class="page-title">Welcome</h1>
-      <p class="page-sub">A web replica of the Nendys V2 Albion crafting calculator. Enter prices once, then browse any category.</p>
+      <p class="page-sub">Nendys' Official Crafting Calculator.</p>
     </div>
 
     <div class="panel">
