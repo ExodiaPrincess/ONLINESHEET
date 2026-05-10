@@ -106,7 +106,6 @@
     </div>
     <div class="topbar__actions">
       <span id="current-user" class="topbar__user" hidden></span>
-      <button id="homeBtn" class="btn btn--ghost" title="Return to home menu" hidden>Home</button>
       <button id="exportBtn" class="btn btn--ghost" title="Export prices as JSON">Export</button>
       <button id="importBtn" class="btn btn--ghost" title="Import prices from JSON">Import</button>
       <input id="importFile" type="file" accept="application/json" hidden />
@@ -124,6 +123,14 @@
       <!-- pages rendered by JS -->
     </main>
   </div>
+
+  <!-- Floating Home button — right-side, vertically centred, hidden until login -->
+  <button id="homeFab" class="home-fab" title="Return to home menu" hidden>
+    <img class="home-fab__icon"
+         src="https://render.albiononline.com/v1/item/T4_FURNITUREITEM_GUILDBANNER_FABRIC.png?size=64"
+         alt="" loading="lazy" />
+    <span class="home-fab__label">Home</span>
+  </button>
 
   <footer class="footer">
     <span>Calculations replicate the Nendys V2 spreadsheet. Prices stored in your account on Supabase.</span>

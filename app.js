@@ -1127,9 +1127,9 @@ function render() {
 // TOPBAR ACTIONS
 // =============================================================================
 function bindTopbar() {
-  // Home button — returns to the landing page from anywhere.
-  const homeBtn = document.getElementById('homeBtn');
-  if (homeBtn) homeBtn.addEventListener('click', () => {
+  // Floating Home button on the right edge — returns to the landing page.
+  const homeFab = document.getElementById('homeFab');
+  if (homeFab) homeFab.addEventListener('click', () => {
     State.view = { type: 'home' };
     render();
   });
@@ -1195,7 +1195,7 @@ function hideLogin() {
   toggleAppChrome(true);
 }
 function toggleAppChrome(loggedIn) {
-  const ids = ['homeBtn', 'logoutBtn', 'current-user', 'exportBtn', 'importBtn', 'resetBtn'];
+  const ids = ['homeFab', 'logoutBtn', 'current-user', 'exportBtn', 'importBtn', 'resetBtn'];
   for (const id of ids) {
     const el = document.getElementById(id);
     if (el) el.hidden = !loggedIn;
