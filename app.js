@@ -166,6 +166,15 @@ const REFINING_OUTPUT_FAMILY = {
   StoneRefining: 'BLOCKS',
 };
 
+// T8 refined material image rendered above each refining page's title.
+const REFINING_HERO_ICON = {
+  PlankRefining: 'T8_PLANKS',
+  SteelRefining: 'T8_METALBAR',
+  LeatherRefining: 'T8_LEATHER',
+  ClothRefining: 'T8_CLOTH',
+  StoneRefining: 'T8_STONEBLOCK',
+};
+
 const _chainCostCache = new Map();
 function clearChainCache() { _chainCostCache.clear(); }
 
@@ -911,10 +920,30 @@ function pageSheet(sheet) {
       <div class="mat-grid" style="grid-template-columns: 1fr;">${renderArtifactCard(sheet, sheetArtifacts)}</div>
     </div>` : '';
 
+  // Refining pages get a hero image of the T8 refined material above the
+  // title and an explanatory caption below the table.
+  const heroIcon = isRefining && REFINING_HERO_ICON[sheet];
+  const heroBlock = heroIcon
+    ? `<img class="page-hero-icon" src="https://render.albiononline.com/v1/item/${heroIcon}.png?size=128" alt="${SHEET_LABELS[sheet] || sheet}" loading="lazy" onerror="this.style.display='none'" />`
+    : '';
+  const refiningCaption = isRefining ? `
+    <p class="page-caption">
+      Each cell shows the cheaper of two costs: <strong>buying the previous-tier
+      refined material</strong> from market, or <strong>chaining</strong> — refining
+      it yourself from your own raws all the way down. The
+      <span class="cost-badge cost-badge--m" style="margin: 0 2px;">M</span> /
+      <span class="cost-badge cost-badge--c" style="margin: 0 2px;">C</span>
+      badge tells you which one the calculator picked. Force a single mode from
+      the <strong>Pricing</strong> dropdown above.
+    </p>` : '';
+
   return `
-    <div class="page-header">
-      <h1 class="page-title">${SHEET_LABELS[sheet] || sheet}</h1>
-      <p class="page-sub" id="rate-stats">${recipes.length} recipes · effective return saved: <strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}</p>
+    <div class="page-header ${isRefining ? 'page-header--with-hero' : ''}">
+      ${heroBlock}
+      <div>
+        <h1 class="page-title">${SHEET_LABELS[sheet] || sheet}</h1>
+        <p class="page-sub" id="rate-stats">${recipes.length} recipes · effective return saved: <strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}</p>
+      </div>
     </div>
     ${renderSettingsControls({ compact: true, sheet })}
     ${missingNote}
@@ -924,6 +953,7 @@ function pageSheet(sheet) {
         <table class="tbl">${head}<tbody>${body}</tbody></table>
       </div>
     </div>
+    ${refiningCaption}
   `;
 }
 
