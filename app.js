@@ -246,80 +246,122 @@ function pageHome() {
   `;
 }
 
-function pageSettings() {
+/** Render the settings controls. When `compact` is true, returns one tight
+ *  panel suitable for embedding at the top of a recipe page. */
+function renderSettingsControls({ compact = false } = {}) {
   const s = State.settings;
+  const returnRateBlock = `
+    <div class="settings-grid">
+      <div class="field">
+        <label for="set-location">Location</label>
+        <select id="set-location">
+          <option value="island"     ${s.location==='island'?'selected':''}>Island (0%)</option>
+          <option value="city"       ${s.location==='city'?'selected':''}>City (18%)</option>
+          <option value="bonusCity"  ${s.location==='bonusCity'?'selected':''}>Bonus City (33% / 58% refining)</option>
+          <option value="hideout"    ${s.location==='hideout'?'selected':''}>Hideout (custom)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="set-day">Bonus Day</label>
+        <select id="set-day">
+          <option value="none" ${s.bonusDay==='none'?'selected':''}>None</option>
+          <option value="b10"  ${s.bonusDay==='b10'?'selected':''}>+10%</option>
+          <option value="b20"  ${s.bonusDay==='b20'?'selected':''}>+20%</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>&nbsp;</label>
+        <label class="toggle"><input type="checkbox" id="set-focus" ${s.focus?'checked':''}/> Use Focus (+59%)</label>
+      </div>
+      <div class="field" id="hideout-field" style="${s.location==='hideout'?'':'display:none;'}">
+        <label for="set-hideout">Hideout Return Rate (%)</label>
+        <input type="number" id="set-hideout" min="0" max="100" step="0.1" value="${s.hideoutRate}" />
+      </div>
+      <div class="field">
+        <label for="set-fee">Station Fee</label>
+        <input type="number" id="set-fee" min="0" step="1" value="${s.stationFee}" />
+      </div>
+      <div class="field">
+        <label>&nbsp;</label>
+        <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts</label>
+      </div>
+    </div>`;
+
+  if (compact) {
+    return `<div class="panel panel--settings">
+      <h2 class="panel__title">Settings</h2>
+      ${returnRateBlock}
+    </div>`;
+  }
+
   return `
-    <div class="page-header">
-      <h1 class="page-title">Settings</h1>
-      <p class="page-sub">Return rate &amp; bonuses applied to every cost calculation.</p>
-    </div>
     <div class="panel">
       <h2 class="panel__title">Return Rate</h2>
-      <div class="settings-grid">
-        <div class="field">
-          <label for="set-location">Location</label>
-          <select id="set-location">
-            <option value="island"     ${s.location==='island'?'selected':''}>Island (0%)</option>
-            <option value="city"       ${s.location==='city'?'selected':''}>City (18%)</option>
-            <option value="bonusCity"  ${s.location==='bonusCity'?'selected':''}>Bonus City (33% / 58% refining)</option>
-            <option value="hideout"    ${s.location==='hideout'?'selected':''}>Hideout (custom)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="set-day">Bonus Day</label>
-          <select id="set-day">
-            <option value="none" ${s.bonusDay==='none'?'selected':''}>None</option>
-            <option value="b10"  ${s.bonusDay==='b10'?'selected':''}>+10%</option>
-            <option value="b20"  ${s.bonusDay==='b20'?'selected':''}>+20%</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>&nbsp;</label>
-          <label class="toggle"><input type="checkbox" id="set-focus" ${s.focus?'checked':''}/> Use Focus (+59%)</label>
-        </div>
-        <div class="field" id="hideout-field" style="${s.location==='hideout'?'':'display:none;'}">
-          <label for="set-hideout">Hideout Return Rate (%)</label>
-          <input type="number" id="set-hideout" min="0" max="100" step="0.1" value="${s.hideoutRate}" />
-        </div>
-      </div>
+      ${returnRateBlock}
     </div>
-
-    <div class="panel">
-      <h2 class="panel__title">Other</h2>
-      <div class="settings-grid">
-        <div class="field">
-          <label for="set-fee">Station Fee (silver / 100 nutrition)</label>
-          <input type="number" id="set-fee" min="0" step="1" value="${s.stationFee}" />
-        </div>
-        <div class="field">
-          <label>&nbsp;</label>
-          <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts when refining T4+</label>
-        </div>
-      </div>
-    </div>
-
     <div class="banner">
       <strong>Computed factor:</strong> with the current settings, you save
       <strong>${(returnFactor('Swords') * 100).toFixed(2)}%</strong> on crafting recipes and
       <strong>${(returnFactor('LeatherRefining') * 100).toFixed(2)}%</strong> on refining recipes.
+    </div>`;
+}
+
+function pageSettings() {
+  return `
+    <div class="page-header">
+      <h1 class="page-title">Settings</h1>
+      <p class="page-sub">Return rate &amp; bonuses applied to every cost calculation. (These same controls are also embedded at the top of every recipe page.)</p>
     </div>
+    ${renderSettingsControls({ compact: false })}
   `;
 }
 
+/** Wire change handlers on the settings controls. Whether the panel is on
+ *  the dedicated Settings page or embedded on a sheet page, edits save and
+ *  refresh the visible costs/stats — without a full re-render that would
+ *  steal focus from active inputs. */
 function bindSettingsHandlers() {
   const $ = id => document.getElementById(id);
-  const onChange = () => {
-    State.settings.location   = $('set-location').value;
-    State.settings.bonusDay   = $('set-day').value;
-    State.settings.focus      = $('set-focus').checked;
-    State.settings.hideoutRate = Number($('set-hideout').value) || 0;
-    State.settings.stationFee = Number($('set-fee').value) || 0;
-    State.settings.useHearts  = $('set-hearts').checked;
+  const apply = () => {
+    if ($('set-location'))   State.settings.location   = $('set-location').value;
+    if ($('set-day'))        State.settings.bonusDay   = $('set-day').value;
+    if ($('set-focus'))      State.settings.focus      = $('set-focus').checked;
+    if ($('set-hideout'))    State.settings.hideoutRate = Number($('set-hideout').value) || 0;
+    if ($('set-fee'))        State.settings.stationFee = Number($('set-fee').value) || 0;
+    if ($('set-hearts'))     State.settings.useHearts  = $('set-hearts').checked;
     saveSettings();
-    render();
+
+    // Show / hide hideout input when location changes
+    const hf = $('hideout-field');
+    if (hf) hf.style.display = State.settings.location === 'hideout' ? '' : 'none';
+
+    if (State.view.type === 'sheet') {
+      // Update the rate-stats line and cost cells in place.
+      const sheet = State.view.sheet;
+      const ret = returnFactor(sheet);
+      const isRefining = REFINING_SHEETS.has(sheet);
+      const recipesLen = (State.data.recipes || []).filter(r => r.sheet === sheet).length;
+      const stats = $('rate-stats');
+      if (stats) {
+        stats.innerHTML = `${recipesLen} recipes · effective return saved: ` +
+          `<strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ` +
+          `${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}`;
+      }
+      updateSheetCosts();
+    } else if (State.view.type === 'settings') {
+      // Refresh the "computed factor" banner.
+      const banners = document.querySelectorAll('.banner');
+      banners.forEach(b => {
+        if (b.textContent.includes('Computed factor')) {
+          b.innerHTML = `<strong>Computed factor:</strong> with the current settings, you save
+            <strong>${(returnFactor('Swords') * 100).toFixed(2)}%</strong> on crafting recipes and
+            <strong>${(returnFactor('LeatherRefining') * 100).toFixed(2)}%</strong> on refining recipes.`;
+        }
+      });
+    }
   };
   ['set-location','set-day','set-focus','set-hideout','set-fee','set-hearts']
-    .forEach(id => { const el = $(id); if (el) el.addEventListener('change', onChange); });
+    .forEach(id => { const el = $(id); if (el) el.addEventListener('change', apply); });
 }
 
 // =============================================================================
@@ -606,8 +648,9 @@ function pageSheet(sheet) {
   return `
     <div class="page-header">
       <h1 class="page-title">${SHEET_LABELS[sheet] || sheet}</h1>
-      <p class="page-sub">${recipes.length} recipes · effective return saved: <strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}</p>
+      <p class="page-sub" id="rate-stats">${recipes.length} recipes · effective return saved: <strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}</p>
     </div>
+    ${renderSettingsControls({ compact: true })}
     ${missingNote}
     ${artBlock}
     <div class="panel" style="padding:0;">
@@ -655,7 +698,7 @@ function render() {
   // Bind page-specific handlers
   if (State.view.type === 'settings')   bindSettingsHandlers();
   if (State.view.type === 'materials')  bindMaterialsHandlers();
-  if (State.view.type === 'sheet')      bindSheetHandlers();
+  if (State.view.type === 'sheet')    { bindSheetHandlers(); bindSettingsHandlers(); }
   if (State.view.type === 'home') {
     document.querySelectorAll('.landing-card[data-grp]').forEach(card => {
       card.addEventListener('click', () => {
