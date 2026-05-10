@@ -119,6 +119,14 @@ body {
   font-size: 11.5px;
   color: var(--text-3);
 }
+.login-card__link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 4px;
+}
+.login-card__link:hover { color: var(--accent-2); }
 
 .topbar__user {
   font-size: 12.5px;
