@@ -1,0 +1,51 @@
+# Security review
+
+This is a static SPA hosted on Vercel that authenticates against a Supabase
+backend. Each user has a single row in `public.user_data` holding their prices
+and settings as JSONB.
+
+Last full audit: 2026-05-10.
+
+## Threat model in one paragraph
+
+The realistic attackers are: (a) curious players who try to use the site
+without an invite, (b) someone who finds a stale link to the site, (c) a
+malicious-but-invited user who wants to read or tamper with another user's
+data, (d) a supply-chain attacker who compromises one of our CDN dependencies.
+There is no payment data, no chat, no PII beyond the email address used to
+sign in.
+
+## Defences in place
+
+| Threat | Defence |
+|---|---|
+| Anyone-can-sign-up | **Public sign-up MUST be disabled** in Supabase: *Authentication → Sign In / Up → Allow new users to sign up = OFF*. Verify this on every Supabase project change. |
+| Cross-user data read | RLS policy `auth.uid() = user_id` on `public.user_data` for select / insert / update. A logged-in user querying another user's row gets an empty result; a write is rejected by policy. |
+| Stolen anon key | Anon keys are designed to be public — they cannot bypass RLS. The real protection is the RLS policies. |
+| Session theft via XSS | Mitigated by minimising XSS surface (see below). Token stored in localStorage as `nendys.auth`. A successful XSS would steal it; without one, the token is inaccessible to other origins. |
+| Clickjacking | `frame-ancestors 'none'` in the CSP meta tag — site cannot be iframed. |
+| Mixed content | All third-party loads use HTTPS. Vercel auto-redirects HTTP. |
+| Supply-chain (CDN tampering) | Supabase JS pinned to a specific minor (`@supabase/supabase-js@2.45`). Other third-party CDN content (Google Fonts CSS, Albion render API) is style/image only and cannot execute JavaScript in this CSP. |
+| Tampered localStorage / import file | `sanitizePrices` / `sanitizeSettings` whitelist material IDs and coerce all settings to known enum values / typed primitives before any value is rendered into HTML. |
+
+## Known limitations
+
+- **JWT in localStorage.** Industry-standard for SPAs but means an XSS would be a session takeover. Defended by the CSP + sanitisers above. Not switching to httpOnly cookies because that would require a backend (we are static).
+- **Concurrent device writes.** Last-write-wins via `upsert`. Two devices editing simultaneously will clobber each other. Acceptable for solo use.
+- **Admin can read everyone's data.** Whoever holds the Supabase service-role key sees every `user_data` row. This is by design — only share that key with people you trust.
+- **CSP allows `'unsafe-inline'` for scripts.** Necessary because we use inline `onerror` handlers on item icons. Tightening this later would require converting them to delegated event listeners.
+
+## Owner checklist (do these once on Supabase setup, re-check yearly)
+
+- [ ] **Authentication → Sign In / Up → Allow new users to sign up = OFF**
+- [ ] **Authentication → Providers → Email**: enabled, `Confirm email` = OFF
+- [ ] **SQL Editor**: ran the `user_data` table + RLS snippet from `README.md`
+- [ ] **Database → Policies → public.user_data**: three policies present, all using `auth.uid() = user_id`
+- [ ] **Project Settings → API**: anon key in `albion/config.js` is the *anon* key, never the service-role key
+
+If you ever rotate the anon key, just paste the new one into `config.js` and redeploy. No code changes needed.
+
+## Reporting issues
+
+Found something off? Tell the admin in the Patreon Discord and DO NOT post a
+proof-of-concept publicly until it's been confirmed and patched.

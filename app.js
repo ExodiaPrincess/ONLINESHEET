@@ -100,11 +100,47 @@ function navIcon(itemId, size = 'md') {
 function loadStored() {
   try {
     const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    Object.assign(State.settings, s.settings || {});
+    Object.assign(State.settings, sanitizeSettings(s.settings || {}));
   } catch {}
   try {
-    State.prices = JSON.parse(localStorage.getItem(PRICES_KEY) || '{}');
+    const raw = JSON.parse(localStorage.getItem(PRICES_KEY) || '{}');
+    State.prices = sanitizePrices(raw);
   } catch { State.prices = {}; }
+}
+
+/** Drop unknown material ids and coerce values to non-negative numbers.
+ *  Defends against malicious Import JSON / tampered localStorage / cloud
+ *  rows from a previous schema. Falls open (returns plain prices) if data
+ *  hasn't loaded yet so the boot order doesn't matter. */
+function sanitizePrices(o) {
+  if (!o || typeof o !== 'object') return {};
+  const validIds = State.data && State.data.materials
+    ? new Set(State.data.materials.map(m => m.id))
+    : null;
+  const out = {};
+  for (const k of Object.keys(o)) {
+    if (typeof k !== 'string') continue;
+    if (validIds && !validIds.has(k)) continue;
+    const n = Number(o[k]);
+    if (Number.isFinite(n) && n >= 0) out[k] = n;
+  }
+  return out;
+}
+
+/** Whitelist allowed setting keys to known values / typed primitives. */
+function sanitizeSettings(o) {
+  const out = {};
+  if (!o || typeof o !== 'object') return out;
+  if (['island','city','bonusCity','hideout'].includes(o.location)) out.location = o.location;
+  if (['none','b10','b20'].includes(o.bonusDay))                    out.bonusDay = o.bonusDay;
+  if (['auto','market','chain'].includes(o.pricingMode))            out.pricingMode = o.pricingMode;
+  if (typeof o.focus     === 'boolean') out.focus     = o.focus;
+  if (typeof o.useHearts === 'boolean') out.useHearts = o.useHearts;
+  const hr = Number(o.hideoutRate);
+  if (Number.isFinite(hr) && hr >= 0 && hr <= 100) out.hideoutRate = hr;
+  const sf = Number(o.stationFee);
+  if (Number.isFinite(sf) && sf >= 0 && sf <= 1_000_000) out.stationFee = sf;
+  return out;
 }
 
 function saveSettings() {
@@ -1037,8 +1073,15 @@ function bindTopbar() {
     reader.onload = () => {
       try {
         const obj = JSON.parse(reader.result);
-        if (obj.prices) { State.prices = obj.prices; savePrices(); }
-        if (obj.settings) { Object.assign(State.settings, obj.settings); saveSettings(); }
+        if (!obj || typeof obj !== 'object') throw new Error('not an object');
+        if (obj.prices && typeof obj.prices === 'object') {
+          State.prices = sanitizePrices(obj.prices);
+          savePrices();
+        }
+        if (obj.settings && typeof obj.settings === 'object') {
+          Object.assign(State.settings, sanitizeSettings(obj.settings));
+          saveSettings();
+        }
         render();
       } catch { alert('Invalid JSON file.'); }
     };
@@ -1134,12 +1177,14 @@ async function initAppForUser(user) {
   try {
     const cloud = await NendysSync.load();
     if (cloud) {
-      if (cloud.prices && Object.keys(cloud.prices).length) {
-        State.prices = cloud.prices;
+      const cleanPrices = sanitizePrices(cloud.prices || {});
+      if (Object.keys(cleanPrices).length) {
+        State.prices = cleanPrices;
         localStorage.setItem(PRICES_KEY, JSON.stringify(State.prices));
       }
-      if (cloud.settings && Object.keys(cloud.settings).length) {
-        Object.assign(State.settings, cloud.settings);
+      const cleanSettings = sanitizeSettings(cloud.settings || {});
+      if (Object.keys(cleanSettings).length) {
+        Object.assign(State.settings, cleanSettings);
         localStorage.setItem(STORAGE_KEY, JSON.stringify({ settings: State.settings }));
       }
     }
