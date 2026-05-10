@@ -614,18 +614,29 @@ table.tbl {
 }
 
 /* Material grid layout */
+/* Materials grid is multi-column (masonry) so a tall card like Fish
+   doesn't push the rest of the row down. Cards naturally pack together
+   in vertical columns, eliminating the empty stripes left over when a
+   row had to align with the tallest sibling. */
 .mat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  align-items: start;   /* each card hugs its content height instead of
-                            stretching to match the tallest in its row */
+  column-width: 290px;
+  column-gap: 16px;
+  column-fill: balance;
 }
+/* Single-column variant for the Artifact-prices panel, where each card
+   should span the full panel width. */
+.mat-grid--single { column-count: 1; }
 .mat-card {
   background: var(--bg-2);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 12px;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  break-inside: avoid;            /* don't split a card across columns */
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
 }
 .mat-card h4 {
   margin: 0 0 8px;
