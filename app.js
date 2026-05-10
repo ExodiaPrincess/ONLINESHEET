@@ -927,15 +927,11 @@ function pageSheet(sheet) {
     ? `<img class="page-hero-icon" src="https://render.albiononline.com/v1/item/${heroIcon}.png?size=128" alt="${SHEET_LABELS[sheet] || sheet}" loading="lazy" onerror="this.style.display='none'" />`
     : '';
   const refiningCaption = isRefining ? `
-    <p class="page-caption">
-      Each cell shows the cheaper of two costs: <strong>buying the previous-tier
-      refined material</strong> from market, or <strong>chaining</strong> — refining
-      it yourself from your own raws all the way down. The
-      <span class="cost-badge cost-badge--m" style="margin: 0 2px;">M</span> /
-      <span class="cost-badge cost-badge--c" style="margin: 0 2px;">C</span>
-      badge tells you which one the calculator picked. Force a single mode from
-      the <strong>Pricing</strong> dropdown above.
-    </p>` : '';
+    <div class="page-caption">
+      Each cell shows the cheaper option:<br>
+      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> Crafting and Refining yourself<br>
+      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> Buying the item from the Marketplace
+    </div>` : '';
 
   return `
     <div class="page-header ${isRefining ? 'page-header--with-hero' : ''}">
