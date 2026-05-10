@@ -247,9 +247,17 @@ function pageHome() {
 }
 
 /** Render the settings controls. When `compact` is true, returns one tight
- *  panel suitable for embedding at the top of a recipe page. */
-function renderSettingsControls({ compact = false } = {}) {
+ *  panel suitable for embedding at the top of a recipe page. The "Use Hearts"
+ *  toggle is shown only on refining pages (or when no specific sheet is set,
+ *  e.g. on the dedicated Settings page). */
+function renderSettingsControls({ compact = false, sheet = null } = {}) {
   const s = State.settings;
+  const showHearts = !sheet || REFINING_SHEETS.has(sheet);
+  const heartsField = showHearts ? `
+      <div class="field">
+        <label>&nbsp;</label>
+        <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts</label>
+      </div>` : '';
   const returnRateBlock = `
     <div class="settings-grid">
       <div class="field">
@@ -281,10 +289,7 @@ function renderSettingsControls({ compact = false } = {}) {
         <label for="set-fee">Station Fee</label>
         <input type="number" id="set-fee" min="0" step="1" value="${s.stationFee}" />
       </div>
-      <div class="field">
-        <label>&nbsp;</label>
-        <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts</label>
-      </div>
+      ${heartsField}
     </div>`;
 
   if (compact) {
@@ -650,7 +655,7 @@ function pageSheet(sheet) {
       <h1 class="page-title">${SHEET_LABELS[sheet] || sheet}</h1>
       <p class="page-sub" id="rate-stats">${recipes.length} recipes · effective return saved: <strong style="color:var(--accent)">${(ret*100).toFixed(2)}%</strong> · ${isRefining ? 'refining bonus city = 58%' : 'crafting bonus city = 33%'}</p>
     </div>
-    ${renderSettingsControls({ compact: true })}
+    ${renderSettingsControls({ compact: true, sheet })}
     ${missingNote}
     ${artBlock}
     <div class="panel" style="padding:0;">
