@@ -29,6 +29,18 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+
+/* Hide the browser-default spinner arrows on number inputs site-wide.
+   The user types prices; the up/down spinners are noise on this UI. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 body {
   font-family: var(--font-body);
   background:
