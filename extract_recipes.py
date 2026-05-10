@@ -593,6 +593,98 @@ for sn in wb.sheetnames:
     all_recipes.extend(rs)
     print(f'{sn}: {len(rs)} recipes')
 
+# ---------- RECIPE-FAMILY OVERRIDES (Nendys spreadsheet bugs) ----------
+# A handful of sections in the source spreadsheet reference the wrong refined
+# material family. We substitute on the way out so the calculator matches the
+# official Albion craftingrequirements (verified against ao-data/ao-bin-dumps
+# items.json). Quantities and tiers are kept; only the FAMILY changes — e.g.
+# all Quarterstaff recipes have their PLANKS_T4.0 swapped to STEEL_T4.0.
+#
+# Format: { (sheet, section_or_None_for_all): {old_family: new_family} }
+RECIPE_FAMILY_FIXES = {
+    # Spreadsheet had PLANKS where Albion uses STEEL (Warrior weapon).
+    ('Quarterstaffs', None):                       {'PLANKS': 'STEEL'},
+    # Avalonian leather armor extracted with STEEL — needs LEATHER.
+    ('LeatherJackets', 'Jacket of Tenacity'):      {'STEEL':  'LEATHER'},
+    # Avalonian cloth armor extracted with STEEL — needs CLOTH.
+    ('ClothRobes',     'Robe of Purity'):          {'STEEL':  'CLOTH'},
+    # Fishing rod extracted with STEEL — needs CLOTH (per official recipe).
+    ('GatheringFisherman', 'Rod'):                 {'STEEL':  'CLOTH'},
+}
+
+def apply_family_fix(rec):
+    """Look up override for this recipe's (sheet, section) and rewrite material
+    ids in every enchantment row in place."""
+    rules = RECIPE_FAMILY_FIXES.get((rec['sheet'], rec.get('section')))
+    if not rules:
+        rules = RECIPE_FAMILY_FIXES.get((rec['sheet'], None))
+    if not rules:
+        return
+    for ench, items in rec['enchantments'].items():
+        for it in items:
+            mid = it['mat']
+            for old_fam, new_fam in rules.items():
+                if mid.startswith(old_fam + '_'):
+                    new_mid = new_fam + mid[len(old_fam):]
+                    if new_mid in mat_meta:
+                        it['mat'] = new_mid
+                    break
+
+for rec in all_recipes:
+    apply_family_fix(rec)
+
+
+# ---------- POST-PROCESSING FIXES (qty / ingredient mismatches) ----------
+# These can't be fixed by a simple family swap — they involve quantity
+# overrides or adding/removing materials entirely. Each function mutates
+# a single enchantment's items list.
+
+def _fix_infinity_blade(items):
+    """Spreadsheet hard-codes the 2H ratio (20 STEEL + 12 LEATHER). The actual
+    Albion item T4_MAIN_SWORD_CRYSTAL is a 1-handed sword with 16 STEEL +
+    8 LEATHER. Override quantities; family stays the same."""
+    for it in items:
+        if it['mat'].startswith('STEEL_'):   it['qty'] = 16
+        elif it['mat'].startswith('LEATHER_'): it['qty'] = 8
+
+def _fix_gathering_backpack(items):
+    """Spreadsheet has only 4 LEATHER; Albion needs 4 CLOTH + 4 LEATHER."""
+    leather = next((it for it in items if it['mat'].startswith('LEATHER_')), None)
+    if not leather: return
+    cloth_id = 'CLOTH' + leather['mat'][len('LEATHER'):]
+    if cloth_id in mat_meta and not any(it['mat'] == cloth_id for it in items):
+        items.append({'mat': cloth_id, 'qty': leather['qty']})
+
+def _fix_avalonian_hammer(items):
+    """Spreadsheet: 8 BLOCKS + 8 PLANKS + 20 avalon-energy.
+    Official:      6 PLANKS + 2 STEEL + 20 avalon-token.
+    Drop BLOCKS, add STEEL at qty 2, set PLANKS to 6."""
+    items[:] = [it for it in items if not it['mat'].startswith('BLOCKS_')]
+    plank = next((it for it in items if it['mat'].startswith('PLANKS_')), None)
+    if not plank: return
+    plank['qty'] = 6
+    steel_id = 'STEEL' + plank['mat'][len('PLANKS'):]
+    if steel_id in mat_meta and not any(it['mat'] == steel_id for it in items):
+        items.append({'mat': steel_id, 'qty': 2})
+
+POST_FIXES = {
+    ('Swords', 'Infinity Blade'):                 _fix_infinity_blade,
+    ('GatheringHarvester',  'Harvester Backpack'):  _fix_gathering_backpack,
+    ('GatheringSkinner',    'Skinner Backpack'):    _fix_gathering_backpack,
+    ('GatheringMiner',      'Miner Backpack'):      _fix_gathering_backpack,
+    ('GatheringQuarrier',   'Quarrier Backpack'):   _fix_gathering_backpack,
+    ('GatheringLumberjack', 'Lumberjack Backpack'): _fix_gathering_backpack,
+    ('GatheringFisherman',  'Fisherman Backpack'):  _fix_gathering_backpack,
+    ('GatheringQuarrier',   'Avalonian Hammer'):    _fix_avalonian_hammer,
+}
+
+for rec in all_recipes:
+    fix = POST_FIXES.get((rec['sheet'], rec.get('section')))
+    if not fix: continue
+    for ench, items in rec['enchantments'].items():
+        fix(items)
+
+
 # ---------- STAMP IV ON EVERY MATERIAL ----------
 for mid, meta in mat_meta.items():
     tier_for_iv = meta.get('tier')
