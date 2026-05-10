@@ -214,6 +214,38 @@ def parse_formula(formula):
     return items if items else None
 
 
+# Station-fee pattern from Food/Potions formulas:
+#   + (NUTRITION * 0.1125 * C16 / 100)
+# C16 holds the user-input station fee. NUTRITION is recipe-specific.
+STATION_FEE_RE = re.compile(
+    r"\(\s*(\d+(?:\.\d+)?)\s*\*\s*0\.1125\s*\*\s*\$?[A-Z]\$?\d+\s*/\s*100\s*\)"
+)
+
+# Batch-divisor pattern: ` / N` placed right after the `(1 - V15)` factor.
+# Matches a few variants: "(1 - V15)) / 10", "(1 - V15) / 5", etc.
+BATCH_RE = re.compile(
+    r"\(\s*1\s*-\s*\$?[A-Z]\$?\d+\s*\)\s*\)?\s*/\s*(\d+(?:\.\d+)?)"
+)
+
+def parse_station_fee(formula):
+    """Returns nutrition value (float) embedded in the station-fee term, or None."""
+    if not formula or not isinstance(formula, str):
+        return None
+    m = STATION_FEE_RE.search(formula)
+    return float(m.group(1)) if m else None
+
+def parse_batch_divisor(formula):
+    """Returns the batch divisor (e.g. 10 for soups, 5 for potions) or None."""
+    if not formula or not isinstance(formula, str):
+        return None
+    m = BATCH_RE.search(formula)
+    if not m:
+        return None
+    n = float(m.group(1))
+    # Sanity: batch sizes are small. Reject garbage like /100 (which is the SF normalizer).
+    return n if 1 < n <= 50 else None
+
+
 # ---------- WALK CRAFT SHEETS ----------
 SKIP = {'Intro', 'Instructions', 'Materials', 'Blacksmith', 'Hunter', 'Mage',
         'Refining', 'Food And Potions', 'Tool maker'}
@@ -416,7 +448,8 @@ def parse_formula_with_artifacts(formula, sheet_name):
 
 
 def extract_sheet_v2(ws):
-    """Like extract_sheet, but uses parse_formula_with_artifacts."""
+    """Like extract_sheet, but uses parse_formula_with_artifacts and also
+    captures the station-fee nutrition cost (Food/Potions only)."""
     sheet_name = ws.title
     starts = find_recipe_block_starts(ws)
     recipes = []
@@ -439,6 +472,8 @@ def extract_sheet_v2(ws):
             tier_label = tier_label.strip()
             has_recipe = False
             row_recipes = {}
+            row_nutrition = {}  # enchant -> nutrition cost
+            row_batch = {}      # enchant -> batch divisor
             for col_letter, ench in ENCHANT_COLS.items():
                 cell = ws[f'{col_letter}{r}']
                 f = cell.value
@@ -447,18 +482,29 @@ def extract_sheet_v2(ws):
                 if items:
                     has_recipe = True
                     row_recipes[ench] = items
+                    nut = parse_station_fee(f)
+                    if nut is not None:
+                        row_nutrition[ench] = nut
+                    div = parse_batch_divisor(f)
+                    if div is not None:
+                        row_batch[ench] = div
             if has_recipe:
                 if section and tier_label.lower().startswith('tier'):
                     item_name = f'{section} {tier_label}'
                 else:
                     item_name = tier_label
-                recipes.append({
+                rec = {
                     'sheet': sheet_name,
                     'section': section,
                     'item': item_name,
                     'tierLabel': tier_label,
                     'enchantments': row_recipes,
-                })
+                }
+                if row_nutrition:
+                    rec['nutrition'] = row_nutrition
+                if row_batch:
+                    rec['batch'] = row_batch
+                recipes.append(rec)
     return recipes
 
 

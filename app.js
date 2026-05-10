@@ -144,11 +144,15 @@ function returnFactor(sheet) {
  *  Returns { cost, missing } where missing is array of mats with no price.
  *  Honors hearts flags:
  *    - heartGated: only counts when Use Hearts is on.
- *    - heartReducesQty: subtract 1 from qty when Use Hearts is on. */
-function computeRecipeCost(items, sheet) {
+ *    - heartReducesQty: subtract 1 from qty when Use Hearts is on.
+ *  - `batchDivisor` (e.g. 10 for soups, 5 for potions) divides the material
+ *    cost only — station fee is not divided, matching the spreadsheet.
+ *  - `nutritionCost` adds the station-fee component
+ *    (nutrition * 0.1125 * stationFee / 100), outside the return-rate bracket. */
+function computeRecipeCost(items, sheet, nutritionCost = 0, batchDivisor = 1) {
   const ret = returnFactor(sheet);
   const useHearts = !!State.settings.useHearts;
-  let total = 0;
+  let matTotal = 0;
   const missing = [];
   for (const it of items) {
     if (it.heartGated && !useHearts) continue;
@@ -165,7 +169,11 @@ function computeRecipeCost(items, sheet) {
     // in the spreadsheet formula — they're not affected by return rate.
     const noDiscount = it.heartGated || it.noReturnDiscount;
     const factor = noDiscount ? 1 : (1 - ret);
-    total += qty * Number(price) * factor;
+    matTotal += qty * Number(price) * factor;
+  }
+  let total = batchDivisor > 0 ? matTotal / batchDivisor : matTotal;
+  if (nutritionCost > 0) {
+    total += nutritionCost * 0.1125 * (Number(State.settings.stationFee) || 0) / 100;
   }
   return { cost: total, missing };
 }
@@ -558,7 +566,9 @@ function updateSheetCosts() {
       if (!cell) continue;
       const items = r.enchantments[String(e)] || r.enchantments[e];
       if (!items) { cell.textContent = '—'; cell.className = 'price-cell muted'; continue; }
-      const { cost, missing } = computeRecipeCost(items, sheet);
+      const nut   = (r.nutrition && (r.nutrition[String(e)] ?? r.nutrition[e])) || 0;
+      const batch = (r.batch     && (r.batch[String(e)]     ?? r.batch[e]))     || 1;
+      const { cost, missing } = computeRecipeCost(items, sheet, nut, batch);
       if (missing.length === items.length) { cell.textContent = 'no price'; cell.className = 'price-cell muted'; continue; }
       cell.textContent = formatSilver(cost);
       cell.className = 'price-cell';
@@ -617,7 +627,9 @@ function pageSheet(sheet) {
       const cells = enchCols.map(e => {
         const items = r.enchantments[String(e)] || r.enchantments[e];
         if (!items) return `<td class="price-cell muted">—</td>`;
-        const { cost, missing } = computeRecipeCost(items, sheet);
+        const nut   = (r.nutrition && (r.nutrition[String(e)] ?? r.nutrition[e])) || 0;
+        const batch = (r.batch     && (r.batch[String(e)]     ?? r.batch[e]))     || 1;
+        const { cost, missing } = computeRecipeCost(items, sheet, nut, batch);
         missing.forEach(m => totalMissing.add(m));
         if (missing.length === items.length) return `<td class="price-cell muted">no price</td>`;
         return `<td class="price-cell">${formatSilver(cost)}</td>`;
