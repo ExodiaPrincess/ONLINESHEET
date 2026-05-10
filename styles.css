@@ -613,17 +613,29 @@ table.tbl {
   padding: 9px 12px;
 }
 
-/* Material grid layout */
+/* Material grid layout — CSS multi-column so short cards (Milk, Eggs) pack
+   in vertically next to tall ones (Fish), eliminating the big empty
+   gaps the old `display: grid` produced when card heights differ. */
 .mat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  column-width: 290px;
+  column-gap: 16px;
+  column-fill: balance;
 }
+/* Used by the Artifact-prices panel where each card is wide and we want
+   one card per row instead of masonry. */
+.mat-grid--single { column-count: 1; }
+
 .mat-card {
   background: var(--bg-2);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 12px;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  break-inside: avoid;     /* keep a card from being split across columns */
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
 }
 .mat-card h4 {
   margin: 0 0 8px;
