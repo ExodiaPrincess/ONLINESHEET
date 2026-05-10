@@ -363,7 +363,6 @@ function renderSidebar() {
     <div class="nav-group__title">General</div>
     <div class="nav-item ${State.view.type === 'home' ? 'active' : ''}" data-route="home">${navIcon('T4_FURNITUREITEM_GUILDBANNER_FABRIC')}Home</div>
     <div class="nav-item ${State.view.type === 'materials' ? 'active' : ''}" data-route="materials">${navIcon('T8_BAG')}Material Prices</div>
-    <div class="nav-item ${State.view.type === 'settings' ? 'active' : ''}" data-route="settings">${navIcon('T8_2H_TOOL_HAMMER')}Settings</div>
   </div>`);
 
   // Build group nav. Only show sheets that exist in data.
@@ -408,8 +407,8 @@ function pageHome() {
       <h2 class="panel__title">Quick Start</h2>
       <ol style="margin:0;padding-left:18px;color:var(--text-2);font-size:13px;line-height:1.7;">
         <li>Open <strong>Material Prices</strong> and enter the buy-order prices you actually pay.</li>
-        <li>Open <strong>Settings</strong> and pick your return rate (Island / City / Bonus City / Hideout) and any bonuses.</li>
-        <li>Open any category in the sidebar to see the calculated cost per craft for every tier &amp; enchantment.</li>
+        <li>Pick any category in the sidebar. Each page has a built-in <strong>Settings</strong> panel for return rate (Island / City / Bonus City / Hideout), bonuses, hearts and pricing mode.</li>
+        <li>The cost per craft updates live for every tier &amp; enchantment as you tweak prices or settings.</li>
       </ol>
     </div>
 
@@ -990,8 +989,11 @@ function render() {
   let html;
   switch (State.view.type) {
     case 'materials': html = pageMaterials(); break;
-    case 'settings':  html = pageSettings();  break;
     case 'sheet':     html = pageSheet(State.view.sheet); break;
+    // 'settings' was a dedicated page; controls are now embedded on
+    // every recipe page so the sidebar entry is gone. Anyone landing
+    // here (saved view, etc.) falls through to the home page.
+    case 'settings':  State.view = { type: 'home' }; /* fallthrough */
     default:          html = pageHome();
   }
   main.innerHTML = html;
