@@ -1009,7 +1009,7 @@ function pageSheet(sheet) {
   const artBlock = sheetArtifacts.length ? `
     <div class="panel">
       <h2 class="panel__title">Artifact Prices</h2>
-      <div class="mat-grid mat-grid--single">${renderArtifactCard(sheet, sheetArtifacts)}</div>
+      <div class="mat-grid" style="grid-template-columns: 1fr;">${renderArtifactCard(sheet, sheetArtifacts)}</div>
     </div>` : '';
 
   // Refining pages get a hero image of the T8 refined material above the
