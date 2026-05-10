@@ -131,7 +131,30 @@ body {
   border-color: rgba(224,183,101,0.35);
   color: var(--accent);
 }
-.nav-item .nav-emoji { font-size: 14px; width: 18px; text-align: center; }
+.nav-item .nav-emoji { font-size: 14px; width: 22px; text-align: center; flex-shrink: 0; }
+img.nav-emoji {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+  margin-right: 2px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+  image-rendering: -webkit-optimize-contrast;
+}
+img.nav-emoji--sm { width: 22px; height: 22px; }
+img.nav-emoji--md { width: 26px; height: 26px; }
+.nav-group__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-group__title img.nav-emoji {
+  margin-right: 0;
+}
+.nav-emoji--bullet {
+  color: var(--text-3);
+  font-size: 16px;
+}
 
 /* ---------- MAIN ---------- */
 .main {
@@ -459,7 +482,14 @@ table.tbl {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
-.landing-card .emo { font-size: 26px; margin-bottom: 6px; }
+.landing-card__icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.45));
+  image-rendering: -webkit-optimize-contrast;
+}
 .landing-card h3 {
   margin: 0 0 4px;
   font-family: var(--font-display);

@@ -13,40 +13,20 @@ const REFINING_SHEETS = new Set([
 ]);
 
 // Grouping for the sidebar — which sheets fall under which collapsible group.
+// Each group uses an Albion item icon as its glyph (rendered via the same
+// render.albiononline.com API as the recipe-table icons).
 const SHEET_GROUPS = [
-  { title: 'Refining', emoji: '🔥', sheets: [
-    'PlankRefining', 'SteelRefining', 'LeatherRefining', 'ClothRefining', 'StoneRefining',
-  ]},
-  { title: 'Weapons · Warrior', emoji: '⚔️', sheets: [
-    'Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Spears',
-  ]},
-  { title: 'Weapons · Hunter', emoji: '🏹', sheets: [
-    'Bows', 'Crossbows', 'Daggers', 'Spears',
-  ]},
-  { title: 'Weapons · Mage', emoji: '🔮', sheets: [
-    'CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff', 'NatureStaff',
-  ]},
-  { title: 'Off-hands', emoji: '🛡️', sheets: [
-    'Shields', 'Tomes', 'Torch',
-  ]},
-  { title: 'Armor · Plate', emoji: '🪖', sheets: [
-    'PlateHelmets', 'PlateArmors', 'PlateBoots',
-  ]},
-  { title: 'Armor · Leather', emoji: '🥋', sheets: [
-    'LeatherHoods', 'LeatherJackets', 'LeatherShoes',
-  ]},
-  { title: 'Armor · Cloth', emoji: '👘', sheets: [
-    'ClothCowls', 'ClothRobes', 'ClothSandals',
-  ]},
-  { title: 'Accessories', emoji: '🎒', sheets: [
-    'BagsSatchelsTracking', 'CapesFurniture', 'Gloves', 'ShapeShifters',
-  ]},
-  { title: 'Gathering Gear', emoji: '⛏️', sheets: [
-    'GatheringGear',
-  ]},
-  { title: 'Consumables', emoji: '🥘', sheets: [
-    'Food', 'Potions',
-  ]},
+  { title: 'Refining',         icon: 'T4_METALBAR',         sheets: ['PlankRefining', 'SteelRefining', 'LeatherRefining', 'ClothRefining', 'StoneRefining'] },
+  { title: 'Weapons · Warrior',icon: 'T4_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Spears'] },
+  { title: 'Weapons · Hunter', icon: 'T4_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears'] },
+  { title: 'Weapons · Mage',   icon: 'T4_MAIN_FIRESTAFF',   sheets: ['CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff', 'NatureStaff'] },
+  { title: 'Off-hands',        icon: 'T4_OFF_SHIELD',       sheets: ['Shields', 'Tomes', 'Torch'] },
+  { title: 'Armor · Plate',    icon: 'T4_HEAD_PLATE_SET1',  sheets: ['PlateHelmets', 'PlateArmors', 'PlateBoots'] },
+  { title: 'Armor · Leather',  icon: 'T4_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
+  { title: 'Armor · Cloth',    icon: 'T4_HEAD_CLOTH_SET1',  sheets: ['ClothCowls', 'ClothRobes', 'ClothSandals'] },
+  { title: 'Accessories',      icon: 'T4_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture', 'Gloves', 'ShapeShifters'] },
+  { title: 'Gathering Gear',   icon: 'T4_2H_TOOL_PICK',     sheets: ['GatheringGear'] },
+  { title: 'Consumables',      icon: 'T4_POTION_HEAL',      sheets: ['Food', 'Potions'] },
 ];
 
 const SHEET_LABELS = {
@@ -95,6 +75,13 @@ const State = {
   },
   view: { type: 'home', sheet: null },
 };
+
+/** Render an Albion item icon for nav / landing card use. */
+function navIcon(itemId, size = 'md') {
+  if (!itemId) return '';
+  const cls = `nav-emoji nav-emoji--${size}`;
+  return `<img class="${cls}" src="https://render.albiononline.com/v1/item/${itemId}.png?size=64" alt="" loading="lazy" onerror="this.style.display='none'" />`;
+}
 
 // =============================================================================
 // PERSISTENCE
@@ -188,9 +175,9 @@ function renderSidebar() {
 
   html.push(`<div class="nav-group">
     <div class="nav-group__title">General</div>
-    <div class="nav-item ${State.view.type === 'home' ? 'active' : ''}" data-route="home"><span class="nav-emoji">🏠</span>Home</div>
-    <div class="nav-item ${State.view.type === 'materials' ? 'active' : ''}" data-route="materials"><span class="nav-emoji">📦</span>Material Prices</div>
-    <div class="nav-item ${State.view.type === 'settings' ? 'active' : ''}" data-route="settings"><span class="nav-emoji">⚙️</span>Settings</div>
+    <div class="nav-item ${State.view.type === 'home' ? 'active' : ''}" data-route="home">${navIcon('T4_FURNITUREITEM_GUILDBANNER_FABRIC')}Home</div>
+    <div class="nav-item ${State.view.type === 'materials' ? 'active' : ''}" data-route="materials">${navIcon('T4_BAG')}Material Prices</div>
+    <div class="nav-item ${State.view.type === 'settings' ? 'active' : ''}" data-route="settings">${navIcon('T4_2H_TOOL_HAMMER')}Settings</div>
   </div>`);
 
   // Build group nav. Only show sheets that exist in data.
@@ -198,11 +185,11 @@ function renderSidebar() {
   for (const grp of SHEET_GROUPS) {
     const sheets = grp.sheets.filter((s, i, a) => a.indexOf(s) === i && haveSheets.has(s));
     if (!sheets.length) continue;
-    html.push(`<div class="nav-group"><div class="nav-group__title">${grp.emoji} ${grp.title}</div>`);
+    html.push(`<div class="nav-group"><div class="nav-group__title">${navIcon(grp.icon, 'sm')}${grp.title}</div>`);
     for (const sh of sheets) {
       const active = State.view.type === 'sheet' && State.view.sheet === sh ? 'active' : '';
       const label = SHEET_LABELS[sh] || sh;
-      html.push(`<div class="nav-item ${active}" data-route="sheet" data-sheet="${sh}"><span class="nav-emoji">•</span>${label}</div>`);
+      html.push(`<div class="nav-item ${active}" data-route="sheet" data-sheet="${sh}"><span class="nav-emoji nav-emoji--bullet">•</span>${label}</div>`);
     }
     html.push(`</div>`);
   }
@@ -245,7 +232,7 @@ function pageHome() {
       <div class="landing-grid">
         ${SHEET_GROUPS.map(g => `
           <div class="landing-card" data-route="group" data-grp="${g.title}">
-            <div class="emo">${g.emoji}</div>
+            <img class="landing-card__icon" src="https://render.albiononline.com/v1/item/${g.icon}.png?size=96" alt="${g.title}" loading="lazy" onerror="this.style.display='none'" />
             <h3>${g.title}</h3>
             <p>${g.sheets.length} categor${g.sheets.length === 1 ? 'y' : 'ies'}</p>
           </div>
