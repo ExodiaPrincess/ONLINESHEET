@@ -2068,111 +2068,31 @@
     {
       "id": "FP_TIER_1___CARROTS",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 1 - Carrots"
     },
     {
-      "id": "FP_TIER_4___GOATS_MILK",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 4 - Goat's Milk"
-    },
-    {
-      "id": "FP_TIER_4___GOATS_BUTTER",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 4 - Goat's Butter"
-    },
-    {
-      "id": "FP_TIER_3___RUGGED_SHADOW_CLAW",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Shadow Claw"
-    },
-    {
-      "id": "FP_TIER_3___RUGGED_IMPS_HORNS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Imp's Horns"
-    },
-    {
       "id": "FP_TIER_2___BEANS",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 2 - Beans"
     },
     {
-      "id": "FP_TIER_6___SHEEPS_MILK",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 6 - Sheep's Milk"
-    },
-    {
-      "id": "FP_TIER_6___SHEEPS_BUTTER",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 6 - Sheep's Butter"
-    },
-    {
-      "id": "FP_TIER_5___FINE_SHADOW_CLAW",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Shadow Claw"
-    },
-    {
-      "id": "FP_TIER_5___FINE_IMPS_HORNS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Imp's Horns"
-    },
-    {
       "id": "FP_TIER_3___SHEAF_OF_WHEAT",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 3 - Sheaf of Wheat"
     },
     {
-      "id": "FP_TIER_8___COWS_MILK",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 8 - Cow's Milk"
-    },
-    {
-      "id": "FP_TIER_8___COWS_BUTTER",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 8 - Cow's Butter"
-    },
-    {
-      "id": "FP_TIER_7___EXCELLENT_SHADOW_CLAW",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Shadow Claw"
-    },
-    {
-      "id": "FP_TIER_7___EXCELLENT_IMPS_HORNS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Imp's Horns"
-    },
-    {
       "id": "FP_TIER_4___TURNIPS",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 4 - Turnips"
@@ -2180,6 +2100,7 @@
     {
       "id": "FP_TIER_5___CABBAGE",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 5 - Cabbage"
@@ -2187,209 +2108,55 @@
     {
       "id": "FP_TIER_6___POTATOES",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 6 - Potatoes"
     },
     {
-      "id": "FP_TIER_3___CHICKENS_EGGS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Chicken's Eggs"
-    },
-    {
-      "id": "FP_TIER_3___RAW_CHICKEN",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Raw Chicken"
-    },
-    {
-      "id": "FP_TIER_3___RUGGED_SYLVIAN_ROOT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Sylvian Root"
-    },
-    {
-      "id": "FP_TIER_3___RUGGED_RUNESTONE_TOOTH",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Runestone Tooth"
-    },
-    {
       "id": "FP_TIER_7___BUNDLE_OF_CORN",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 7 - Bundle of Corn"
     },
     {
-      "id": "FP_TIER_5___GOOSES_EGGS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Goose's Eggs"
-    },
-    {
-      "id": "FP_TIER_4___RAW_GOAT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 4 - Raw Goat"
-    },
-    {
-      "id": "FP_TIER_5___FINE_SYLVIAN_ROOT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Sylvian Root"
-    },
-    {
-      "id": "FP_TIER_5___FINE_RUNESTONE_TOOTH",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Runestone Tooth"
-    },
-    {
       "id": "FP_TIER_8__PUMPKIN",
       "family": "FOOD_POTION",
+      "subFamily": "CROPS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 8- Pumpkin"
     },
     {
-      "id": "FP_TIER_5___RAW_GOOSE",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Raw Goose"
-    },
-    {
-      "id": "FP_TIER_7___EXCELLENT_SYLVIAN_ROOT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Sylvian Root"
-    },
-    {
-      "id": "FP_TIER_7___EXCELLENT_RUNESTONE_TOOTH",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Runestone Tooth"
-    },
-    {
-      "id": "FP_TIER_6___RAW_MUTTON",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 6 - Raw Mutton"
-    },
-    {
-      "id": "FP_TIER_7___RAW_PORK",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Raw Pork"
-    },
-    {
       "id": "FP_TIER_2___ARCANE_AGARIC",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 2 - Arcane Agaric"
     },
     {
-      "id": "FP_TIER_6___POTATO_SCHNAPPS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 6 - Potato Schnapps"
-    },
-    {
-      "id": "FP_TIER_8___RAW_BEEF",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 8 - Raw Beef"
-    },
-    {
-      "id": "FP_TIER_3___RUGGED_SPIRIT_PAWS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Spirit Paws"
-    },
-    {
-      "id": "FP_TIER_3___RUGGED_DAWNFEATHER",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Dawnfeather"
-    },
-    {
       "id": "FP_TIER_3___BRIGHTLEAF_COMFREY",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 3 - Brightleaf Comfrey"
     },
     {
-      "id": "FP_TIER_7___CORN_HOOCH",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Corn Hooch"
-    },
-    {
-      "id": "FP_TIER_5___FINE_SPIRIT_PAWS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Spirit Paws"
-    },
-    {
-      "id": "FP_TIER_5___FINE_DAWNFEATHER",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Dawnfeather"
-    },
-    {
       "id": "FP_TIER_4___CRENELLATED_BURDOCK",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 4 - Crenellated Burdock"
     },
     {
-      "id": "FP_TIER_8___PUMPKIN_MOONSHINE",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 8 - Pumpkin Moonshine"
-    },
-    {
-      "id": "FP_TIER_7___EXCELLENT_SPIRIT_PAWS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Spirit Paws"
-    },
-    {
-      "id": "FP_TIER_7___EXCELLENT_DAWNFEATHER",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Dawnfeather"
-    },
-    {
       "id": "FP_TIER_5___DRAGON_TEASEL",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 5 - Dragon Teasel"
@@ -2397,139 +2164,439 @@
     {
       "id": "FP_TIER_6___ELUSIVE_FOXGLOVE",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 6 - Elusive Foxglove"
     },
     {
-      "id": "FP_TIER_3___CHICKEN",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Chicken"
-    },
-    {
       "id": "FP_TIER_7___FIRETOUCHED_MULLEIN",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 7 - Firetouched Mullein"
     },
     {
-      "id": "FP_TIER_4___GOAT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 4 - Goat"
-    },
-    {
-      "id": "FP_TIER_3___FLOUR",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 3 - Flour"
-    },
-    {
       "id": "FP_TIER_8___GHOUL_YARROW",
       "family": "FOOD_POTION",
+      "subFamily": "HERBS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 8 - Ghoul Yarrow"
     },
     {
-      "id": "FP_TIER_5___GOOSE",
+      "id": "FP_TIER_4___GOATS_MILK",
       "family": "FOOD_POTION",
+      "subFamily": "MILK",
       "tier": "-",
       "kind": "foodpotion",
-      "name": "TIER 5 - Goose"
+      "name": "TIER 4 - Goat's Milk"
     },
     {
-      "id": "FP_TIER_3___RUGGED_WEREWOLF_FANGS",
+      "id": "FP_TIER_6___SHEEPS_MILK",
       "family": "FOOD_POTION",
+      "subFamily": "MILK",
       "tier": "-",
       "kind": "foodpotion",
-      "name": "TIER 3 - Rugged Werewolf Fangs"
+      "name": "TIER 6 - Sheep's Milk"
     },
     {
-      "id": "FP_RARE_ANIMAL_REMANINGS",
+      "id": "FP_TIER_8___COWS_MILK",
       "family": "FOOD_POTION",
+      "subFamily": "MILK",
       "tier": "-",
       "kind": "foodpotion",
-      "name": "Rare Animal Remanings"
+      "name": "TIER 8 - Cow's Milk"
+    },
+    {
+      "id": "FP_TIER_3___CHICKENS_EGGS",
+      "family": "FOOD_POTION",
+      "subFamily": "EGGS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Chicken's Eggs"
+    },
+    {
+      "id": "FP_TIER_5___GOOSES_EGGS",
+      "family": "FOOD_POTION",
+      "subFamily": "EGGS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Goose's Eggs"
+    },
+    {
+      "id": "FP_TIER_6___POTATO_SCHNAPPS",
+      "family": "FOOD_POTION",
+      "subFamily": "BREWING",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 6 - Potato Schnapps"
+    },
+    {
+      "id": "FP_TIER_7___CORN_HOOCH",
+      "family": "FOOD_POTION",
+      "subFamily": "BREWING",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Corn Hooch"
+    },
+    {
+      "id": "FP_TIER_8___PUMPKIN_MOONSHINE",
+      "family": "FOOD_POTION",
+      "subFamily": "BREWING",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 8 - Pumpkin Moonshine"
+    },
+    {
+      "id": "FP_TIER_3___FLOUR",
+      "family": "FOOD_POTION",
+      "subFamily": "WHEAT PRODUCTS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Flour"
     },
     {
       "id": "FP_TIER_4___BREAD",
       "family": "FOOD_POTION",
+      "subFamily": "WHEAT PRODUCTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 4 - Bread"
     },
     {
+      "id": "FP_TIER_4___GOATS_BUTTER",
+      "family": "FOOD_POTION",
+      "subFamily": "BUTTER",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 4 - Goat's Butter"
+    },
+    {
+      "id": "FP_TIER_6___SHEEPS_BUTTER",
+      "family": "FOOD_POTION",
+      "subFamily": "BUTTER",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 6 - Sheep's Butter"
+    },
+    {
+      "id": "FP_TIER_8___COWS_BUTTER",
+      "family": "FOOD_POTION",
+      "subFamily": "BUTTER",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 8 - Cow's Butter"
+    },
+    {
+      "id": "FP_TIER_3___RAW_CHICKEN",
+      "family": "FOOD_POTION",
+      "subFamily": "RAW MEAT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Raw Chicken"
+    },
+    {
+      "id": "FP_TIER_4___RAW_GOAT",
+      "family": "FOOD_POTION",
+      "subFamily": "RAW MEAT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 4 - Raw Goat"
+    },
+    {
+      "id": "FP_TIER_5___RAW_GOOSE",
+      "family": "FOOD_POTION",
+      "subFamily": "RAW MEAT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Raw Goose"
+    },
+    {
+      "id": "FP_TIER_6___RAW_MUTTON",
+      "family": "FOOD_POTION",
+      "subFamily": "RAW MEAT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 6 - Raw Mutton"
+    },
+    {
+      "id": "FP_TIER_7___RAW_PORK",
+      "family": "FOOD_POTION",
+      "subFamily": "RAW MEAT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Raw Pork"
+    },
+    {
+      "id": "FP_TIER_8___RAW_BEEF",
+      "family": "FOOD_POTION",
+      "subFamily": "RAW MEAT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 8 - Raw Beef"
+    },
+    {
+      "id": "FP_TIER_3___CHICKEN",
+      "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Chicken"
+    },
+    {
+      "id": "FP_TIER_4___GOAT",
+      "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 4 - Goat"
+    },
+    {
+      "id": "FP_TIER_5___GOOSE",
+      "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Goose"
+    },
+    {
       "id": "FP_TIER_6___SHEEP",
       "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 6 - Sheep"
     },
     {
-      "id": "FP_TIER_5___FINE_WEREWOLF_FANGS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 5 - Fine Werewolf Fangs"
-    },
-    {
-      "id": "FP_BASIC_ARCANE_EXTRACT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "Basic Arcane Extract"
-    },
-    {
       "id": "FP_TIER_7___PIG",
       "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 7 - Pig"
     },
     {
-      "id": "FP_TIER_7___EXCELLENT_WEREWOLF_FANGS",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "TIER 7 - Excellent Werewolf Fangs"
-    },
-    {
-      "id": "FP_REFINED_ARCANE_EXTRACT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "Refined Arcane Extract"
-    },
-    {
       "id": "FP_TIER_8___COW",
       "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 8 - Cow"
     },
     {
-      "id": "FP_PURE_ARCANE_EXTRACT",
-      "family": "FOOD_POTION",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "Pure Arcane Extract"
-    },
-    {
       "id": "FP_TIER_8___SHARK",
       "family": "FOOD_POTION",
+      "subFamily": "ANIMALS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "TIER 8 - Shark"
     },
     {
+      "id": "FP_TIER_3___RUGGED_SHADOW_CLAW",
+      "family": "FOOD_POTION",
+      "subFamily": "SHADOW CLAWS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Shadow Claw"
+    },
+    {
+      "id": "FP_TIER_5___FINE_SHADOW_CLAW",
+      "family": "FOOD_POTION",
+      "subFamily": "SHADOW CLAWS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Shadow Claw"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_SHADOW_CLAW",
+      "family": "FOOD_POTION",
+      "subFamily": "SHADOW CLAWS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Shadow Claw"
+    },
+    {
+      "id": "FP_TIER_3___RUGGED_SYLVIAN_ROOT",
+      "family": "FOOD_POTION",
+      "subFamily": "SYLVIAN ROOT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Sylvian Root"
+    },
+    {
+      "id": "FP_TIER_5___FINE_SYLVIAN_ROOT",
+      "family": "FOOD_POTION",
+      "subFamily": "SYLVIAN ROOT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Sylvian Root"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_SYLVIAN_ROOT",
+      "family": "FOOD_POTION",
+      "subFamily": "SYLVIAN ROOT",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Sylvian Root"
+    },
+    {
+      "id": "FP_TIER_3___RUGGED_SPIRIT_PAWS",
+      "family": "FOOD_POTION",
+      "subFamily": "SPIRIT PAWS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Spirit Paws"
+    },
+    {
+      "id": "FP_TIER_5___FINE_SPIRIT_PAWS",
+      "family": "FOOD_POTION",
+      "subFamily": "SPIRIT PAWS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Spirit Paws"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_SPIRIT_PAWS",
+      "family": "FOOD_POTION",
+      "subFamily": "SPIRIT PAWS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Spirit Paws"
+    },
+    {
+      "id": "FP_TIER_3___RUGGED_WEREWOLF_FANGS",
+      "family": "FOOD_POTION",
+      "subFamily": "WEREWOLF FANGS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Werewolf Fangs"
+    },
+    {
+      "id": "FP_TIER_5___FINE_WEREWOLF_FANGS",
+      "family": "FOOD_POTION",
+      "subFamily": "WEREWOLF FANGS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Werewolf Fangs"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_WEREWOLF_FANGS",
+      "family": "FOOD_POTION",
+      "subFamily": "WEREWOLF FANGS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Werewolf Fangs"
+    },
+    {
+      "id": "FP_TIER_3___RUGGED_IMPS_HORNS",
+      "family": "FOOD_POTION",
+      "subFamily": "IMP'S HORNS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Imp's Horns"
+    },
+    {
+      "id": "FP_TIER_5___FINE_IMPS_HORNS",
+      "family": "FOOD_POTION",
+      "subFamily": "IMP'S HORNS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Imp's Horns"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_IMPS_HORNS",
+      "family": "FOOD_POTION",
+      "subFamily": "IMP'S HORNS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Imp's Horns"
+    },
+    {
+      "id": "FP_TIER_3___RUGGED_RUNESTONE_TOOTH",
+      "family": "FOOD_POTION",
+      "subFamily": "RUNESTONE TOOTH",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Runestone Tooth"
+    },
+    {
+      "id": "FP_TIER_5___FINE_RUNESTONE_TOOTH",
+      "family": "FOOD_POTION",
+      "subFamily": "RUNESTONE TOOTH",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Runestone Tooth"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_RUNESTONE_TOOTH",
+      "family": "FOOD_POTION",
+      "subFamily": "RUNESTONE TOOTH",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Runestone Tooth"
+    },
+    {
+      "id": "FP_TIER_3___RUGGED_DAWNFEATHER",
+      "family": "FOOD_POTION",
+      "subFamily": "DAWNFEATHER",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 3 - Rugged Dawnfeather"
+    },
+    {
+      "id": "FP_TIER_5___FINE_DAWNFEATHER",
+      "family": "FOOD_POTION",
+      "subFamily": "DAWNFEATHER",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 5 - Fine Dawnfeather"
+    },
+    {
+      "id": "FP_TIER_7___EXCELLENT_DAWNFEATHER",
+      "family": "FOOD_POTION",
+      "subFamily": "DAWNFEATHER",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "TIER 7 - Excellent Dawnfeather"
+    },
+    {
+      "id": "FP_RARE_ANIMAL_REMANINGS",
+      "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "Rare Animal Remanings"
+    },
+    {
+      "id": "FP_BASIC_ARCANE_EXTRACT",
+      "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "Basic Arcane Extract"
+    },
+    {
+      "id": "FP_REFINED_ARCANE_EXTRACT",
+      "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "Refined Arcane Extract"
+    },
+    {
+      "id": "FP_PURE_ARCANE_EXTRACT",
+      "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
+      "tier": "-",
+      "kind": "foodpotion",
+      "name": "Pure Arcane Extract"
+    },
+    {
       "id": "FP_CHOPPED_FISH",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Chopped Fish"
@@ -2537,6 +2604,7 @@
     {
       "id": "FP_SEAWEED",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Seaweed"
@@ -2544,6 +2612,7 @@
     {
       "id": "FP_BASIC_FISH_SAUCE",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Basic Fish Sauce"
@@ -2551,6 +2620,7 @@
     {
       "id": "FP_FANCY_FISH_SAUCE",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Fancy Fish Sauce"
@@ -2558,6 +2628,7 @@
     {
       "id": "FP_SPECIAL_FISH_SAUCE",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Special Fish Sauce"
@@ -2565,6 +2636,7 @@
     {
       "id": "FP_WORMS",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Worms"
@@ -2572,6 +2644,7 @@
     {
       "id": "FP_HIDEOUT_SILVER_COST",
       "family": "FOOD_POTION",
+      "subFamily": "OTHER ITEMS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Hideout Silver Cost"

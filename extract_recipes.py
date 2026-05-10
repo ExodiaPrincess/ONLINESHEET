@@ -103,21 +103,34 @@ for row, name in MISC.items():
     mat_map[f'X{row}'] = mid
     mat_meta[mid] = {'id': mid, 'family': 'MISC', 'tier': '-', 'kind': 'misc', 'name': name}
 
-# Food & Potion materials (rows 148-204)
-# Pattern: name in B/G/L/Q/V; price in D/I/N/S/X (offset +2)
-FOOD_NAMES = {}  # row -> {col: name}
+# Food & Potion materials (rows 148-210)
+# Each label column (B, G, L, Q, V) carries multiple sub-categories stacked
+# vertically. UPPERCASE rows are sub-category headers (CROPS, HERBS, MILK,
+# EGGS, BREWING, WHEAT PRODUCTS, RAW MEAT, ANIMALS, SHADOW CLAWS, SYLVIAN
+# ROOT, WEREWOLF FANGS, SPIRIT PAWS, IMP'S HORNS, RUNESTONE TOOTH, DAWNFEATHER,
+# OTHER ITEMS). Items below each header inherit it as their sub-category.
 ws = wb['Materials']
-for r in range(140, 210):
-    for c_letter, p_letter in [('B','D'),('G','I'),('L','N'),('Q','S'),('V','X')]:
+for c_letter, p_letter in [('B','D'), ('G','I'), ('L','N'), ('Q','S'), ('V','X')]:
+    current_sub = 'OTHER'
+    for r in range(140, 210):
         name_cell = ws[f'{c_letter}{r}'].value
-        if name_cell and isinstance(name_cell, str) and name_cell.strip():
-            v = name_cell.strip()
-            # skip headers (uppercase only words)
-            if v.isupper() and len(v) <= 20:
-                continue
-            mid = 'FP_' + v.upper().replace(' ', '_').replace('-', '_').replace("'", '').replace(',', '')
-            mat_map[f'{p_letter}{r}'] = mid
-            mat_meta[mid] = {'id': mid, 'family': 'FOOD_POTION', 'tier': '-', 'kind': 'foodpotion', 'name': v}
+        if not (name_cell and isinstance(name_cell, str) and name_cell.strip()):
+            continue
+        v = name_cell.strip()
+        # Sub-category header — uppercase short string
+        if v.isupper() and len(v) <= 20:
+            current_sub = v
+            continue
+        mid = 'FP_' + v.upper().replace(' ', '_').replace('-', '_').replace("'", '').replace(',', '')
+        mat_map[f'{p_letter}{r}'] = mid
+        mat_meta[mid] = {
+            'id': mid,
+            'family': 'FOOD_POTION',
+            'subFamily': current_sub,
+            'tier': '-',
+            'kind': 'foodpotion',
+            'name': v,
+        }
 
 # Enchantment materials (V/X starting around 186-202: extracts, fish products)
 # Already covered by the loop above.

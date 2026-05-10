@@ -362,6 +362,42 @@ function pageMaterials() {
     for (const sheet of sortedSheets) {
       cards += renderArtifactCard(sheet, bySheet[sheet], { showSheetTitle: true });
     }
+  } else if (grp.id === 'food') {
+    // Group food/potion materials by their sub-category (CROPS, HERBS, MILK, etc.)
+    const bySub = {};
+    for (const m of (byFamily['FOOD_POTION'] || [])) {
+      const sub = m.subFamily || 'OTHER';
+      (bySub[sub] ||= []).push(m);
+    }
+    // Preferred display order — common ingredients first, harvested artifacts last
+    const order = [
+      'CROPS', 'HERBS', 'MILK', 'BUTTER', 'EGGS', 'RAW MEAT', 'ANIMALS',
+      'BREWING', 'WHEAT PRODUCTS', 'FLOUR',
+      'SHADOW CLAWS', 'SYLVIAN ROOT', 'WEREWOLF FANGS', 'SPIRIT PAWS',
+      'IMP\'S HORNS', 'RUNESTONE TOOTH', 'DAWNFEATHER',
+      'OTHER ITEMS', 'OTHER',
+    ];
+    const seen = new Set(order);
+    const subs = order.filter(s => bySub[s]).concat(
+      Object.keys(bySub).filter(s => !seen.has(s))
+    );
+    for (const sub of subs) {
+      const mats = bySub[sub].slice().sort((a, b) => {
+        // Sort by the leading "TIER X" number when present
+        const ta = (a.name.match(/TIER\s*(\d+)/i) || [])[1] || 0;
+        const tb = (b.name.match(/TIER\s*(\d+)/i) || [])[1] || 0;
+        return Number(ta) - Number(tb) || a.name.localeCompare(b.name);
+      });
+      cards += `<div class="mat-card"><h4>${sub}</h4>` +
+        mats.map(m => `
+          <div class="row">
+            <label title="${m.id}">${m.name}</label>
+            <input type="number" min="0" step="1" data-mat="${m.id}"
+                   value="${State.prices[m.id] ?? ''}" placeholder="0" />
+          </div>
+        `).join('') +
+        `</div>`;
+    }
   } else {
     for (const fam of grp.families) {
       const mats = (byFamily[fam] || []).slice().sort(sortByTier);
