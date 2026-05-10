@@ -694,6 +694,28 @@ for rec in all_recipes:
         fix(items)
 
 
+# ---------- MERGE FURNITURE RECIPES ----------
+# Furniture isn't in the Nendys spreadsheet — recipes are sourced separately
+# from ao-data/ao-bin-dumps via extract_furniture.py and live in
+# albion/furniture.json. We splice them into all_recipes here so the rest
+# of the pipeline (IV stamping, JSON output) treats them uniformly.
+import os as _os
+furniture_path = _os.path.join(_os.path.dirname(OUT), 'furniture.json')
+if _os.path.exists(furniture_path):
+    with open(furniture_path, encoding='utf-8') as _f:
+        _fdata = json.load(_f)
+    for _rec in _fdata.get('recipes', []):
+        # JSON keys come out as strings; normalise enchantments to int keys
+        # so the rest of the pipeline matches existing recipes.
+        _ench = {}
+        for _k, _v in _rec.get('enchantments', {}).items():
+            try: _ench[int(_k)] = _v
+            except: _ench[_k] = _v
+        _rec['enchantments'] = _ench
+        all_recipes.append(_rec)
+    print(f'Furniture: {len(_fdata.get("recipes", []))} recipes merged in')
+
+
 # ---------- STAMP IV ON EVERY MATERIAL ----------
 for mid, meta in mat_meta.items():
     tier_for_iv = meta.get('tier')

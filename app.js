@@ -24,7 +24,7 @@ const SHEET_GROUPS = [
   { title: 'Armor · Plate',    icon: 'T8_HEAD_PLATE_SET1',  sheets: ['PlateHelmets', 'PlateArmors', 'PlateBoots'] },
   { title: 'Armor · Leather',  icon: 'T8_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
   { title: 'Armor · Cloth',    icon: 'T8_HEAD_CLOTH_SET1',  sheets: ['ClothCowls', 'ClothRobes', 'ClothSandals'] },
-  { title: 'Accessories',      icon: 'T8_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture'] },
+  { title: 'Accessories',      icon: 'T8_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture', 'Furniture'] },
   { title: 'Gathering Gear',   icon: 'T8_2H_TOOL_PICK',     sheets: [
     'GatheringHarvester', 'GatheringSkinner', 'GatheringMiner',
     'GatheringQuarrier',  'GatheringLumberjack', 'GatheringFisherman',
@@ -65,6 +65,7 @@ const SHEET_LABELS = {
   GatheringQuarrier:   'Quarrier',
   GatheringLumberjack: 'Lumberjack',
   GatheringFisherman:  'Fisherman',
+  Furniture:           'Furniture',
 };
 
 // =============================================================================

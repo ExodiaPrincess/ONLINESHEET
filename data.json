@@ -120466,6 +120466,405 @@
         "3": 16384.0,
         "4": 32768.0
       }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Chest",
+      "item": "Chest Tier 2",
+      "tierLabel": "Tier 2",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T2",
+            "qty": 20.0
+          },
+          {
+            "mat": "STEEL_T2",
+            "qty": 10.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 120.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Chest",
+      "item": "Chest Tier 3",
+      "tierLabel": "Tier 3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T3",
+            "qty": 20.0
+          },
+          {
+            "mat": "STEEL_T3",
+            "qty": 10.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 240.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Chest",
+      "item": "Chest Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 20.0
+          },
+          {
+            "mat": "STEEL_T4.0",
+            "qty": 10.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 480.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Chest",
+      "item": "Chest Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 20.0
+          },
+          {
+            "mat": "STEEL_T5.0",
+            "qty": 10.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 960.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 2",
+      "tierLabel": "Tier 2",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T2",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T2",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 120.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 3",
+      "tierLabel": "Tier 3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T3",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T3",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 240.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T4.0",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 480.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T5.0",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 960.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T6.0",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T6.0",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1920.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T7.0",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 3840.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Bed",
+      "item": "Bed Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 10.0
+          },
+          {
+            "mat": "CLOTH_T8.0",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 7680.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 2",
+      "tierLabel": "Tier 2",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T2",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T2",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 240.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 3",
+      "tierLabel": "Tier 3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T3",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T3",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 480.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T4.0",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 960.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T5.0",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1920.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T6.0",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T6.0",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 3840.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T7.0",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 7680.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Table",
+      "item": "Table Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 30.0
+          },
+          {
+            "mat": "CLOTH_T8.0",
+            "qty": 30.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 15360.0
+      }
+    },
+    {
+      "sheet": "Furniture",
+      "section": "Trophy Shark",
+      "item": "Trophy Shark Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "STEEL_T8.0",
+            "qty": 2.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1536.0
+      }
     }
   ],
   "sheets": [
@@ -120484,6 +120883,7 @@
     "FireStaff",
     "Food",
     "FrostStaff",
+    "Furniture",
     "GatheringFisherman",
     "GatheringHarvester",
     "GatheringLumberjack",

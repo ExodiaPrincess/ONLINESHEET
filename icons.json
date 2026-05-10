@@ -404,5 +404,11 @@
     "Fisherman Backpack": "T8_BACKPACK_GATHERER_FISH",
     "Rod": "T8_2H_TOOL_FISHINGROD",
     "Avalonian Rod": "T8_2H_TOOL_FISHINGROD_AVALON"
+  },
+  "Furniture": {
+    "Chest": "T5_FURNITUREITEM_CHEST",
+    "Bed": "T8_FURNITUREITEM_BED",
+    "Table": "T8_FURNITUREITEM_TABLE",
+    "Trophy Shark": "T8_FURNITUREITEM_TROPHY_FISHING_BOSS"
   }
 }
