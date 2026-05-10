@@ -387,9 +387,12 @@ def extract_gathering_gear(ws):
                 f = ws[f'{col}{r}'].value
                 items = parse_formula(f) if isinstance(f, str) and f.startswith('=') else None
                 if items:
+                    # Each piece (Harvester Cap, Harvester Garb, ..., Sickle,
+                    # Avalonian Sickle, ...) gets its own section so the table
+                    # renders one merged image+name cell per piece.
                     recipes.append({
                         'sheet': 'GatheringGear',
-                        'section': section,
+                        'section': item_names[col],
                         'item': f'{item_names[col]} {tier_label}',
                         'tierLabel': tier_label,
                         'enchantments': {0: items},
