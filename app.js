@@ -1091,6 +1091,7 @@ function render() {
     default:          html = pageHome();
   }
   main.innerHTML = html;
+  updateHomeFab();   // hides on home, shows everywhere else
 
   // Bind page-specific handlers
   if (State.view.type === 'settings')   bindSettingsHandlers();
@@ -1195,11 +1196,21 @@ function hideLogin() {
   toggleAppChrome(true);
 }
 function toggleAppChrome(loggedIn) {
-  const ids = ['homeFab', 'logoutBtn', 'current-user', 'exportBtn', 'importBtn', 'resetBtn'];
+  const ids = ['logoutBtn', 'current-user', 'exportBtn', 'importBtn', 'resetBtn'];
   for (const id of ids) {
     const el = document.getElementById(id);
     if (el) el.hidden = !loggedIn;
   }
+  updateHomeFab(loggedIn);
+}
+
+/** Show the floating Home button only when (a) logged in, and
+ *  (b) NOT already on the home page. Called by render() too. */
+function updateHomeFab(loggedIn = !!State.user) {
+  const fab = document.getElementById('homeFab');
+  if (!fab) return;
+  const onHome = State.view.type === 'home';
+  fab.hidden = !loggedIn || onHome;
 }
 
 function bindLoginForm() {
