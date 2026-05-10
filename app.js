@@ -683,7 +683,7 @@ function pageSheet(sheet) {
     <thead><tr>
       <th>Item</th>
       <th>Tier</th>
-      ${enchCols.map(e => `<th>Enchantment ${e}</th>`).join('')}
+      ${enchCols.map(e => `<th class="ench-th">Enchantment ${e}</th>`).join('')}
     </tr></thead>`;
 
   // Pick the materials tab most relevant to the missing IDs, so the link

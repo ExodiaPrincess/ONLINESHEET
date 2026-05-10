@@ -306,6 +306,9 @@ table.tbl {
   position: sticky;
   top: 0;
 }
+/* Enchantment columns are right-aligned so the header text lines up with
+   the right-aligned price numbers below it. */
+.tbl thead th.ench-th { text-align: right; }
 .tbl tbody td {
   padding: 8px 12px;
   border-bottom: 1px solid var(--line);
