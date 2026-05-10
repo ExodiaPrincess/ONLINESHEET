@@ -16,6 +16,40 @@ OUT = r'C:\Users\Bernardo\Desktop\Graf Site\.claude\worktrees\keen-hypatia-1d2f8
 wb = load_workbook(PATH, data_only=False)
 
 
+# ---------- ITEM VALUE (IV) FORMULA ----------
+# Standard Albion rule, confirmed against the game's items.json:
+# refined materials at T4.0 have IV=16 (T4_METALBAR, T4_LEATHER, T4_CLOTH,
+# T4_STONEBLOCK), and IV doubles with each tier and each enchantment level.
+#   IV(tier, ench) = 16 * 2^(tier - 4) * 2^ench
+# This is exact for refined resources / raw resources / crafted equipment
+# (where item IV ≈ sum of input material IVs). Food / potion ingredients
+# (crops, herbs, eggs) follow the same scaling in the absence of better data.
+
+def derive_iv(tier_str):
+    """Tier string like 'T4.0', 'T8.4', 'T1', 'T3' -> numeric IV."""
+    if not tier_str or tier_str == '-':
+        return 0
+    s = str(tier_str).strip().upper().lstrip('T')
+    try:
+        if '.' in s:
+            t, e = s.split('.', 1)
+            tier, ench = int(t), int(e)
+        else:
+            tier, ench = int(s), 0
+    except ValueError:
+        return 0
+    return 16 * (2 ** (tier - 4)) * (2 ** ench)
+
+
+def parse_tier_from_name(name):
+    """Pull a tier number out of names like 'TIER 3 - Sheaf of Wheat'."""
+    if not name:
+        return None
+    import re as _re
+    m = _re.search(r'TIER\s*(\d+)', str(name).upper())
+    return f'T{m.group(1)}' if m else None
+
+
 # ---------- BUILD MATERIAL MAP ----------
 # Materials sheet structure:
 # Refined (rows 9-66): B/G/L/Q/V are labels; D/I/N/S/X are prices.
@@ -496,8 +530,8 @@ def extract_sheet_v2(ws):
             tier_label = tier_label.strip()
             has_recipe = False
             row_recipes = {}
-            row_nutrition = {}  # enchant -> nutrition cost
-            row_batch = {}      # enchant -> batch divisor
+            row_iv = {}     # enchant -> Item Value (extracted from formula)
+            row_batch = {}  # enchant -> batch divisor
             for col_letter, ench in ENCHANT_COLS.items():
                 cell = ws[f'{col_letter}{r}']
                 f = cell.value
@@ -506,9 +540,9 @@ def extract_sheet_v2(ws):
                 if items:
                     has_recipe = True
                     row_recipes[ench] = items
-                    nut = parse_station_fee(f)
-                    if nut is not None:
-                        row_nutrition[ench] = nut
+                    iv = parse_station_fee(f)
+                    if iv is not None:
+                        row_iv[ench] = iv
                     div = parse_batch_divisor(f)
                     if div is not None:
                         row_batch[ench] = div
@@ -524,8 +558,8 @@ def extract_sheet_v2(ws):
                     'tierLabel': tier_label,
                     'enchantments': row_recipes,
                 }
-                if row_nutrition:
-                    rec['nutrition'] = row_nutrition
+                if row_iv:
+                    rec['iv'] = row_iv
                 if row_batch:
                     rec['batch'] = row_batch
                 recipes.append(rec)
@@ -543,6 +577,68 @@ for sn in wb.sheetnames:
         rs = extract_sheet_v2(ws)
     all_recipes.extend(rs)
     print(f'{sn}: {len(rs)} recipes')
+
+# ---------- STAMP IV ON EVERY MATERIAL ----------
+for mid, meta in mat_meta.items():
+    tier_for_iv = meta.get('tier')
+    # Food / potion materials don't carry the tier in the `tier` field
+    # (they use 'T-' or '-'); pull it from the name when possible.
+    if not tier_for_iv or tier_for_iv == '-':
+        tier_for_iv = parse_tier_from_name(meta.get('name'))
+    meta['iv'] = derive_iv(tier_for_iv) if tier_for_iv else 0
+
+# ---------- FALLBACK IV ON EACH RECIPE ----------
+# Spreadsheet IV (parsed from the +(IV * 0.1125 * Fee/100) station-fee term)
+# only exists on Food / Potion T3+ recipes. For every OTHER recipe — weapons,
+# armor, gathering gear, T1/T2 food and potions — synthesise an IV by summing
+# qty * material.iv across the recipe's non-heart, non-artifact ingredients,
+# matching Albion's `IV = NumItems * Base` rule for non-artifact crafts.
+#
+# Refining recipes get a different rule: the OUTPUT item's IV is just the
+# refined-material IV at that tier+ench, not the sum of input IVs.
+REFINING_TO_FAMILY = {
+    'PlankRefining': 'PLANKS', 'SteelRefining': 'STEEL',
+    'LeatherRefining': 'LEATHER', 'ClothRefining': 'CLOTH',
+    'StoneRefining': 'BLOCKS',
+}
+
+def refining_output_iv(rec, ench):
+    """For refining recipes, the IV is the output material's IV at the
+    appropriate tier+ench. tier_label looks like 'Tier 4' or 'Tier 7'."""
+    family = REFINING_TO_FAMILY.get(rec['sheet'])
+    if not family:
+        return 0
+    import re as _re
+    m = _re.match(r'tier\s*(\d+)', (rec['tierLabel'] or '').strip(), _re.IGNORECASE)
+    if not m:
+        return 0
+    base_tier = int(m.group(1))
+    e_int = int(ench) if isinstance(ench, str) and ench.isdigit() else (ench if isinstance(ench, int) else 0)
+    return 16 * (2 ** (base_tier - 4)) * (2 ** e_int)
+
+
+for rec in all_recipes:
+    iv_map = rec.get('iv', {})
+    is_refining = rec['sheet'] in REFINING_TO_FAMILY
+    for ench, items in rec['enchantments'].items():
+        if ench in iv_map and iv_map[ench]:
+            continue  # spreadsheet value wins
+        if is_refining:
+            iv_map[ench] = refining_output_iv(rec, ench)
+            continue
+        total = 0
+        for it in items:
+            if it.get('heartGated'):    continue
+            if it.get('noReturnDiscount'):  # artifacts handled by IV multiplier IRL
+                continue
+            mat = mat_meta.get(it['mat'])
+            if not mat:
+                continue
+            total += (it.get('qty', 0) or 0) * (mat.get('iv', 0) or 0)
+        if total > 0:
+            iv_map[ench] = total
+    if iv_map:
+        rec['iv'] = iv_map
 
 # Group recipes by sheet
 by_sheet = {}
