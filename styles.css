@@ -614,29 +614,44 @@ table.tbl {
 }
 
 /* Material grid layout */
-/* Materials grid is multi-column (masonry) so a tall card like Fish
-   doesn't push the rest of the row down. Cards naturally pack together
-   in vertical columns, eliminating the empty stripes left over when a
-   row had to align with the tallest sibling. */
+/* Default materials grid — straight CSS Grid, cards hug their content so
+   short ones don't stretch to match the tallest in the row. */
 .mat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+/* Single full-width column — used by Artifact panels where each card has
+   a wide internal grid that must not be squashed. */
+.mat-grid--single {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+/* Masonry / multi-column flow — used by the Food / Potion materials tab
+   where card heights vary wildly (Fish is huge, Milk is tiny). Short
+   cards stack directly under shorter siblings instead of waiting for
+   the tallest card in a row. Scoped to .mat-grid--masonry only so it
+   doesn't shrink the wide artifact cards. */
+.mat-grid--masonry {
+  display: block;            /* override the grid layout above */
   column-width: 290px;
   column-gap: 16px;
   column-fill: balance;
 }
-/* Single-column variant for the Artifact-prices panel, where each card
-   should span the full panel width. */
-.mat-grid--single { column-count: 1; }
+.mat-grid--masonry .mat-card {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
 .mat-card {
   background: var(--bg-2);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 12px;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 16px;
-  break-inside: avoid;            /* don't split a card across columns */
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
 }
 .mat-card h4 {
   margin: 0 0 8px;

@@ -771,7 +771,7 @@ function pageMaterials() {
       ${groups.map(g => `<button class="tab ${g.id===activeTab?'active':''}" data-mtab="${g.id}">${g.label}</button>`).join('')}
     </div>
 
-    <div class="mat-grid">${cards}</div>
+    <div class="mat-grid ${grp.id === 'food' ? 'mat-grid--masonry' : grp.id === 'artifacts' ? 'mat-grid--single' : ''}">${cards}</div>
   `;
 }
 
