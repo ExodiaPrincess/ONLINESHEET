@@ -651,7 +651,12 @@ function pageSheet(sheet) {
         return `<td class="price-cell">${formatSilver(cost)}</td>`;
       }).join('');
       // Only the FIRST tier-row of a section gets the merged item cell.
-      body += `<tr>
+      // Tag the first / last rows so CSS can space sections apart.
+      const rowClasses = [
+        i === 0 ? 'section-start' : '',
+        i === recs.length - 1 ? 'section-end' : '',
+      ].filter(Boolean).join(' ');
+      body += `<tr${rowClasses ? ` class="${rowClasses}"` : ''}>
         ${i === 0 ? itemCellHtml : ''}
         <td class="tier-cell">${r.tierLabel}</td>
         ${cells}

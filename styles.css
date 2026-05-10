@@ -287,25 +287,33 @@ table.tbl {
   vertical-align: middle;
   background: var(--bg-2);
   border-right: 1px solid var(--line-2);
-  min-width: 130px;
-  padding: 14px 14px;
+  min-width: 200px;
+  padding: 22px 18px;
 }
 .tbl .item-icon {
   display: block;
-  width: 84px;
-  height: 84px;
-  margin: 0 auto 6px;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  width: 156px;
+  height: 156px;
+  max-width: 100%;
+  margin: 0 auto 10px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.55));
   image-rendering: -webkit-optimize-contrast;
 }
 .tbl .item-label {
   font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.3px;
   color: var(--accent);
-  line-height: 1.2;
+  line-height: 1.25;
 }
+
+/* Vertical gap between sections — first row of each new item gets a
+   thick spacer above it. Last row of a section gets a heavier underline
+   so the eye reads each item as a self-contained block. */
+.tbl tbody tr.section-start td { border-top: 6px solid var(--bg); }
+.tbl tbody tr.section-start:first-child td { border-top: none; }
+.tbl tbody tr.section-end td { border-bottom: 1px solid var(--line-2); }
 .tbl .tier-cell { color: var(--text-3); font-size: 12px; }
 .tbl .price-cell {
   font-family: var(--mono);
