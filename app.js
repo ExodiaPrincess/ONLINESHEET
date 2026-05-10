@@ -82,6 +82,7 @@ const State = {
     hideoutRate: 50,          // % when location=hideout
     stationFee: 1000,         // for food/potions
     useHearts: false,         // for refining T4+
+    pricingMode: 'auto',      // refining only: auto | market | chain
   },
   view: { type: 'home', sheet: null },
 };
@@ -108,11 +109,13 @@ function loadStored() {
 
 function saveSettings() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({ settings: State.settings }));
+  if (typeof clearChainCache === 'function') clearChainCache();
   // Mirror to Supabase if logged in. (Debounced inside NendysSync.save.)
   if (window.NendysSync && State.user) NendysSync.save(State.prices, State.settings);
 }
 function savePrices() {
   localStorage.setItem(PRICES_KEY, JSON.stringify(State.prices));
+  if (typeof clearChainCache === 'function') clearChainCache();
   if (window.NendysSync && State.user) NendysSync.save(State.prices, State.settings);
 }
 
@@ -139,6 +142,167 @@ function returnFactor(sheet) {
   const r = (cityBonus + dayBonus + focusBonus) / 100;
   // Spreadsheet formula: 1 - 1/(1+r)
   return 1 - 1 / (1 + r);
+}
+
+// =============================================================================
+// REFINING — CHAIN COST
+// =============================================================================
+// On refining pages we offer three modes:
+//   - 'market' : prev-tier refined ingredient is priced at the user's market
+//                price (today's behaviour).
+//   - 'chain'  : prev-tier refined ingredient is priced at our COMPUTED cost
+//                of refining it ourselves (recursively).
+//   - 'auto'   : per cell, pick whichever is cheaper. Also tags the cell so
+//                the UI can show an M/C badge.
+//
+// The cache keys on (sheet, refinedFamily, tier, ench) and is cleared whenever
+// prices or settings change so stale values don't leak across renders.
+
+const REFINING_OUTPUT_FAMILY = {
+  PlankRefining: 'PLANKS',
+  SteelRefining: 'STEEL',
+  LeatherRefining: 'LEATHER',
+  ClothRefining: 'CLOTH',
+  StoneRefining: 'BLOCKS',
+};
+
+const _chainCostCache = new Map();
+function clearChainCache() { _chainCostCache.clear(); }
+
+/** Parse a refined-material id like "LEATHER_T4.2" → {family, tier, ench}. */
+function parseRefinedMatId(id) {
+  const m = String(id || '').match(/^([A-Z]+)_T(\d+)(?:\.(\d+))?$/);
+  if (!m) return null;
+  return { family: m[1], tier: Number(m[2]), ench: Number(m[3] || 0) };
+}
+
+/** Find the refining recipe row in `sheet` whose tier label is "Tier <n>". */
+function findRefiningRecipe(sheet, tierNum) {
+  return (State.data.recipes || []).find(r =>
+    r.sheet === sheet && r.tierLabel === `Tier ${tierNum}`
+  );
+}
+
+/** Cost of producing one unit of the refined output of `sheet` at (tier, ench)
+ *  by chain-refining: every prev-tier refined ingredient is itself produced
+ *  recursively at min(market, chain).
+ *  Returns null if any required price is missing along the chain. */
+function chainProduceCost(sheet, tier, ench) {
+  const family = REFINING_OUTPUT_FAMILY[sheet];
+  if (!family) return null;
+  const key = `${sheet}|${tier}|${ench}`;
+  if (_chainCostCache.has(key)) return _chainCostCache.get(key);
+
+  const recipe = findRefiningRecipe(sheet, tier);
+  if (!recipe) { _chainCostCache.set(key, null); return null; }
+  const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
+  if (!items) { _chainCostCache.set(key, null); return null; }
+
+  const ret = returnFactor(sheet);
+  const useHearts = !!State.settings.useHearts;
+  let total = 0;
+  let missingAny = false;
+
+  for (const it of items) {
+    if (it.heartGated && !useHearts) continue;
+    let qty = it.qty;
+    if (it.heartReducesQty && useHearts) qty = Math.max(0, qty - 1);
+    if (qty <= 0) continue;
+
+    let unitPrice;
+    const parsed = parseRefinedMatId(it.mat);
+    const isPrevRefined = parsed && parsed.family === family && parsed.tier < tier;
+
+    if (isPrevRefined) {
+      const market   = State.prices[it.mat];
+      const produced = chainProduceCost(sheet, parsed.tier, parsed.ench);
+      const candidates = [market, produced].filter(v => v != null && !isNaN(v));
+      unitPrice = candidates.length ? Math.min(...candidates) : null;
+    } else {
+      const market = State.prices[it.mat];
+      unitPrice = (market != null && !isNaN(market)) ? Number(market) : null;
+    }
+    if (unitPrice == null) { missingAny = true; continue; }
+
+    const noDiscount = it.heartGated || it.noReturnDiscount;
+    const factor = noDiscount ? 1 : (1 - ret);
+    total += qty * unitPrice * factor;
+  }
+  const result = missingAny ? null : total;
+  _chainCostCache.set(key, result);
+  return result;
+}
+
+/** Public entry for refining cells. Returns { cost, mode, missing }
+ *  where mode is 'M' (market) or 'C' (chain) — used to render the badge. */
+function refiningCellCost(sheet, recipe, ench) {
+  const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
+  if (!items) return { cost: null, mode: null, missing: [] };
+  const tier = Number((recipe.tierLabel.match(/(\d+)/) || [])[1] || 0);
+  const family = REFINING_OUTPUT_FAMILY[sheet];
+
+  // Compute the row's cost twice: once with market prices for prev-tier-refined,
+  // once with the chain-produced cost.
+  const ret = returnFactor(sheet);
+  const useHearts = !!State.settings.useHearts;
+  const missingMarket = new Set(), missingChain = new Set();
+  let costMarket = 0, costChain = 0;
+  let hasMarket = true, hasChain = true;
+
+  for (const it of items) {
+    if (it.heartGated && !useHearts) continue;
+    let qty = it.qty;
+    if (it.heartReducesQty && useHearts) qty = Math.max(0, qty - 1);
+    if (qty <= 0) continue;
+
+    const noDiscount = it.heartGated || it.noReturnDiscount;
+    const factor = noDiscount ? 1 : (1 - ret);
+    const parsed = parseRefinedMatId(it.mat);
+    const isPrevRefined = parsed && family && parsed.family === family && parsed.tier < tier;
+
+    // Market branch
+    const marketPrice = State.prices[it.mat];
+    if (marketPrice != null && !isNaN(marketPrice)) {
+      costMarket += qty * Number(marketPrice) * factor;
+    } else {
+      hasMarket = false; missingMarket.add(it.mat);
+    }
+
+    // Chain branch
+    if (isPrevRefined) {
+      const produced = chainProduceCost(sheet, parsed.tier, parsed.ench);
+      if (produced != null) {
+        costChain += qty * produced * factor;
+      } else {
+        hasChain = false; missingChain.add(it.mat);
+      }
+    } else if (marketPrice != null && !isNaN(marketPrice)) {
+      costChain += qty * Number(marketPrice) * factor;
+    } else {
+      hasChain = false; missingChain.add(it.mat);
+    }
+  }
+
+  const mode = State.settings.pricingMode || 'auto';
+  if (mode === 'market') {
+    return hasMarket
+      ? { cost: costMarket, mode: 'M', missing: [] }
+      : { cost: null, mode: 'M', missing: [...missingMarket] };
+  }
+  if (mode === 'chain') {
+    return hasChain
+      ? { cost: costChain, mode: 'C', missing: [] }
+      : { cost: null, mode: 'C', missing: [...missingChain] };
+  }
+  // Auto: pick cheaper of the two that's available
+  if (hasMarket && hasChain) {
+    return costChain < costMarket
+      ? { cost: costChain, mode: 'C', missing: [] }
+      : { cost: costMarket, mode: 'M', missing: [] };
+  }
+  if (hasMarket) return { cost: costMarket, mode: 'M', missing: [...missingChain] };
+  if (hasChain)  return { cost: costChain,  mode: 'C', missing: [...missingMarket] };
+  return { cost: null, mode: null, missing: [...new Set([...missingMarket, ...missingChain])] };
 }
 
 /** Compute total cost for one craft of a given recipe entry.
@@ -267,6 +431,18 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
         <label>&nbsp;</label>
         <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts</label>
       </div>` : '';
+  // Pricing mode is refining-only: chooses between market price for the
+  // previous refined tier and your own chained cost.
+  const showPricing = !sheet || REFINING_SHEETS.has(sheet);
+  const pricingField = showPricing ? `
+      <div class="field">
+        <label for="set-pricing">Pricing</label>
+        <select id="set-pricing">
+          <option value="auto"   ${s.pricingMode==='auto'  ?'selected':''}>Auto (cheapest)</option>
+          <option value="market" ${s.pricingMode==='market'?'selected':''}>Market only</option>
+          <option value="chain"  ${s.pricingMode==='chain' ?'selected':''}>Chain only</option>
+        </select>
+      </div>` : '';
 
   // Location label is context-aware: refining pages show 58%, crafting
   // pages show 33%, and the dedicated Settings page shows both.
@@ -307,6 +483,7 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
         <input type="number" id="set-fee" min="0" step="1" value="${s.stationFee}" />
       </div>
       ${heartsField}
+      ${pricingField}
     </div>`;
 
   if (compact) {
@@ -351,6 +528,7 @@ function bindSettingsHandlers() {
     if ($('set-hideout'))    State.settings.hideoutRate = Number($('set-hideout').value) || 0;
     if ($('set-fee'))        State.settings.stationFee = Number($('set-fee').value) || 0;
     if ($('set-hearts'))     State.settings.useHearts  = $('set-hearts').checked;
+    if ($('set-pricing'))    State.settings.pricingMode = $('set-pricing').value;
     saveSettings();
 
     // Show / hide hideout input when location changes
@@ -382,7 +560,7 @@ function bindSettingsHandlers() {
       });
     }
   };
-  ['set-location','set-day','set-focus','set-hideout','set-fee','set-hearts']
+  ['set-location','set-day','set-focus','set-hideout','set-fee','set-hearts','set-pricing']
     .forEach(id => { const el = $(id); if (el) el.addEventListener('change', apply); });
 }
 
@@ -570,6 +748,9 @@ function bindSheetHandlers() {
 function updateSheetCosts() {
   if (State.view.type !== 'sheet') return;
   const sheet = State.view.sheet;
+  const isRefining = REFINING_SHEETS.has(sheet);
+  // Chain cost cache must be cleared whenever prices/settings change.
+  if (typeof clearChainCache === 'function') clearChainCache();
   const recipes = (State.data.recipes || []).filter(r => r.sheet === sheet);
   // Determine enchant column count from first recipe
   let maxEnch = 0;
@@ -591,6 +772,13 @@ function updateSheetCosts() {
       if (!cell) continue;
       const items = r.enchantments[String(e)] || r.enchantments[e];
       if (!items) { cell.textContent = '—'; cell.className = 'price-cell muted'; continue; }
+      if (isRefining) {
+        const { cost, mode } = refiningCellCost(sheet, r, e);
+        if (cost == null) { cell.textContent = 'no price'; cell.className = 'price-cell muted'; continue; }
+        cell.innerHTML = formatSilver(cost) + badgeFor(mode);
+        cell.className = 'price-cell';
+        continue;
+      }
       const iv    = (r.iv && (r.iv[String(e)] ?? r.iv[e])) || 0;
       const batch = (r.batch     && (r.batch[String(e)]     ?? r.batch[e]))     || 1;
       const { cost, missing } = computeRecipeCost(items, sheet, iv, batch);
@@ -662,12 +850,18 @@ function pageSheet(sheet) {
       const cells = enchCols.map(e => {
         const items = r.enchantments[String(e)] || r.enchantments[e];
         if (!items) return `<td class="price-cell muted">—</td>`;
+        if (isRefining) {
+          const { cost, mode, missing } = refiningCellCost(sheet, r, e);
+          missing.forEach(m => totalMissing.add(m));
+          if (cost == null) return `<td class="price-cell muted">no price</td>`;
+          return `<td class="price-cell" data-ench="${e}">${formatSilver(cost)}${badgeFor(mode)}</td>`;
+        }
         const iv    = (r.iv    && (r.iv[String(e)]    ?? r.iv[e]))    || 0;
         const batch = (r.batch && (r.batch[String(e)] ?? r.batch[e])) || 1;
         const { cost, missing } = computeRecipeCost(items, sheet, iv, batch);
         missing.forEach(m => totalMissing.add(m));
         if (missing.length === items.length) return `<td class="price-cell muted">no price</td>`;
-        return `<td class="price-cell">${formatSilver(cost)}</td>`;
+        return `<td class="price-cell" data-ench="${e}">${formatSilver(cost)}</td>`;
       }).join('');
       // Only the FIRST tier-row of a section gets the merged item cell.
       // Tag the first / last rows so CSS can space sections apart.
@@ -744,6 +938,15 @@ function stripTierFromItem(r) {
     return r.item.slice(0, -suffix.length).trim();
   }
   return r.item;
+}
+
+/** Render a small M / C badge next to a refining cost. Returns '' when
+ *  Pricing mode is forced (Market only / Chain only) so the badge would be
+ *  redundant with the dropdown. */
+function badgeFor(mode) {
+  if (!mode) return '';
+  if ((State.settings.pricingMode || 'auto') !== 'auto') return '';
+  return ` <span class="cost-badge cost-badge--${mode.toLowerCase()}">${mode}</span>`;
 }
 
 function formatSilver(n) {

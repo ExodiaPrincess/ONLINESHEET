@@ -522,7 +522,11 @@ def parse_formula_with_artifacts(formula, sheet_name):
 
 def extract_sheet_v2(ws):
     """Like extract_sheet, but uses parse_formula_with_artifacts and also
-    captures the station-fee nutrition cost (Food/Potions only)."""
+    captures the station-fee nutrition cost (Food/Potions only).
+    Skips sections whose name ends with '*' — those are the refining sheets'
+    duplicate "Refine*" tables that compute the same recipes using the user's
+    own previous-tier output instead of market prices. The web UI handles
+    chain-refining dynamically, so the duplicate data is unnecessary."""
     sheet_name = ws.title
     starts = find_recipe_block_starts(ws)
     recipes = []
@@ -533,6 +537,11 @@ def extract_sheet_v2(ws):
             if isinstance(v, str) and v.strip() and not v.strip().startswith('*'):
                 section = v.strip()
                 break
+        # Skip the asterisk variants that refining sheets use to express
+        # "compute as if you crafted the previous tiers yourself". The
+        # calculator handles chain-refining at runtime.
+        if section and section.endswith('*'):
+            continue
         end_row = ws.max_row
         for next_start in starts:
             if next_start > header_row:

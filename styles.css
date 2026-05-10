@@ -466,6 +466,27 @@ table.tbl {
   text-align: right;
   color: var(--text);
 }
+.cost-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+.cost-badge--c {
+  background: rgba(224, 183, 101, 0.18);
+  color: var(--accent);
+  border: 1px solid rgba(224, 183, 101, 0.45);
+}
+.cost-badge--m {
+  background: rgba(106, 177, 255, 0.12);
+  color: #8fc0ff;
+  border: 1px solid rgba(106, 177, 255, 0.35);
+}
 .tbl .price-cell.muted { color: var(--text-3); }
 .tbl .price-input {
   width: 110px;
