@@ -419,14 +419,18 @@ function pageMaterials() {
     }
   } else if (grp.id === 'food') {
     // Group food/potion materials by their sub-category (CROPS, HERBS, MILK, etc.)
+    // Fish (caught on the Food sheet itself) are folded into a single "FISH" card.
     const bySub = {};
     for (const m of (byFamily['FOOD_POTION'] || [])) {
       const sub = m.subFamily || 'OTHER';
       (bySub[sub] ||= []).push(m);
     }
+    for (const m of (byFamily['FISH'] || [])) {
+      (bySub['FISH'] ||= []).push(m);
+    }
     // Preferred display order — common ingredients first, harvested artifacts last
     const order = [
-      'CROPS', 'HERBS', 'MILK', 'BUTTER', 'EGGS', 'RAW MEAT', 'ANIMALS',
+      'CROPS', 'HERBS', 'FISH', 'MILK', 'BUTTER', 'EGGS', 'RAW MEAT', 'ANIMALS',
       'BREWING', 'WHEAT PRODUCTS', 'FLOUR',
       'SHADOW CLAWS', 'SYLVIAN ROOT', 'WEREWOLF FANGS', 'SPIRIT PAWS',
       'IMP\'S HORNS', 'RUNESTONE TOOTH', 'DAWNFEATHER',

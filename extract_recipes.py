@@ -406,10 +406,34 @@ def build_artifact_catalog(wb):
 build_artifact_catalog(wb)
 
 
-# ---------- UPDATE FORMULA PARSER FOR ARTIFACT REFS ----------
-# Detect local-sheet refs like `$I$6`, `$K$8` (NOT prefixed with Materials!).
-# These point to artifact prices on the same sheet.
-LOCAL_REF = re.compile(r"(?<!Materials!)\$([A-Z])\$(\d+)")
+# ---------- FOOD SHEET FISH-PRICE CATALOG ----------
+# The Food sheet has its own fish-price grid (not in Materials!).
+#   Row 6 headers:  I=Eel  K=Eye  M=Lurcher  O=Crab  Q=Clam  S=Squid  U=Snapper
+#   Row 7 = T3   Row 9 = T5   Row 11 = T7  (prices live at I/K/M/O/Q/S/U on those rows)
+# Recipes reference these as bare cell refs like "Q7" — no Materials! prefix.
+FISH_COLS = {'I':'Eel','K':'Eye','M':'Lurcher','O':'Crab','Q':'Clam','S':'Squid','U':'Snapper'}
+FISH_TIER_ROWS = {7: 'T3', 9: 'T5', 11: 'T7'}
+ws_food = wb['Food'] if 'Food' in wb.sheetnames else None
+if ws_food is not None:
+    food_local_map = sheet_artifact_maps.setdefault('Food', {})
+    for col, name in FISH_COLS.items():
+        for row, tier in FISH_TIER_ROWS.items():
+            mid = f'FISH_{slug(name)}_{tier}'
+            food_local_map[f'{col}{row}'] = mid
+            mat_meta[mid] = {
+                'id': mid,
+                'family': 'FISH',
+                'subFamily': name.upper(),
+                'tier': tier,
+                'kind': 'fish',
+                'name': f'{name} {tier}',
+            }
+
+
+# ---------- UPDATE FORMULA PARSER FOR LOCAL REFS ----------
+# Match $-anchored OR bare cell refs that aren't prefixed with `Materials!`.
+# Examples: $I$6 (artifact, Sword sheet), Q7 (fish, Food sheet).
+LOCAL_REF = re.compile(r"\$?([A-Z])\$?(\d+)")
 
 def parse_formula_with_artifacts(formula, sheet_name):
     """Wraps parse_formula; additionally detects local artifact refs."""
@@ -421,29 +445,29 @@ def parse_formula_with_artifacts(formula, sheet_name):
         return items if items else None
 
     sheet_map = sheet_artifact_maps.get(sheet_name, {})
-    # Find local refs that don't follow `Materials!`
-    # Simple approach: iterate matches and check the prefix.
+    if not sheet_map:
+        return items if items else None
     for m in LOCAL_REF.finditer(f):
         coord = f'{m.group(1)}{m.group(2)}'
-        # Skip if this happens to be at a position right after 'Materials!' (already covered)
+        # Skip refs prefixed with `Materials!` (already covered above)
         start = m.start()
         if start >= len('Materials!'):
             preceding = f[max(0, start - len('Materials!')):start]
             if preceding.endswith('Materials!'):
                 continue
-        # Only consider artifact rows (6, 8, 10, 12, 14) and artifact cols
-        row = int(m.group(2))
-        col = m.group(1)
-        if row not in ARTIFACT_TIER_ROWS or col not in ARTIFACT_COLS:
-            continue
         mid = sheet_map.get(coord)
         if not mid:
             continue
         # Avoid duplicates
         if any(it['mat'] == mid for it in items):
             continue
-        # Artifacts are added OUTSIDE the (1-returnFactor) bracket — flag as noReturnDiscount
-        items.append({'mat': mid, 'qty': 1, 'noReturnDiscount': True})
+        # Artifacts AND fish are added outside the (1-returnFactor) bracket
+        # for artifacts, but fish ARE inside the bracket in the food formulas
+        # (e.g. `(2 * Materials!$D$151 + Q7) * (1 - V15)`). Flag accordingly.
+        if mid.startswith('FISH_'):
+            items.append({'mat': mid, 'qty': 1})
+        else:
+            items.append({'mat': mid, 'qty': 1, 'noReturnDiscount': True})
     return items if items else None
 
 
