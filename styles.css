@@ -166,6 +166,16 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
 }
+/* Image variant: drop the gold-gradient placeholder and let the avatar
+   fill the rounded square. Subtle ring + drop-shadow keeps it integrated. */
+img.brand__mark--img {
+  background: transparent;
+  object-fit: cover;
+  padding: 0;
+  box-shadow:
+    0 0 0 1px rgba(224, 183, 101, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.45);
+}
 .brand__title { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
 .brand__sub { color: var(--text-3); font-size: 12px; }
 .topbar__actions { display: flex; gap: 8px; }
