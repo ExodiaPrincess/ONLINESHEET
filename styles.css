@@ -40,6 +40,99 @@ body {
   font-size: 14px;
 }
 
+/* ---------- LOGIN OVERLAY ---------- */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(700px 500px at 50% 30%, rgba(224, 183, 101, 0.12), transparent 60%),
+    rgba(8, 10, 13, 0.92);
+  backdrop-filter: blur(8px);
+}
+.login-overlay[hidden] { display: none; }
+.login-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 28px 22px;
+  width: min(380px, calc(100vw - 32px));
+  box-shadow: var(--shadow);
+}
+.login-card__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.login-card__brand .brand__mark {
+  margin-bottom: 6px;
+  width: 56px; height: 56px; font-size: 30px;
+}
+.login-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+.login-card__sub {
+  color: var(--text-3);
+  font-size: 12.5px;
+}
+.login-card .field { margin-bottom: 12px; }
+.login-card .field input {
+  background: var(--bg-3);
+  color: var(--text);
+  border: 1px solid var(--line-2);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.login-card .field input:focus { border-color: var(--accent); }
+.login-card__submit {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.login-card__submit:disabled { opacity: 0.6; cursor: progress; }
+.login-card__error {
+  background: rgba(239, 107, 107, 0.1);
+  border: 1px solid rgba(239, 107, 107, 0.4);
+  color: var(--bad);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  margin-top: 12px;
+}
+.login-card__footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+.topbar__user {
+  font-size: 12.5px;
+  color: var(--text-2);
+  padding: 7px 10px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ---------- TOPBAR ---------- */
 .topbar {
   display: flex;

@@ -73,6 +73,7 @@ const SHEET_LABELS = {
 const State = {
   data: null,            // loaded from data.json
   icons: {},             // loaded from icons.json: { sheet: { section: itemId } }
+  user: null,            // Supabase user object (null if not signed in)
   prices: {},            // mat_id -> price (number)
   settings: {
     location: 'city',         // island | city | bonusCity | hideout
@@ -107,9 +108,12 @@ function loadStored() {
 
 function saveSettings() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({ settings: State.settings }));
+  // Mirror to Supabase if logged in. (Debounced inside NendysSync.save.)
+  if (window.NendysSync && State.user) NendysSync.save(State.prices, State.settings);
 }
 function savePrices() {
   localStorage.setItem(PRICES_KEY, JSON.stringify(State.prices));
+  if (window.NendysSync && State.user) NendysSync.save(State.prices, State.settings);
 }
 
 // =============================================================================
@@ -824,11 +828,115 @@ function bindTopbar() {
 }
 
 // =============================================================================
+// LOGIN OVERLAY
+// =============================================================================
+function showLogin() {
+  const overlay = document.getElementById('login-overlay');
+  if (overlay) overlay.hidden = false;
+  // Hide app chrome bits while not authed
+  toggleAppChrome(false);
+}
+function hideLogin() {
+  const overlay = document.getElementById('login-overlay');
+  if (overlay) overlay.hidden = true;
+  toggleAppChrome(true);
+}
+function toggleAppChrome(loggedIn) {
+  const logoutBtn  = document.getElementById('logoutBtn');
+  const userLabel  = document.getElementById('current-user');
+  const exportBtn  = document.getElementById('exportBtn');
+  const importBtn  = document.getElementById('importBtn');
+  const resetBtn   = document.getElementById('resetBtn');
+  if (logoutBtn) logoutBtn.hidden = !loggedIn;
+  if (userLabel) userLabel.hidden = !loggedIn;
+  if (exportBtn) exportBtn.hidden = !loggedIn;
+  if (importBtn) importBtn.hidden = !loggedIn;
+  if (resetBtn)  resetBtn.hidden  = !loggedIn;
+}
+
+function bindLoginForm() {
+  const form  = document.getElementById('login-form');
+  const err   = document.getElementById('login-error');
+  const btn   = document.getElementById('login-submit');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+    const email    = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    const { user, error } = await NendysAuth.signIn(email, password);
+    btn.disabled = false;
+    btn.textContent = 'Sign In';
+    if (error) {
+      err.textContent = error;
+      err.hidden = false;
+      return;
+    }
+    // onChange listener will pick up the new session and finish the boot.
+  });
+}
+
+function bindLogout() {
+  const btn = document.getElementById('logoutBtn');
+  if (!btn) return;
+  btn.addEventListener('click', async () => {
+    if (!confirm('Sign out?')) return;
+    // Flush any pending writes before we lose the session
+    if (window.NendysSync) await NendysSync.flush(State.prices, State.settings);
+    await NendysAuth.signOut();
+    location.reload();
+  });
+}
+
+/** Initialize the calculator app once the user is known to be signed in.
+ *  Idempotent — safe to call on every auth-state change to a logged-in user. */
+let appInitialized = false;
+async function initAppForUser(user) {
+  State.user = user;
+  const userLabel = document.getElementById('current-user');
+  if (userLabel) userLabel.textContent = user.email || 'Signed in';
+
+  // Pull the user's stored prices & settings from Supabase, falling back to
+  // anything in localStorage if the cloud row is empty / unreachable.
+  try {
+    const cloud = await NendysSync.load();
+    if (cloud) {
+      if (cloud.prices && Object.keys(cloud.prices).length) {
+        State.prices = cloud.prices;
+        localStorage.setItem(PRICES_KEY, JSON.stringify(State.prices));
+      }
+      if (cloud.settings && Object.keys(cloud.settings).length) {
+        Object.assign(State.settings, cloud.settings);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ settings: State.settings }));
+      }
+    }
+  } catch (e) {
+    console.warn('Cloud load failed, using local cache:', e);
+  }
+
+  hideLogin();
+
+  if (appInitialized) {
+    render();
+    return;
+  }
+  appInitialized = true;
+  bindTopbar();
+  render();
+}
+
+// =============================================================================
 // BOOT
 // =============================================================================
 async function boot() {
   document.getElementById('main').innerHTML = '<div class="loading">Loading recipe data…</div>';
   loadStored();
+  bindLoginForm();
+  bindLogout();
+
+  // Load static data first — the calculator needs it whether logged in or not.
   try {
     const [data, icons] = await Promise.all([
       fetch('data.json').then(r => r.json()),
@@ -841,8 +949,34 @@ async function boot() {
       `<div class="panel"><p style="color:var(--bad)">Failed to load data.json: ${err.message}</p></div>`;
     return;
   }
-  bindTopbar();
-  render();
+
+  // If Supabase isn't configured yet, fall back to local-only mode so the
+  // site is still demoable while the admin sets credentials.
+  if (!window.NendysAuth || !NendysAuth.isConfigured) {
+    console.warn('[Nendys] Supabase not configured. Running in local-only mode. Edit albion/config.js.');
+    document.getElementById('main').innerHTML =
+      `<div class="panel" style="border-color: var(--warn);">
+         <h2 class="panel__title" style="color: var(--warn);">Auth not configured</h2>
+         <p style="color: var(--text-2); margin: 0; line-height: 1.6;">
+           This deployment is missing Supabase credentials. Edit
+           <code style="color: var(--accent);">albion/config.js</code> with your
+           project URL and anon key, then redeploy.
+         </p>
+       </div>`;
+    return;
+  }
+
+  // Watch for sign-in / sign-out
+  NendysAuth.onChange(user => {
+    if (user) { initAppForUser(user); }
+    else      { State.user = null; appInitialized = false; showLogin(); }
+  });
+
+  // Initial check — already signed in?
+  const user = await NendysAuth.getUser();
+  if (user) initAppForUser(user);
+  else      showLogin();
+  return;
 }
 
 boot();

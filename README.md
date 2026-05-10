@@ -9,13 +9,49 @@ All calculations run locally in your browser. Prices and settings are stored in 
 
 ## Live use
 
-Open `index.html` in any modern browser — no build step, no server, no API.
+Open `index.html` in any modern browser. The site is fully static — no build
+step, no server-side runtime — but it does authenticate against Supabase so
+viewers must be invited members of your community.
 
 ```
 git clone https://github.com/ExodiaPrincess/ONLINESHEET.git
 cd ONLINESHEET
 # open index.html
 ```
+
+## Auth + per-user sync (Supabase)
+
+Sign-in is required. Each user's prices and settings are stored in their own
+row in Supabase and follow them across devices.
+
+### One-time Supabase setup
+1. Create a new project at https://supabase.com.
+2. **Authentication → Providers → Email**: enable; turn **off** "Confirm email".
+3. **Authentication → Sign In / Up**: turn **off** "Allow new users to sign up"
+   so the only way in is via accounts you create.
+4. **Authentication → Users → Add user**: enter email + password to issue a
+   credential. Repeat per player.
+5. **SQL Editor → New query**: paste the snippet below and run it.
+
+```sql
+create table if not exists public.user_data (
+  user_id     uuid primary key references auth.users(id) on delete cascade,
+  prices      jsonb not null default '{}'::jsonb,
+  settings    jsonb not null default '{}'::jsonb,
+  updated_at  timestamptz not null default now()
+);
+
+alter table public.user_data enable row level security;
+
+create policy "Users read their own data"   on public.user_data for select using (auth.uid() = user_id);
+create policy "Users insert their own data" on public.user_data for insert with check (auth.uid() = user_id);
+create policy "Users update their own data" on public.user_data for update using (auth.uid() = user_id);
+```
+
+6. **Project Settings → API**: copy the *Project URL* and *anon public* key
+   into `albion/config.js`. (The anon key is designed to be public; RLS is
+   what actually protects data.)
+7. Commit and redeploy.
 
 ## What it covers
 

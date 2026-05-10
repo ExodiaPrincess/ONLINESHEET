@@ -16,6 +16,32 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- ==============================================================
+       LOGIN OVERLAY
+       Shown until the user is authenticated against Supabase.
+  =============================================================== -->
+  <div id="login-overlay" class="login-overlay" hidden>
+    <form class="login-card" id="login-form">
+      <div class="login-card__brand">
+        <div class="brand__mark">N</div>
+        <div class="login-card__title">Nendys Calculator</div>
+        <div class="login-card__sub">Restricted access — please sign in</div>
+      </div>
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn--primary login-card__submit" id="login-submit">Sign In</button>
+      <div id="login-error" class="login-card__error" hidden></div>
+      <div class="login-card__footer">No account? Contact your admin.</div>
+    </form>
+  </div>
+
   <header class="topbar">
     <div class="brand">
       <div class="brand__mark">N</div>
@@ -25,10 +51,12 @@
       </div>
     </div>
     <div class="topbar__actions">
+      <span id="current-user" class="topbar__user" hidden></span>
       <button id="exportBtn" class="btn btn--ghost" title="Export prices as JSON">Export</button>
       <button id="importBtn" class="btn btn--ghost" title="Import prices from JSON">Import</button>
       <input id="importFile" type="file" accept="application/json" hidden />
       <button id="resetBtn" class="btn btn--danger" title="Reset all stored prices">Reset</button>
+      <button id="logoutBtn" class="btn btn--ghost" title="Sign out" hidden>Sign Out</button>
     </div>
   </header>
 
@@ -43,9 +71,14 @@
   </div>
 
   <footer class="footer">
-    <span>Calculations replicate the Nendys V2 spreadsheet. Prices saved locally in your browser.</span>
+    <span>Calculations replicate the Nendys V2 spreadsheet. Prices stored in your account on Supabase.</span>
   </footer>
 
+  <!-- Supabase JS SDK (UMD) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Project credentials & helpers -->
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
