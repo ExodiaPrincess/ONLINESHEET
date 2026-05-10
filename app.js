@@ -267,6 +267,14 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
         <label>&nbsp;</label>
         <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts</label>
       </div>` : '';
+
+  // Location label is context-aware: refining pages show 58%, crafting
+  // pages show 33%, and the dedicated Settings page shows both.
+  let bonusLabel = 'Bonus City (33% / 58% refining)';
+  if (sheet) {
+    bonusLabel = REFINING_SHEETS.has(sheet) ? 'Bonus City (58%)' : 'Bonus City (33%)';
+  }
+
   const returnRateBlock = `
     <div class="settings-grid">
       <div class="field">
@@ -274,7 +282,7 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
         <select id="set-location">
           <option value="island"     ${s.location==='island'?'selected':''}>Island (0%)</option>
           <option value="city"       ${s.location==='city'?'selected':''}>City (18%)</option>
-          <option value="bonusCity"  ${s.location==='bonusCity'?'selected':''}>Bonus City (33% / 58% refining)</option>
+          <option value="bonusCity"  ${s.location==='bonusCity'?'selected':''}>${bonusLabel}</option>
           <option value="hideout"    ${s.location==='hideout'?'selected':''}>Hideout (custom)</option>
         </select>
       </div>
