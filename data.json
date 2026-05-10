@@ -22045,7 +22045,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 1",
       "tierLabel": "Tier 1",
@@ -22066,7 +22066,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 2",
       "tierLabel": "Tier 2",
@@ -22087,7 +22087,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 3",
       "tierLabel": "Tier 3",
@@ -22108,7 +22108,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Cap",
       "item": "Harvester Cap Tier 4",
       "tierLabel": "Tier 4",
@@ -22125,7 +22125,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Garb",
       "item": "Harvester Garb Tier 4",
       "tierLabel": "Tier 4",
@@ -22142,7 +22142,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Workboots",
       "item": "Harvester Workboots Tier 4",
       "tierLabel": "Tier 4",
@@ -22159,7 +22159,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Backpack",
       "item": "Harvester Backpack Tier 4",
       "tierLabel": "Tier 4",
@@ -22180,7 +22180,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 4",
       "tierLabel": "Tier 4",
@@ -22201,7 +22201,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Avalonian Sickle",
       "item": "Avalonian Sickle Tier 4",
       "tierLabel": "Tier 4",
@@ -22226,7 +22226,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Cap",
       "item": "Harvester Cap Tier 5",
       "tierLabel": "Tier 5",
@@ -22243,7 +22243,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Garb",
       "item": "Harvester Garb Tier 5",
       "tierLabel": "Tier 5",
@@ -22260,7 +22260,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Workboots",
       "item": "Harvester Workboots Tier 5",
       "tierLabel": "Tier 5",
@@ -22277,7 +22277,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Backpack",
       "item": "Harvester Backpack Tier 5",
       "tierLabel": "Tier 5",
@@ -22298,7 +22298,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 5",
       "tierLabel": "Tier 5",
@@ -22319,7 +22319,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Avalonian Sickle",
       "item": "Avalonian Sickle Tier 5",
       "tierLabel": "Tier 5",
@@ -22344,7 +22344,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Cap",
       "item": "Harvester Cap Tier 6",
       "tierLabel": "Tier 6",
@@ -22361,7 +22361,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Garb",
       "item": "Harvester Garb Tier 6",
       "tierLabel": "Tier 6",
@@ -22378,7 +22378,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Workboots",
       "item": "Harvester Workboots Tier 6",
       "tierLabel": "Tier 6",
@@ -22395,7 +22395,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Backpack",
       "item": "Harvester Backpack Tier 6",
       "tierLabel": "Tier 6",
@@ -22416,7 +22416,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 6",
       "tierLabel": "Tier 6",
@@ -22437,7 +22437,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Avalonian Sickle",
       "item": "Avalonian Sickle Tier 6",
       "tierLabel": "Tier 6",
@@ -22462,7 +22462,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Cap",
       "item": "Harvester Cap Tier 7",
       "tierLabel": "Tier 7",
@@ -22479,7 +22479,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Garb",
       "item": "Harvester Garb Tier 7",
       "tierLabel": "Tier 7",
@@ -22496,7 +22496,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Workboots",
       "item": "Harvester Workboots Tier 7",
       "tierLabel": "Tier 7",
@@ -22513,7 +22513,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Backpack",
       "item": "Harvester Backpack Tier 7",
       "tierLabel": "Tier 7",
@@ -22534,7 +22534,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 7",
       "tierLabel": "Tier 7",
@@ -22555,7 +22555,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Avalonian Sickle",
       "item": "Avalonian Sickle Tier 7",
       "tierLabel": "Tier 7",
@@ -22580,7 +22580,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Cap",
       "item": "Harvester Cap Tier 8",
       "tierLabel": "Tier 8",
@@ -22597,7 +22597,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Garb",
       "item": "Harvester Garb Tier 8",
       "tierLabel": "Tier 8",
@@ -22614,7 +22614,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Workboots",
       "item": "Harvester Workboots Tier 8",
       "tierLabel": "Tier 8",
@@ -22631,7 +22631,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Harvester Backpack",
       "item": "Harvester Backpack Tier 8",
       "tierLabel": "Tier 8",
@@ -22652,7 +22652,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Sickle",
       "item": "Sickle Tier 8",
       "tierLabel": "Tier 8",
@@ -22673,7 +22673,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringHarvester",
       "section": "Avalonian Sickle",
       "item": "Avalonian Sickle Tier 8",
       "tierLabel": "Tier 8",
@@ -22698,7 +22698,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 1",
       "tierLabel": "Tier 1",
@@ -22719,7 +22719,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 2",
       "tierLabel": "Tier 2",
@@ -22740,7 +22740,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 3",
       "tierLabel": "Tier 3",
@@ -22761,7 +22761,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Cap",
       "item": "Skinner Cap Tier 4",
       "tierLabel": "Tier 4",
@@ -22778,7 +22778,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Garb",
       "item": "Skinner Garb Tier 4",
       "tierLabel": "Tier 4",
@@ -22795,7 +22795,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Workboots",
       "item": "Skinner Workboots Tier 4",
       "tierLabel": "Tier 4",
@@ -22812,7 +22812,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Backpack",
       "item": "Skinner Backpack Tier 4",
       "tierLabel": "Tier 4",
@@ -22829,7 +22829,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 4",
       "tierLabel": "Tier 4",
@@ -22850,7 +22850,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Avalonian Knife",
       "item": "Avalonian Knife Tier 4",
       "tierLabel": "Tier 4",
@@ -22875,7 +22875,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Cap",
       "item": "Skinner Cap Tier 5",
       "tierLabel": "Tier 5",
@@ -22892,7 +22892,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Garb",
       "item": "Skinner Garb Tier 5",
       "tierLabel": "Tier 5",
@@ -22909,7 +22909,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Workboots",
       "item": "Skinner Workboots Tier 5",
       "tierLabel": "Tier 5",
@@ -22926,7 +22926,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Backpack",
       "item": "Skinner Backpack Tier 5",
       "tierLabel": "Tier 5",
@@ -22943,7 +22943,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 5",
       "tierLabel": "Tier 5",
@@ -22964,7 +22964,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Avalonian Knife",
       "item": "Avalonian Knife Tier 5",
       "tierLabel": "Tier 5",
@@ -22989,7 +22989,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Cap",
       "item": "Skinner Cap Tier 6",
       "tierLabel": "Tier 6",
@@ -23006,7 +23006,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Garb",
       "item": "Skinner Garb Tier 6",
       "tierLabel": "Tier 6",
@@ -23023,7 +23023,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Workboots",
       "item": "Skinner Workboots Tier 6",
       "tierLabel": "Tier 6",
@@ -23040,7 +23040,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Backpack",
       "item": "Skinner Backpack Tier 6",
       "tierLabel": "Tier 6",
@@ -23057,7 +23057,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 6",
       "tierLabel": "Tier 6",
@@ -23078,7 +23078,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Avalonian Knife",
       "item": "Avalonian Knife Tier 6",
       "tierLabel": "Tier 6",
@@ -23103,7 +23103,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Cap",
       "item": "Skinner Cap Tier 7",
       "tierLabel": "Tier 7",
@@ -23120,7 +23120,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Garb",
       "item": "Skinner Garb Tier 7",
       "tierLabel": "Tier 7",
@@ -23137,7 +23137,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Workboots",
       "item": "Skinner Workboots Tier 7",
       "tierLabel": "Tier 7",
@@ -23154,7 +23154,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Backpack",
       "item": "Skinner Backpack Tier 7",
       "tierLabel": "Tier 7",
@@ -23171,7 +23171,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 7",
       "tierLabel": "Tier 7",
@@ -23192,7 +23192,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Avalonian Knife",
       "item": "Avalonian Knife Tier 7",
       "tierLabel": "Tier 7",
@@ -23217,7 +23217,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Cap",
       "item": "Skinner Cap Tier 8",
       "tierLabel": "Tier 8",
@@ -23234,7 +23234,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Garb",
       "item": "Skinner Garb Tier 8",
       "tierLabel": "Tier 8",
@@ -23251,7 +23251,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Workboots",
       "item": "Skinner Workboots Tier 8",
       "tierLabel": "Tier 8",
@@ -23268,7 +23268,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Skinner Backpack",
       "item": "Skinner Backpack Tier 8",
       "tierLabel": "Tier 8",
@@ -23285,7 +23285,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Knife",
       "item": "Knife Tier 8",
       "tierLabel": "Tier 8",
@@ -23306,7 +23306,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringSkinner",
       "section": "Avalonian Knife",
       "item": "Avalonian Knife Tier 8",
       "tierLabel": "Tier 8",
@@ -23331,7 +23331,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 1",
       "tierLabel": "Tier 1",
@@ -23352,7 +23352,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 2",
       "tierLabel": "Tier 2",
@@ -23373,7 +23373,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 3",
       "tierLabel": "Tier 3",
@@ -23394,7 +23394,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Cap",
       "item": "Miner Cap Tier 4",
       "tierLabel": "Tier 4",
@@ -23411,7 +23411,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Garb",
       "item": "Miner Garb Tier 4",
       "tierLabel": "Tier 4",
@@ -23428,7 +23428,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Workboots",
       "item": "Miner Workboots Tier 4",
       "tierLabel": "Tier 4",
@@ -23445,7 +23445,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Backpack",
       "item": "Miner Backpack Tier 4",
       "tierLabel": "Tier 4",
@@ -23462,7 +23462,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 4",
       "tierLabel": "Tier 4",
@@ -23483,7 +23483,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Avalonian Pickaxe",
       "item": "Avalonian Pickaxe Tier 4",
       "tierLabel": "Tier 4",
@@ -23508,7 +23508,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Cap",
       "item": "Miner Cap Tier 5",
       "tierLabel": "Tier 5",
@@ -23525,7 +23525,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Garb",
       "item": "Miner Garb Tier 5",
       "tierLabel": "Tier 5",
@@ -23542,7 +23542,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Workboots",
       "item": "Miner Workboots Tier 5",
       "tierLabel": "Tier 5",
@@ -23559,7 +23559,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Backpack",
       "item": "Miner Backpack Tier 5",
       "tierLabel": "Tier 5",
@@ -23576,7 +23576,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 5",
       "tierLabel": "Tier 5",
@@ -23597,7 +23597,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Avalonian Pickaxe",
       "item": "Avalonian Pickaxe Tier 5",
       "tierLabel": "Tier 5",
@@ -23622,7 +23622,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Cap",
       "item": "Miner Cap Tier 6",
       "tierLabel": "Tier 6",
@@ -23639,7 +23639,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Garb",
       "item": "Miner Garb Tier 6",
       "tierLabel": "Tier 6",
@@ -23656,7 +23656,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Workboots",
       "item": "Miner Workboots Tier 6",
       "tierLabel": "Tier 6",
@@ -23673,7 +23673,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Backpack",
       "item": "Miner Backpack Tier 6",
       "tierLabel": "Tier 6",
@@ -23690,7 +23690,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 6",
       "tierLabel": "Tier 6",
@@ -23711,7 +23711,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Avalonian Pickaxe",
       "item": "Avalonian Pickaxe Tier 6",
       "tierLabel": "Tier 6",
@@ -23736,7 +23736,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Cap",
       "item": "Miner Cap Tier 7",
       "tierLabel": "Tier 7",
@@ -23753,7 +23753,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Garb",
       "item": "Miner Garb Tier 7",
       "tierLabel": "Tier 7",
@@ -23770,7 +23770,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Workboots",
       "item": "Miner Workboots Tier 7",
       "tierLabel": "Tier 7",
@@ -23787,7 +23787,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Backpack",
       "item": "Miner Backpack Tier 7",
       "tierLabel": "Tier 7",
@@ -23804,7 +23804,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 7",
       "tierLabel": "Tier 7",
@@ -23825,7 +23825,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Avalonian Pickaxe",
       "item": "Avalonian Pickaxe Tier 7",
       "tierLabel": "Tier 7",
@@ -23850,7 +23850,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Cap",
       "item": "Miner Cap Tier 8",
       "tierLabel": "Tier 8",
@@ -23867,7 +23867,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Garb",
       "item": "Miner Garb Tier 8",
       "tierLabel": "Tier 8",
@@ -23884,7 +23884,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Workboots",
       "item": "Miner Workboots Tier 8",
       "tierLabel": "Tier 8",
@@ -23901,7 +23901,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Miner Backpack",
       "item": "Miner Backpack Tier 8",
       "tierLabel": "Tier 8",
@@ -23918,7 +23918,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Pickaxe",
       "item": "Pickaxe Tier 8",
       "tierLabel": "Tier 8",
@@ -23939,7 +23939,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringMiner",
       "section": "Avalonian Pickaxe",
       "item": "Avalonian Pickaxe Tier 8",
       "tierLabel": "Tier 8",
@@ -23964,7 +23964,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 1",
       "tierLabel": "Tier 1",
@@ -23985,7 +23985,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 2",
       "tierLabel": "Tier 2",
@@ -24006,7 +24006,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 3",
       "tierLabel": "Tier 3",
@@ -24027,7 +24027,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Cap",
       "item": "Quarrier Cap Tier 4",
       "tierLabel": "Tier 4",
@@ -24044,7 +24044,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Garb",
       "item": "Quarrier Garb Tier 4",
       "tierLabel": "Tier 4",
@@ -24061,7 +24061,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Workboots",
       "item": "Quarrier Workboots Tier 4",
       "tierLabel": "Tier 4",
@@ -24078,7 +24078,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Backpack",
       "item": "Quarrier Backpack Tier 4",
       "tierLabel": "Tier 4",
@@ -24095,7 +24095,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 4",
       "tierLabel": "Tier 4",
@@ -24116,7 +24116,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Avalonian Hammer",
       "item": "Avalonian Hammer Tier 4",
       "tierLabel": "Tier 4",
@@ -24141,7 +24141,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Cap",
       "item": "Quarrier Cap Tier 5",
       "tierLabel": "Tier 5",
@@ -24158,7 +24158,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Garb",
       "item": "Quarrier Garb Tier 5",
       "tierLabel": "Tier 5",
@@ -24175,7 +24175,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Workboots",
       "item": "Quarrier Workboots Tier 5",
       "tierLabel": "Tier 5",
@@ -24192,7 +24192,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Backpack",
       "item": "Quarrier Backpack Tier 5",
       "tierLabel": "Tier 5",
@@ -24209,7 +24209,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 5",
       "tierLabel": "Tier 5",
@@ -24230,7 +24230,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Avalonian Hammer",
       "item": "Avalonian Hammer Tier 5",
       "tierLabel": "Tier 5",
@@ -24255,7 +24255,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Cap",
       "item": "Quarrier Cap Tier 6",
       "tierLabel": "Tier 6",
@@ -24272,7 +24272,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Garb",
       "item": "Quarrier Garb Tier 6",
       "tierLabel": "Tier 6",
@@ -24289,7 +24289,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Workboots",
       "item": "Quarrier Workboots Tier 6",
       "tierLabel": "Tier 6",
@@ -24306,7 +24306,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Backpack",
       "item": "Quarrier Backpack Tier 6",
       "tierLabel": "Tier 6",
@@ -24323,7 +24323,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 6",
       "tierLabel": "Tier 6",
@@ -24344,7 +24344,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Avalonian Hammer",
       "item": "Avalonian Hammer Tier 6",
       "tierLabel": "Tier 6",
@@ -24369,7 +24369,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Cap",
       "item": "Quarrier Cap Tier 7",
       "tierLabel": "Tier 7",
@@ -24386,7 +24386,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Garb",
       "item": "Quarrier Garb Tier 7",
       "tierLabel": "Tier 7",
@@ -24403,7 +24403,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Workboots",
       "item": "Quarrier Workboots Tier 7",
       "tierLabel": "Tier 7",
@@ -24420,7 +24420,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Backpack",
       "item": "Quarrier Backpack Tier 7",
       "tierLabel": "Tier 7",
@@ -24437,7 +24437,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 7",
       "tierLabel": "Tier 7",
@@ -24458,7 +24458,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Avalonian Hammer",
       "item": "Avalonian Hammer Tier 7",
       "tierLabel": "Tier 7",
@@ -24483,7 +24483,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Cap",
       "item": "Quarrier Cap Tier 8",
       "tierLabel": "Tier 8",
@@ -24500,7 +24500,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Garb",
       "item": "Quarrier Garb Tier 8",
       "tierLabel": "Tier 8",
@@ -24517,7 +24517,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Workboots",
       "item": "Quarrier Workboots Tier 8",
       "tierLabel": "Tier 8",
@@ -24534,7 +24534,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Quarrier Backpack",
       "item": "Quarrier Backpack Tier 8",
       "tierLabel": "Tier 8",
@@ -24551,7 +24551,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Hammer",
       "item": "Hammer Tier 8",
       "tierLabel": "Tier 8",
@@ -24572,7 +24572,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringQuarrier",
       "section": "Avalonian Hammer",
       "item": "Avalonian Hammer Tier 8",
       "tierLabel": "Tier 8",
@@ -24597,7 +24597,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 1",
       "tierLabel": "Tier 1",
@@ -24618,7 +24618,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 2",
       "tierLabel": "Tier 2",
@@ -24639,7 +24639,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 3",
       "tierLabel": "Tier 3",
@@ -24660,7 +24660,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Cap",
       "item": "Lumberjack Cap Tier 4",
       "tierLabel": "Tier 4",
@@ -24677,7 +24677,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Garb",
       "item": "Lumberjack Garb Tier 4",
       "tierLabel": "Tier 4",
@@ -24694,7 +24694,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Workboots",
       "item": "Lumberjack Workboots Tier 4",
       "tierLabel": "Tier 4",
@@ -24711,7 +24711,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Backpack",
       "item": "Lumberjack Backpack Tier 4",
       "tierLabel": "Tier 4",
@@ -24728,7 +24728,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 4",
       "tierLabel": "Tier 4",
@@ -24749,7 +24749,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Avalonian Axe",
       "item": "Avalonian Axe Tier 4",
       "tierLabel": "Tier 4",
@@ -24774,7 +24774,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Cap",
       "item": "Lumberjack Cap Tier 5",
       "tierLabel": "Tier 5",
@@ -24791,7 +24791,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Garb",
       "item": "Lumberjack Garb Tier 5",
       "tierLabel": "Tier 5",
@@ -24808,7 +24808,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Workboots",
       "item": "Lumberjack Workboots Tier 5",
       "tierLabel": "Tier 5",
@@ -24825,7 +24825,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Backpack",
       "item": "Lumberjack Backpack Tier 5",
       "tierLabel": "Tier 5",
@@ -24842,7 +24842,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 5",
       "tierLabel": "Tier 5",
@@ -24863,7 +24863,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Avalonian Axe",
       "item": "Avalonian Axe Tier 5",
       "tierLabel": "Tier 5",
@@ -24888,7 +24888,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Cap",
       "item": "Lumberjack Cap Tier 6",
       "tierLabel": "Tier 6",
@@ -24905,7 +24905,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Garb",
       "item": "Lumberjack Garb Tier 6",
       "tierLabel": "Tier 6",
@@ -24922,7 +24922,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Workboots",
       "item": "Lumberjack Workboots Tier 6",
       "tierLabel": "Tier 6",
@@ -24939,7 +24939,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Backpack",
       "item": "Lumberjack Backpack Tier 6",
       "tierLabel": "Tier 6",
@@ -24956,7 +24956,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 6",
       "tierLabel": "Tier 6",
@@ -24977,7 +24977,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Avalonian Axe",
       "item": "Avalonian Axe Tier 6",
       "tierLabel": "Tier 6",
@@ -25002,7 +25002,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Cap",
       "item": "Lumberjack Cap Tier 7",
       "tierLabel": "Tier 7",
@@ -25019,7 +25019,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Garb",
       "item": "Lumberjack Garb Tier 7",
       "tierLabel": "Tier 7",
@@ -25036,7 +25036,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Workboots",
       "item": "Lumberjack Workboots Tier 7",
       "tierLabel": "Tier 7",
@@ -25053,7 +25053,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Backpack",
       "item": "Lumberjack Backpack Tier 7",
       "tierLabel": "Tier 7",
@@ -25070,7 +25070,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 7",
       "tierLabel": "Tier 7",
@@ -25091,7 +25091,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Avalonian Axe",
       "item": "Avalonian Axe Tier 7",
       "tierLabel": "Tier 7",
@@ -25116,7 +25116,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Cap",
       "item": "Lumberjack Cap Tier 8",
       "tierLabel": "Tier 8",
@@ -25133,7 +25133,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Garb",
       "item": "Lumberjack Garb Tier 8",
       "tierLabel": "Tier 8",
@@ -25150,7 +25150,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Workboots",
       "item": "Lumberjack Workboots Tier 8",
       "tierLabel": "Tier 8",
@@ -25167,7 +25167,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Lumberjack Backpack",
       "item": "Lumberjack Backpack Tier 8",
       "tierLabel": "Tier 8",
@@ -25184,7 +25184,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Axe",
       "item": "Axe Tier 8",
       "tierLabel": "Tier 8",
@@ -25205,7 +25205,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringLumberjack",
       "section": "Avalonian Axe",
       "item": "Avalonian Axe Tier 8",
       "tierLabel": "Tier 8",
@@ -25230,7 +25230,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 1",
       "tierLabel": "Tier 1",
@@ -25251,7 +25251,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 2",
       "tierLabel": "Tier 2",
@@ -25272,7 +25272,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 3",
       "tierLabel": "Tier 3",
@@ -25293,7 +25293,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Cap",
       "item": "Fisherman Cap Tier 4",
       "tierLabel": "Tier 4",
@@ -25310,7 +25310,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Garb",
       "item": "Fisherman Garb Tier 4",
       "tierLabel": "Tier 4",
@@ -25327,7 +25327,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Workboots",
       "item": "Fisherman Workboots Tier 4",
       "tierLabel": "Tier 4",
@@ -25344,7 +25344,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Backpack",
       "item": "Fisherman Backpack Tier 4",
       "tierLabel": "Tier 4",
@@ -25361,7 +25361,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 4",
       "tierLabel": "Tier 4",
@@ -25382,7 +25382,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Avalonian Rod",
       "item": "Avalonian Rod Tier 4",
       "tierLabel": "Tier 4",
@@ -25407,7 +25407,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Cap",
       "item": "Fisherman Cap Tier 5",
       "tierLabel": "Tier 5",
@@ -25424,7 +25424,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Garb",
       "item": "Fisherman Garb Tier 5",
       "tierLabel": "Tier 5",
@@ -25441,7 +25441,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Workboots",
       "item": "Fisherman Workboots Tier 5",
       "tierLabel": "Tier 5",
@@ -25458,7 +25458,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Backpack",
       "item": "Fisherman Backpack Tier 5",
       "tierLabel": "Tier 5",
@@ -25475,7 +25475,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 5",
       "tierLabel": "Tier 5",
@@ -25496,7 +25496,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Avalonian Rod",
       "item": "Avalonian Rod Tier 5",
       "tierLabel": "Tier 5",
@@ -25521,7 +25521,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Cap",
       "item": "Fisherman Cap Tier 6",
       "tierLabel": "Tier 6",
@@ -25538,7 +25538,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Garb",
       "item": "Fisherman Garb Tier 6",
       "tierLabel": "Tier 6",
@@ -25555,7 +25555,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Workboots",
       "item": "Fisherman Workboots Tier 6",
       "tierLabel": "Tier 6",
@@ -25572,7 +25572,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Backpack",
       "item": "Fisherman Backpack Tier 6",
       "tierLabel": "Tier 6",
@@ -25589,7 +25589,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 6",
       "tierLabel": "Tier 6",
@@ -25610,7 +25610,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Avalonian Rod",
       "item": "Avalonian Rod Tier 6",
       "tierLabel": "Tier 6",
@@ -25635,7 +25635,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Cap",
       "item": "Fisherman Cap Tier 7",
       "tierLabel": "Tier 7",
@@ -25652,7 +25652,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Garb",
       "item": "Fisherman Garb Tier 7",
       "tierLabel": "Tier 7",
@@ -25669,7 +25669,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Workboots",
       "item": "Fisherman Workboots Tier 7",
       "tierLabel": "Tier 7",
@@ -25686,7 +25686,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Backpack",
       "item": "Fisherman Backpack Tier 7",
       "tierLabel": "Tier 7",
@@ -25703,7 +25703,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 7",
       "tierLabel": "Tier 7",
@@ -25724,7 +25724,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Avalonian Rod",
       "item": "Avalonian Rod Tier 7",
       "tierLabel": "Tier 7",
@@ -25749,7 +25749,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Cap",
       "item": "Fisherman Cap Tier 8",
       "tierLabel": "Tier 8",
@@ -25766,7 +25766,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Garb",
       "item": "Fisherman Garb Tier 8",
       "tierLabel": "Tier 8",
@@ -25783,7 +25783,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Workboots",
       "item": "Fisherman Workboots Tier 8",
       "tierLabel": "Tier 8",
@@ -25800,7 +25800,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Fisherman Backpack",
       "item": "Fisherman Backpack Tier 8",
       "tierLabel": "Tier 8",
@@ -25817,7 +25817,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Rod",
       "item": "Rod Tier 8",
       "tierLabel": "Tier 8",
@@ -25838,7 +25838,7 @@
       }
     },
     {
-      "sheet": "GatheringGear",
+      "sheet": "GatheringFisherman",
       "section": "Avalonian Rod",
       "item": "Avalonian Rod Tier 8",
       "tierLabel": "Tier 8",
@@ -122288,7 +122288,12 @@
     "FireStaff",
     "Food",
     "FrostStaff",
-    "GatheringGear",
+    "GatheringFisherman",
+    "GatheringHarvester",
+    "GatheringLumberjack",
+    "GatheringMiner",
+    "GatheringQuarrier",
+    "GatheringSkinner",
     "Gloves",
     "Hammers",
     "HolyStaffs",

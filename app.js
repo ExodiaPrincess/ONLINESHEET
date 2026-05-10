@@ -25,7 +25,10 @@ const SHEET_GROUPS = [
   { title: 'Armor · Leather',  icon: 'T8_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
   { title: 'Armor · Cloth',    icon: 'T8_HEAD_CLOTH_SET1',  sheets: ['ClothCowls', 'ClothRobes', 'ClothSandals'] },
   { title: 'Accessories',      icon: 'T8_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture', 'Gloves', 'ShapeShifters'] },
-  { title: 'Gathering Gear',   icon: 'T8_2H_TOOL_PICK',     sheets: ['GatheringGear'] },
+  { title: 'Gathering Gear',   icon: 'T8_2H_TOOL_PICK',     sheets: [
+    'GatheringHarvester', 'GatheringSkinner', 'GatheringMiner',
+    'GatheringQuarrier',  'GatheringLumberjack', 'GatheringFisherman',
+  ] },
   { title: 'Consumables',      icon: 'T4_POTION_HEAL',      sheets: ['Food', 'Potions'] },
 ];
 
@@ -55,7 +58,13 @@ const SHEET_LABELS = {
   BagsSatchelsTracking: 'Bags, Satchels & Tracking',
   CapesFurniture: 'Capes & Furniture',
   ShapeShifters: 'Shapeshifter Staves',
-  GatheringGear: 'Gathering Gear',
+  GatheringGear:       'Gathering Gear',
+  GatheringHarvester:  'Harvester',
+  GatheringSkinner:    'Skinner',
+  GatheringMiner:      'Miner',
+  GatheringQuarrier:   'Quarrier',
+  GatheringLumberjack: 'Lumberjack',
+  GatheringFisherman:  'Fisherman',
 };
 
 // =============================================================================

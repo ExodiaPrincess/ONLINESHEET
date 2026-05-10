@@ -353,8 +353,18 @@ def extract_sheet(ws):
 
 def extract_gathering_gear(ws):
     """Special-case: GatheringGear uses 6 item columns (I/K/M/O/Q/S) per section.
-    Header row contains item names; each subsequent even row is a tier with cost formulas."""
+    Header row contains item names; each subsequent even row is a tier with cost formulas.
+    Each family (Harvester/Skinner/...) is exposed as its OWN virtual sheet so the
+    sidebar lists them as separate menu entries."""
     GEAR_COLS = ['I', 'K', 'M', 'O', 'Q', 'S']
+    FAMILY_TO_SHEET = {
+        'Harvester':  'GatheringHarvester',
+        'Skinner':    'GatheringSkinner',
+        'Miner':      'GatheringMiner',
+        'Quarrier':   'GatheringQuarrier',
+        'Lumberjack': 'GatheringLumberjack',
+        'Fisherman':  'GatheringFisherman',
+    }
     recipes = []
     # Find header rows (rows where column G has 'Cost')
     headers = []
@@ -367,6 +377,8 @@ def extract_gathering_gear(ws):
         # Section name from column A on the same row
         section = ws.cell(row=hrow, column=1).value
         section = section.strip() if isinstance(section, str) else f'Section{hi}'
+        # Map to virtual sheet name
+        virtual_sheet = FAMILY_TO_SHEET.get(section, 'GatheringGear')
         # Item names in I/K/M/O/Q/S of header row
         item_names = {}
         for col in GEAR_COLS:
@@ -387,11 +399,11 @@ def extract_gathering_gear(ws):
                 f = ws[f'{col}{r}'].value
                 items = parse_formula(f) if isinstance(f, str) and f.startswith('=') else None
                 if items:
-                    # Each piece (Harvester Cap, Harvester Garb, ..., Sickle,
-                    # Avalonian Sickle, ...) gets its own section so the table
-                    # renders one merged image+name cell per piece.
+                    # Each piece (Cap / Garb / Workboots / Backpack / Tool /
+                    # Avalonian Tool) gets its own section so the table renders
+                    # one merged image+name cell per piece.
                     recipes.append({
-                        'sheet': 'GatheringGear',
+                        'sheet': virtual_sheet,
                         'section': item_names[col],
                         'item': f'{item_names[col]} {tier_label}',
                         'tierLabel': tier_label,
