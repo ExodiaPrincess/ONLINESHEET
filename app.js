@@ -1127,6 +1127,13 @@ function render() {
 // TOPBAR ACTIONS
 // =============================================================================
 function bindTopbar() {
+  // Home button — returns to the landing page from anywhere.
+  const homeBtn = document.getElementById('homeBtn');
+  if (homeBtn) homeBtn.addEventListener('click', () => {
+    State.view = { type: 'home' };
+    render();
+  });
+
   document.getElementById('exportBtn').addEventListener('click', () => {
     const blob = new Blob([JSON.stringify({
       prices: State.prices, settings: State.settings,
@@ -1188,16 +1195,11 @@ function hideLogin() {
   toggleAppChrome(true);
 }
 function toggleAppChrome(loggedIn) {
-  const logoutBtn  = document.getElementById('logoutBtn');
-  const userLabel  = document.getElementById('current-user');
-  const exportBtn  = document.getElementById('exportBtn');
-  const importBtn  = document.getElementById('importBtn');
-  const resetBtn   = document.getElementById('resetBtn');
-  if (logoutBtn) logoutBtn.hidden = !loggedIn;
-  if (userLabel) userLabel.hidden = !loggedIn;
-  if (exportBtn) exportBtn.hidden = !loggedIn;
-  if (importBtn) importBtn.hidden = !loggedIn;
-  if (resetBtn)  resetBtn.hidden  = !loggedIn;
+  const ids = ['homeBtn', 'logoutBtn', 'current-user', 'exportBtn', 'importBtn', 'resetBtn'];
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (el) el.hidden = !loggedIn;
+  }
 }
 
 function bindLoginForm() {
