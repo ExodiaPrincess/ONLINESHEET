@@ -56,7 +56,7 @@ const SHEET_LABELS = {
   ClothRobes: 'Cloth Robes',
   ClothSandals: 'Cloth Sandals',
   BagsSatchelsTracking: 'Bags, Satchels & Tracking',
-  CapesFurniture: 'Capes & Furniture',
+  CapesFurniture: 'Capes',
   ShapeShifters: 'Shapeshifter Staves',
   GatheringGear:       'Gathering Gear',
   GatheringHarvester:  'Harvester',
