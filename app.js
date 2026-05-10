@@ -16,16 +16,16 @@ const REFINING_SHEETS = new Set([
 // Each group uses an Albion item icon as its glyph (rendered via the same
 // render.albiononline.com API as the recipe-table icons).
 const SHEET_GROUPS = [
-  { title: 'Refining',         icon: 'T4_METALBAR',         sheets: ['PlankRefining', 'SteelRefining', 'LeatherRefining', 'ClothRefining', 'StoneRefining'] },
-  { title: 'Weapons · Warrior',icon: 'T4_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Spears'] },
-  { title: 'Weapons · Hunter', icon: 'T4_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears'] },
-  { title: 'Weapons · Mage',   icon: 'T4_MAIN_FIRESTAFF',   sheets: ['CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff', 'NatureStaff'] },
-  { title: 'Off-hands',        icon: 'T4_OFF_SHIELD',       sheets: ['Shields', 'Tomes', 'Torch'] },
-  { title: 'Armor · Plate',    icon: 'T4_HEAD_PLATE_SET1',  sheets: ['PlateHelmets', 'PlateArmors', 'PlateBoots'] },
-  { title: 'Armor · Leather',  icon: 'T4_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
-  { title: 'Armor · Cloth',    icon: 'T4_HEAD_CLOTH_SET1',  sheets: ['ClothCowls', 'ClothRobes', 'ClothSandals'] },
-  { title: 'Accessories',      icon: 'T4_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture', 'Gloves', 'ShapeShifters'] },
-  { title: 'Gathering Gear',   icon: 'T4_2H_TOOL_PICK',     sheets: ['GatheringGear'] },
+  { title: 'Refining',         icon: 'T8_METALBAR',         sheets: ['PlankRefining', 'SteelRefining', 'LeatherRefining', 'ClothRefining', 'StoneRefining'] },
+  { title: 'Weapons · Warrior',icon: 'T8_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Spears'] },
+  { title: 'Weapons · Hunter', icon: 'T8_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears'] },
+  { title: 'Weapons · Mage',   icon: 'T8_MAIN_FIRESTAFF',   sheets: ['CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff', 'NatureStaff'] },
+  { title: 'Off-hands',        icon: 'T8_OFF_SHIELD',       sheets: ['Shields', 'Tomes', 'Torch'] },
+  { title: 'Armor · Plate',    icon: 'T8_HEAD_PLATE_SET1',  sheets: ['PlateHelmets', 'PlateArmors', 'PlateBoots'] },
+  { title: 'Armor · Leather',  icon: 'T8_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
+  { title: 'Armor · Cloth',    icon: 'T8_HEAD_CLOTH_SET1',  sheets: ['ClothCowls', 'ClothRobes', 'ClothSandals'] },
+  { title: 'Accessories',      icon: 'T8_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture', 'Gloves', 'ShapeShifters'] },
+  { title: 'Gathering Gear',   icon: 'T8_2H_TOOL_PICK',     sheets: ['GatheringGear'] },
   { title: 'Consumables',      icon: 'T4_POTION_HEAL',      sheets: ['Food', 'Potions'] },
 ];
 
@@ -176,8 +176,8 @@ function renderSidebar() {
   html.push(`<div class="nav-group">
     <div class="nav-group__title">General</div>
     <div class="nav-item ${State.view.type === 'home' ? 'active' : ''}" data-route="home">${navIcon('T4_FURNITUREITEM_GUILDBANNER_FABRIC')}Home</div>
-    <div class="nav-item ${State.view.type === 'materials' ? 'active' : ''}" data-route="materials">${navIcon('T4_BAG')}Material Prices</div>
-    <div class="nav-item ${State.view.type === 'settings' ? 'active' : ''}" data-route="settings">${navIcon('T4_2H_TOOL_HAMMER')}Settings</div>
+    <div class="nav-item ${State.view.type === 'materials' ? 'active' : ''}" data-route="materials">${navIcon('T8_BAG')}Material Prices</div>
+    <div class="nav-item ${State.view.type === 'settings' ? 'active' : ''}" data-route="settings">${navIcon('T8_2H_TOOL_HAMMER')}Settings</div>
   </div>`);
 
   // Build group nav. Only show sheets that exist in data.
