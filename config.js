@@ -7,6 +7,6 @@
  * into the two fields below.
  */
 window.NENDYS_CONFIG = {
-  SUPABASE_URL:      'YOUR_SUPABASE_URL_HERE',
-  SUPABASE_ANON_KEY: 'YOUR_SUPABASE_ANON_KEY_HERE',
+  SUPABASE_URL:      'https://ucrykhjacbircldryule.supabase.co',
+  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVjcnlraGphY2JpcmNsZHJ5dWxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDk4MTksImV4cCI6MjA5Mzk4NTgxOX0._PWrSynjWNAcJfu58u3gKT1x9MoOI0slSoq8X7ybdjQ',
 };
