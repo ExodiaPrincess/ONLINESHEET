@@ -545,6 +545,17 @@ function bindSheetHandlers() {
       updateSheetCosts();
     });
   });
+  // "Material Prices" link in the missing-prices banner -> jump to the
+  // materials page, pre-selecting the most relevant tab.
+  document.querySelectorAll('[data-go-materials]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const tab = a.dataset.mtab;
+      if (tab) State._matsTab = tab;
+      State.view = { type: 'materials' };
+      render();
+    });
+  });
 }
 
 /** Recompute and rewrite recipe cost cells without disturbing input focus. */
@@ -671,8 +682,23 @@ function pageSheet(sheet) {
       ${enchCols.map(e => `<th>Ench ${e}</th>`).join('')}
     </tr></thead>`;
 
+  // Pick the materials tab most relevant to the missing IDs, so the link
+  // jumps straight to the right card. (FISH_* -> food, ART_* -> artifacts,
+  // FP_* -> food, HEART_* -> hearts, MISC_* -> misc, otherwise refined/raw.)
+  let tabHint = 'refined';
+  for (const id of totalMissing) {
+    if (id.startsWith('ART_'))   { tabHint = 'artifacts'; break; }
+    if (id.startsWith('FISH_'))  { tabHint = 'food';      break; }
+    if (id.startsWith('FP_'))    { tabHint = 'food';      break; }
+    if (id.startsWith('HEART_')) { tabHint = 'hearts';    break; }
+    if (id.startsWith('MISC_'))  { tabHint = 'misc';      break; }
+    if (/^(LOGS|ORE|HIDE|FIBER|STONE)_/.test(id)) { tabHint = 'raw'; break; }
+  }
+
   const missingNote = totalMissing.size
-    ? `<div class="banner">⚠️ ${totalMissing.size} material price${totalMissing.size>1?'s are':' is'} missing — open <strong>Material Prices</strong> to fill them in.</div>`
+    ? `<div class="banner">⚠️ ${totalMissing.size} material price${totalMissing.size>1?'s are':' is'} missing — open
+        <a href="#" class="banner__link" data-go-materials data-mtab="${tabHint}">Material Prices</a>
+        to fill them in.</div>`
     : '';
 
   // Artifact-price grid for this sheet (if any artifacts are defined for it).

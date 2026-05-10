@@ -231,6 +231,15 @@ body {
   margin-bottom: 14px;
 }
 .banner strong { color: #fff; }
+.banner__link {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+  cursor: pointer;
+}
+.banner__link:hover { color: var(--accent-2); text-decoration-thickness: 2px; }
 
 /* ---------- TABS ---------- */
 .tabs {
