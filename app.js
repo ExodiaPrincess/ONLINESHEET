@@ -1286,9 +1286,13 @@ async function boot() {
 
   // Load static data first — the calculator needs it whether logged in or not.
   try {
+    // Cache-bust on every load — `data.json` / `icons.json` are small and
+    // update with the source repo. The query string defeats stale browser
+    // and CDN caches that would otherwise hide newly-added recipes.
+    const v = Date.now();
     const [data, icons] = await Promise.all([
-      fetch('data.json').then(r => r.json()),
-      fetch('icons.json').then(r => r.json()).catch(() => ({})),
+      fetch(`data.json?v=${v}`,  { cache: 'no-cache' }).then(r => r.json()),
+      fetch(`icons.json?v=${v}`, { cache: 'no-cache' }).then(r => r.json()).catch(() => ({})),
     ]);
     State.data = data;
     State.icons = icons || {};
