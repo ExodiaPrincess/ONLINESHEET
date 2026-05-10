@@ -211,6 +211,21 @@ const REFINING_HERO_ICON = {
   StoneRefining: 'T8_STONEBLOCK',
 };
 
+/** Pick a representative item icon for a sheet — used on the group landing
+ *  cards so each sheet card has an image. Refining gets the T8 refined
+ *  material; everything else uses the first item in its icons.json mapping
+ *  (which itself is the first section listed in the spreadsheet, so the
+ *  result is stable). */
+function previewIconForSheet(sheet) {
+  if (REFINING_HERO_ICON[sheet]) return REFINING_HERO_ICON[sheet];
+  const map = (State.icons || {})[sheet];
+  if (map) {
+    const firstKey = Object.keys(map)[0];
+    if (firstKey) return map[firstKey];
+  }
+  return null;
+}
+
 const _chainCostCache = new Map();
 function clearChainCache() { _chainCostCache.clear(); }
 
@@ -459,6 +474,47 @@ function pageHome() {
           </div>
         `).join('')}
       </div>
+    </div>
+  `;
+}
+
+/** Drill-in page reached from the home grid. Lists every sheet inside one
+ *  category group as its own card so the user picks Plank Refining vs Steel
+ *  Refining vs ... rather than landing straight on whichever sheet happens to
+ *  be first in the list. */
+function pageGroup(groupTitle) {
+  const grp = SHEET_GROUPS.find(g => g.title === groupTitle);
+  if (!grp) return pageHome();
+  const haveSheets = new Set(State.data.sheets);
+  const sheets = grp.sheets.filter((s, i, a) => a.indexOf(s) === i && haveSheets.has(s));
+  const recipesBySheet = {};
+  for (const r of (State.data.recipes || [])) {
+    recipesBySheet[r.sheet] = (recipesBySheet[r.sheet] || 0) + 1;
+  }
+
+  const cards = sheets.map(sh => {
+    const icon = previewIconForSheet(sh);
+    const label = SHEET_LABELS[sh] || sh;
+    const count = recipesBySheet[sh] || 0;
+    const img = icon
+      ? `<img class="landing-card__icon" src="https://render.albiononline.com/v1/item/${icon}.png?size=96" alt="${label}" loading="lazy" onerror="this.style.display='none'" />`
+      : '';
+    return `
+      <div class="landing-card" data-route="sheet" data-sheet="${sh}">
+        ${img}
+        <h3>${label}</h3>
+        <p>${count} recipe${count === 1 ? '' : 's'}</p>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="page-header">
+      <a href="#" class="back-link" data-go-home>← Home</a>
+      <h1 class="page-title">${grp.title}</h1>
+      <p class="page-sub">Pick a category</p>
+    </div>
+    <div class="panel">
+      <div class="landing-grid">${cards}</div>
     </div>
   `;
 }
@@ -1026,6 +1082,7 @@ function render() {
   switch (State.view.type) {
     case 'materials': html = pageMaterials(); break;
     case 'sheet':     html = pageSheet(State.view.sheet); break;
+    case 'group':     html = pageGroup(State.view.group); break;
     // 'settings' was a dedicated page; controls are now embedded on
     // every recipe page so the sidebar entry is gone. Anyone landing
     // here (saved view, etc.) falls through to the home page.
@@ -1041,11 +1098,25 @@ function render() {
   if (State.view.type === 'home') {
     document.querySelectorAll('.landing-card[data-grp]').forEach(card => {
       card.addEventListener('click', () => {
-        const grp = SHEET_GROUPS.find(g => g.title === card.dataset.grp);
-        if (grp && grp.sheets.length) {
-          const sh = grp.sheets.find(s => State.data.sheets.includes(s));
-          if (sh) { State.view = { type: 'sheet', sheet: sh }; render(); }
-        }
+        State.view = { type: 'group', group: card.dataset.grp };
+        render();
+      });
+    });
+  }
+  if (State.view.type === 'group') {
+    // Sheet cards inside a group page → navigate to that sheet.
+    document.querySelectorAll('.landing-card[data-sheet]').forEach(card => {
+      card.addEventListener('click', () => {
+        State.view = { type: 'sheet', sheet: card.dataset.sheet };
+        render();
+      });
+    });
+    // "← Home" link
+    document.querySelectorAll('[data-go-home]').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        State.view = { type: 'home' };
+        render();
       });
     });
   }

@@ -286,6 +286,15 @@ img.nav-emoji--md { width: 26px; height: 26px; }
   width: 100%;
 }
 .page-header { margin-bottom: 18px; }
+.back-link {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--text-3);
+  font-size: 12.5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.back-link:hover { color: var(--accent); }
 .page-header--with-hero {
   display: flex;
   align-items: center;
