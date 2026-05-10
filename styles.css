@@ -17,13 +17,20 @@
   --shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
   --radius: 10px;
   --radius-sm: 6px;
+
+  /* ---------- TYPOGRAPHY (customisable) ----------
+     Change these two variables to swap fonts across the whole app.
+     If you change them, also update the @import in index.html so the
+     new font is loaded. */
+  --font-body:    'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   background:
     radial-gradient(1200px 600px at 80% -200px, rgba(224, 183, 101, 0.08), transparent 60%),
     radial-gradient(800px 500px at -10% 110%, rgba(106, 177, 255, 0.05), transparent 60%),
@@ -52,13 +59,13 @@ body {
   display: grid; place-items: center;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #1a1408;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 22px;
   border-radius: 8px;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
 }
-.brand__title { font-family: 'Cinzel', serif; font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
+.brand__title { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
 .brand__sub { color: var(--text-3); font-size: 12px; }
 .topbar__actions { display: flex; gap: 8px; }
 
@@ -134,7 +141,7 @@ body {
 }
 .page-header { margin-bottom: 18px; }
 .page-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -297,7 +304,7 @@ table.tbl {
 .tbl .group-row td {
   background: var(--bg-2);
   color: var(--accent);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -414,7 +421,7 @@ table.tbl {
 .landing-card .emo { font-size: 26px; margin-bottom: 6px; }
 .landing-card h3 {
   margin: 0 0 4px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   color: var(--text);
 }
