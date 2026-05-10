@@ -282,6 +282,30 @@ table.tbl {
 .tbl tbody tr:hover { background: rgba(255,255,255,0.02); }
 .tbl tbody tr:last-child td { border-bottom: none; }
 .tbl .item-name { color: var(--text); font-weight: 500; }
+.tbl .item-name--merged {
+  text-align: center;
+  vertical-align: middle;
+  background: var(--bg-2);
+  border-right: 1px solid var(--line-2);
+  min-width: 130px;
+  padding: 14px 14px;
+}
+.tbl .item-icon {
+  display: block;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 6px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  image-rendering: -webkit-optimize-contrast;
+}
+.tbl .item-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--accent);
+  line-height: 1.2;
+}
 .tbl .tier-cell { color: var(--text-3); font-size: 12px; }
 .tbl .price-cell {
   font-family: var(--mono);

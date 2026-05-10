@@ -83,6 +83,7 @@ const SHEET_LABELS = {
 // =============================================================================
 const State = {
   data: null,            // loaded from data.json
+  icons: {},             // loaded from icons.json: { sheet: { section: itemId } }
   prices: {},            // mat_id -> price (number)
   settings: {
     location: 'city',         // island | city | bonusCity | hideout
@@ -558,7 +559,8 @@ function updateSheetCosts() {
   }
   const tbody = document.querySelector('.tbl tbody');
   if (!tbody) return;
-  const rows = Array.from(tbody.children).filter(tr => !tr.classList.contains('group-row'));
+  // Every <tr> in the recipe table corresponds to one (item, tier) pair.
+  const rows = Array.from(tbody.children);
   let i = 0;
   for (const r of recipes) {
     const tr = rows[i++];
@@ -624,27 +626,37 @@ function pageSheet(sheet) {
 
   let body = '';
   let totalMissing = new Set();
+  const sheetIcons = State.icons[sheet] || {};
 
   for (const sectionName of Object.keys(sections)) {
-    body += `<tr class="group-row"><td colspan="${enchCols.length + 2}">${sectionName}</td></tr>`;
-    for (const r of sections[sectionName]) {
+    const recs = sections[sectionName];
+    const span = recs.length;
+    const itemId = sheetIcons[sectionName];
+    const imgHtml = itemId
+      ? `<img class="item-icon" src="https://render.albiononline.com/v1/item/${itemId}.png?size=96" alt="${sectionName}" loading="lazy" onerror="this.style.display='none'" />`
+      : '';
+    const itemCellHtml = `<td class="item-name item-name--merged" rowspan="${span}">
+        ${imgHtml}<div class="item-label">${sectionName}</div>
+      </td>`;
+
+    recs.forEach((r, i) => {
       const cells = enchCols.map(e => {
         const items = r.enchantments[String(e)] || r.enchantments[e];
         if (!items) return `<td class="price-cell muted">—</td>`;
-        const iv    = (r.iv && (r.iv[String(e)] ?? r.iv[e])) || 0;
-        const batch = (r.batch     && (r.batch[String(e)]     ?? r.batch[e]))     || 1;
+        const iv    = (r.iv    && (r.iv[String(e)]    ?? r.iv[e]))    || 0;
+        const batch = (r.batch && (r.batch[String(e)] ?? r.batch[e])) || 1;
         const { cost, missing } = computeRecipeCost(items, sheet, iv, batch);
         missing.forEach(m => totalMissing.add(m));
         if (missing.length === items.length) return `<td class="price-cell muted">no price</td>`;
         return `<td class="price-cell">${formatSilver(cost)}</td>`;
       }).join('');
-      const itemName = stripTierFromItem(r);
+      // Only the FIRST tier-row of a section gets the merged item cell.
       body += `<tr>
-        <td class="item-name">${itemName}</td>
+        ${i === 0 ? itemCellHtml : ''}
         <td class="tier-cell">${r.tierLabel}</td>
         ${cells}
       </tr>`;
-    }
+    });
   }
 
   const head = `
@@ -783,8 +795,12 @@ async function boot() {
   document.getElementById('main').innerHTML = '<div class="loading">Loading recipe data…</div>';
   loadStored();
   try {
-    const res = await fetch('data.json');
-    State.data = await res.json();
+    const [data, icons] = await Promise.all([
+      fetch('data.json').then(r => r.json()),
+      fetch('icons.json').then(r => r.json()).catch(() => ({})),
+    ]);
+    State.data = data;
+    State.icons = icons || {};
   } catch (err) {
     document.getElementById('main').innerHTML =
       `<div class="panel"><p style="color:var(--bad)">Failed to load data.json: ${err.message}</p></div>`;
