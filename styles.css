@@ -41,6 +41,29 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+/* Custom dark-themed scrollbars site-wide. Firefox uses scrollbar-width /
+   scrollbar-color; Chromium / WebKit uses ::-webkit-scrollbar pseudo-elements.
+   Track stays transparent so it disappears against any panel; thumb is the
+   subtle line-2 grey, brightens to the gold accent on hover. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
+}
+*::-webkit-scrollbar         { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track   { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.15s ease;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-corner  { background: transparent; }
 body {
   font-family: var(--font-body);
   background:
