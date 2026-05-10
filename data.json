@@ -25245,6 +25245,614 @@
       }
     },
     {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 2",
+      "tierLabel": "Tier 2",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T2",
+            "qty": 12.0
+          },
+          {
+            "mat": "BLOCKS_T2",
+            "qty": 12.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 96.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Tracking Kit",
+      "item": "Tracking Kit Tier 3",
+      "tierLabel": "Tier 3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T3",
+            "qty": 2.0
+          },
+          {
+            "mat": "LEATHER_T3",
+            "qty": 6.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 64.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 3",
+      "tierLabel": "Tier 3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T3",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T3",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 128.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Tracking Kit",
+      "item": "Tracking Kit Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 2.0
+          },
+          {
+            "mat": "LEATHER_T4.0",
+            "qty": 6.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 128.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Banner",
+      "item": "Siege Banner Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "CLOTH_T4.0",
+            "qty": 12.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 256.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.0",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 256.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Avalonian Hammer",
+      "item": "Avalonian Hammer Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "MISC_AVALONIAN_ENERGY",
+            "qty": 20.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 256.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Repair Kits",
+      "item": "Repair Kits Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T4.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "STEEL_T4.0",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 256.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Tracking Kit",
+      "item": "Tracking Kit Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 2.0
+          },
+          {
+            "mat": "LEATHER_T5.0",
+            "qty": 6.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 256.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Banner",
+      "item": "Siege Banner Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "CLOTH_T5.0",
+            "qty": 12.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 512.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.1",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 512.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Avalonian Hammer",
+      "item": "Avalonian Hammer Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.1",
+            "qty": 8.0
+          },
+          {
+            "mat": "MISC_AVALONIAN_ENERGY",
+            "qty": 90.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 512.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Repair Kits",
+      "item": "Repair Kits Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T5.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "STEEL_T5.0",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 512.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Tracking Kit",
+      "item": "Tracking Kit Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T6.0",
+            "qty": 2.0
+          },
+          {
+            "mat": "LEATHER_T6.0",
+            "qty": 6.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 512.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Banner",
+      "item": "Siege Banner Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T6.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "CLOTH_T6.0",
+            "qty": 12.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1024.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T6.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.2",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1024.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Avalonian Hammer",
+      "item": "Avalonian Hammer Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.3",
+            "qty": 8.0
+          },
+          {
+            "mat": "MISC_AVALONIAN_ENERGY",
+            "qty": 160.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Repair Kits",
+      "item": "Repair Kits Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T6.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "STEEL_T6.0",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1024.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Tracking Kit",
+      "item": "Tracking Kit Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 2.0
+          },
+          {
+            "mat": "LEATHER_T7.0",
+            "qty": 6.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 1024.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Banner",
+      "item": "Siege Banner Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "CLOTH_T7.0",
+            "qty": 12.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.3",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Avalonian Hammer",
+      "item": "Avalonian Hammer Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.3",
+            "qty": 8.0
+          },
+          {
+            "mat": "MISC_AVALONIAN_ENERGY",
+            "qty": 230.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Repair Kits",
+      "item": "Repair Kits Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T7.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "STEEL_T7.0",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Tracking Kit",
+      "item": "Tracking Kit Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 2.0
+          },
+          {
+            "mat": "LEATHER_T8.0",
+            "qty": 6.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Banner",
+      "item": "Siege Banner Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "CLOTH_T8.0",
+            "qty": 12.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 4096.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Siege Hammer",
+      "item": "Siege Hammer Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.4",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 4096.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Avalonian Hammer",
+      "item": "Avalonian Hammer Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "BLOCKS_T4.4",
+            "qty": 8.0
+          },
+          {
+            "mat": "MISC_AVALONIAN_ENERGY",
+            "qty": 300.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 4096.0
+      }
+    },
+    {
+      "sheet": "BagsSatchelsTracking",
+      "section": "Repair Kits",
+      "item": "Repair Kits Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "PLANKS_T8.0",
+            "qty": 8.0
+          },
+          {
+            "mat": "STEEL_T8.0",
+            "qty": 8.0
+          }
+        ]
+      },
+      "iv": {
+        "0": 4096.0
+      }
+    },
+    {
       "sheet": "CapesFurniture",
       "section": "Regular Capes",
       "item": "Regular Capes Tier 2",

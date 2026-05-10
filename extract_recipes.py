@@ -590,6 +590,57 @@ def extract_sheet_v2(ws):
     return recipes
 
 
+def extract_bags_misc_block(ws):
+    """The BagsSatchelsTracking sheet has a 'Miscellaneous' block whose layout
+    matches GatheringGear (5 items in cols I/K/M/O/Q with tier rows below)
+    instead of the usual Enchantment 0-4 pattern. extract_sheet_v2 misses it
+    because it looks for 'Enchantment 0' in column I.
+
+    Header row 60: I=Tracking Kit, K=Siege Banner, M=Siege Hammer,
+                   O=Avalonian Hammer, Q=Repair Kits.
+    Tier rows: 61/63/65/67/69/71/73 = T2..T8.
+    """
+    GEAR_COLS = ['I', 'K', 'M', 'O', 'Q']
+    # Find the header row by content.
+    header_row = None
+    for r in range(1, ws.max_row + 1):
+        a = ws.cell(row=r, column=1).value
+        i = ws.cell(row=r, column=9).value
+        if isinstance(a, str) and 'Miscellaneous' in a and isinstance(i, str) and i.strip():
+            header_row = r; break
+    if not header_row:
+        return []
+
+    item_names = {}
+    for col in GEAR_COLS:
+        v = ws[f'{col}{header_row}'].value
+        if isinstance(v, str) and v.strip():
+            item_names[col] = v.strip()
+
+    recipes = []
+    for r in range(header_row + 1, ws.max_row + 1):
+        tier_label = ws.cell(row=r, column=7).value
+        if not isinstance(tier_label, str) or not tier_label.strip():
+            continue
+        tier_label = tier_label.strip()
+        if not re.match(r'^Tier\s*\d+', tier_label, re.IGNORECASE):
+            break  # left the misc block
+        for col in GEAR_COLS:
+            if col not in item_names:
+                continue
+            f = ws[f'{col}{r}'].value
+            items = parse_formula(f) if isinstance(f, str) and f.startswith('=') else None
+            if items:
+                recipes.append({
+                    'sheet': 'BagsSatchelsTracking',
+                    'section': item_names[col],
+                    'item': f'{item_names[col]} {tier_label}',
+                    'tierLabel': tier_label,
+                    'enchantments': {0: items},
+                })
+    return recipes
+
+
 all_recipes = []
 for sn in wb.sheetnames:
     if sn in SKIP:
@@ -599,6 +650,10 @@ for sn in wb.sheetnames:
         rs = extract_gathering_gear(ws)
     else:
         rs = extract_sheet_v2(ws)
+    # BagsSatchelsTracking has an extra block below the standard Bags / Satchels
+    # sections that the v2 extractor doesn't pick up — pull it in manually.
+    if sn == 'BagsSatchelsTracking':
+        rs = rs + extract_bags_misc_block(ws)
     all_recipes.extend(rs)
     print(f'{sn}: {len(rs)} recipes')
 
