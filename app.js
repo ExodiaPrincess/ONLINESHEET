@@ -17,14 +17,14 @@ const REFINING_SHEETS = new Set([
 // render.albiononline.com API as the recipe-table icons).
 const SHEET_GROUPS = [
   { title: 'Refining',         icon: 'T8_METALBAR',         sheets: ['PlankRefining', 'SteelRefining', 'LeatherRefining', 'ClothRefining', 'StoneRefining'] },
-  { title: 'Weapons · Warrior',icon: 'T8_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Spears'] },
-  { title: 'Weapons · Hunter', icon: 'T8_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears'] },
+  { title: 'Weapons · Warrior',icon: 'T8_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Gloves'] },
+  { title: 'Weapons · Hunter', icon: 'T8_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears', 'ShapeShifters'] },
   { title: 'Weapons · Mage',   icon: 'T8_MAIN_FIRESTAFF',   sheets: ['CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff', 'NatureStaff'] },
   { title: 'Off-hands',        icon: 'T8_OFF_SHIELD',       sheets: ['Shields', 'Tomes', 'Torch'] },
   { title: 'Armor · Plate',    icon: 'T8_HEAD_PLATE_SET1',  sheets: ['PlateHelmets', 'PlateArmors', 'PlateBoots'] },
   { title: 'Armor · Leather',  icon: 'T8_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
   { title: 'Armor · Cloth',    icon: 'T8_HEAD_CLOTH_SET1',  sheets: ['ClothCowls', 'ClothRobes', 'ClothSandals'] },
-  { title: 'Accessories',      icon: 'T8_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture', 'Gloves', 'ShapeShifters'] },
+  { title: 'Accessories',      icon: 'T8_BAG',              sheets: ['BagsSatchelsTracking', 'CapesFurniture'] },
   { title: 'Gathering Gear',   icon: 'T8_2H_TOOL_PICK',     sheets: [
     'GatheringHarvester', 'GatheringSkinner', 'GatheringMiner',
     'GatheringQuarrier',  'GatheringLumberjack', 'GatheringFisherman',
