@@ -96,11 +96,21 @@ const DANGER_ICON = `<svg class="danger-icon" viewBox="0 0 24 24" aria-hidden="t
   <circle cx="12" cy="17.3" r="1.2" fill="currentColor"/>
 </svg>`;
 
+/** Build the URL for an icon id. Plain Albion item ids (T1_..., UNIQUE_...)
+ *  route to the render API. Anything that looks like a path or filename
+ *  (contains '/' or '.') is treated as a local asset so we can ship our
+ *  own art for items Albion doesn't have proper renderings of. */
+function iconUrl(id, size = 96) {
+  if (!id) return null;
+  if (id.indexOf('/') !== -1 || id.indexOf('.') !== -1) return id;
+  return `https://render.albiononline.com/v1/item/${id}.png?size=${size}`;
+}
+
 /** Render an Albion item icon for nav / landing card use. */
 function navIcon(itemId, size = 'md') {
   if (!itemId) return '';
   const cls = `nav-emoji nav-emoji--${size}`;
-  return `<img class="${cls}" src="https://render.albiononline.com/v1/item/${itemId}.png?size=64" alt="" loading="lazy" onerror="this.style.display='none'" />`;
+  return `<img class="${cls}" src="${iconUrl(itemId, 64)}" alt="" loading="lazy" onerror="this.style.display='none'" />`;
 }
 
 // =============================================================================
@@ -477,7 +487,7 @@ function pageHome() {
       <div class="landing-grid">
         ${SHEET_GROUPS.map(g => `
           <div class="landing-card" data-route="group" data-grp="${g.title}">
-            <img class="landing-card__icon" src="https://render.albiononline.com/v1/item/${g.icon}.png?size=96" alt="${g.title}" loading="lazy" onerror="this.style.display='none'" />
+            <img class="landing-card__icon" src="${iconUrl(g.icon, 96)}" alt="${g.title}" loading="lazy" onerror="this.style.display='none'" />
             <h3>${g.title}</h3>
             <p>${g.sheets.length} categor${g.sheets.length === 1 ? 'y' : 'ies'}</p>
           </div>
@@ -506,7 +516,7 @@ function pageGroup(groupTitle) {
     const label = SHEET_LABELS[sh] || sh;
     const count = recipesBySheet[sh] || 0;
     const img = icon
-      ? `<img class="landing-card__icon" src="https://render.albiononline.com/v1/item/${icon}.png?size=96" alt="${label}" loading="lazy" onerror="this.style.display='none'" />`
+      ? `<img class="landing-card__icon" src="${iconUrl(icon, 96)}" alt="${label}" loading="lazy" onerror="this.style.display='none'" />`
       : '';
     return `
       <div class="landing-card" data-route="sheet" data-sheet="${sh}">
@@ -949,7 +959,7 @@ function pageSheet(sheet) {
     const span = recs.length;
     const itemId = sheetIcons[sectionName];
     const imgHtml = itemId
-      ? `<img class="item-icon" src="https://render.albiononline.com/v1/item/${itemId}.png?size=96" alt="${sectionName}" loading="lazy" onerror="this.style.display='none'" />`
+      ? `<img class="item-icon" src="${iconUrl(itemId, 96)}" alt="${sectionName}" loading="lazy" onerror="this.style.display='none'" />`
       : '';
     const itemCellHtml = `<td class="item-name item-name--merged" rowspan="${span}">
         ${imgHtml}<div class="item-label">${sectionName}</div>
@@ -1024,7 +1034,7 @@ function pageSheet(sheet) {
   // title and an explanatory caption below the table.
   const heroIcon = isRefining && REFINING_HERO_ICON[sheet];
   const heroBlock = heroIcon
-    ? `<img class="page-hero-icon" src="https://render.albiononline.com/v1/item/${heroIcon}.png?size=128" alt="${SHEET_LABELS[sheet] || sheet}" loading="lazy" onerror="this.style.display='none'" />`
+    ? `<img class="page-hero-icon" src="${iconUrl(heroIcon, 128)}" alt="${SHEET_LABELS[sheet] || sheet}" loading="lazy" onerror="this.style.display='none'" />`
     : '';
   const refiningCaption = isRefining ? `
     <div class="page-caption">

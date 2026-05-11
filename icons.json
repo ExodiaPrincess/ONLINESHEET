@@ -297,7 +297,7 @@
     "Bags": "T8_BAG",
     "Satchels": "T8_BAG_INSIGHT",
     "Tracking Kit": "T8_2H_TOOL_TRACKING",
-    "Siege Banner": "T8_SIEGE_BANNER",
+    "Siege Banner": "icons/siege-banner.png",
     "Siege Hammer": "T8_2H_TOOL_SIEGEHAMMER",
     "Avalonian Hammer": "T8_2H_TOOL_HAMMER_AVALON",
     "Repair Kits": "T8_FURNITUREITEM_REPAIRKIT"
