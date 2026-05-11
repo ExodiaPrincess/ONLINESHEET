@@ -344,7 +344,7 @@
     "Sandwiches": "T6_MEAL_SANDWICH",
     "Omelettes": "T3_MEAL_OMELETTE",
     "Stew": "T6_MEAL_STEW",
-    "Baits and Fish Sauce": "T4_FISHSAUCE_LEVEL1"
+    "Baits and Fish Sauce": "T1_FISHSAUCE_LEVEL3"
   },
   "Potions": {
     "Healing": "T4_POTION_HEAL",
