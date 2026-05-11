@@ -799,6 +799,25 @@ def _fix_avalonian_hammer(items):
     if steel_id in mat_meta and not any(it['mat'] == steel_id for it in items):
         items.append({'mat': steel_id, 'qty': 2})
 
+def _swap_axes_crystal_avalon(items):
+    """The Nendys spreadsheet's Axes sheet has Crystal Reaper and Realmbreaker
+    pointing at each other's artifact: Crystal Reaper formula references the
+    Avalonian Battle Memoir column, and Realmbreaker references Edged Crystal.
+    Swap the two artifact ids in place so each section uses the right
+    artifact for its in-game item (T4_2H_SCYTHE_CRYSTAL = Edged Crystal;
+    T4_2H_AXE_AVALON = Avalonian Battle Memoir)."""
+    SWAP = {
+        'ART_AXES_AVALONIAN_BATTLE_MEMOIR_': 'ART_AXES_EDGED_CRYSTAL_',
+        'ART_AXES_EDGED_CRYSTAL_':           'ART_AXES_AVALONIAN_BATTLE_MEMOIR_',
+    }
+    for it in items:
+        if not it.get('noReturnDiscount'):
+            continue
+        for old_prefix, new_prefix in SWAP.items():
+            if it['mat'].startswith(old_prefix):
+                it['mat'] = new_prefix + it['mat'][len(old_prefix):]
+                break
+
 POST_FIXES = {
     ('Swords', 'Infinity Blade'):                 _fix_infinity_blade,
     ('GatheringHarvester',  'Harvester Backpack'):  _fix_gathering_backpack,
@@ -809,6 +828,8 @@ POST_FIXES = {
     ('GatheringFisherman',  'Fisherman Backpack'):  _fix_gathering_backpack,
     ('GatheringQuarrier',     'Avalonian Hammer'):  _fix_avalonian_hammer,
     ('BagsSatchelsTracking',  'Avalonian Hammer'):  _fix_avalonian_hammer,
+    ('Axes', 'Crystal Reaper'):  _swap_axes_crystal_avalon,
+    ('Axes', 'Realmbreaker'):    _swap_axes_crystal_avalon,
 }
 
 for rec in all_recipes:
