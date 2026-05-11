@@ -318,8 +318,8 @@
     "Undead Cape": "T8_CAPEITEM_UNDEAD"
   },
   "PlankRefining": {
-    "Plank Refine": "T4_PLANK",
-    "Plank Refine*": "T4_PLANK"
+    "Plank Refine": "T8_PLANKS",
+    "Plank Refine*": "T8_PLANKS"
   },
   "SteelRefining": {
     "Steel Refine": "T8_METALBAR",
