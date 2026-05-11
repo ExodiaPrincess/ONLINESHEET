@@ -326,6 +326,20 @@ def find_recipe_block_starts(ws):
             starts.append(r)
     return starts
 
+def find_all_cost_rows(ws):
+    """Return every row that has 'Cost' in column G, regardless of whether
+    column I says 'Enchantment 0'. Used as block-boundary markers so that
+    a non-standard 'Cost' header (e.g. CapesFurniture's Furniture sub-block
+    where column I lists item names like Bed/Chest instead of 'Enchantment 0')
+    still terminates the previous recipe block instead of swallowing its
+    rows."""
+    rows = []
+    for r in range(1, ws.max_row + 1):
+        gv = ws.cell(row=r, column=7).value
+        if isinstance(gv, str) and gv.strip().lower() == 'cost':
+            rows.append(r)
+    return rows
+
 def extract_sheet(ws):
     """Yield recipes from a craft/refining sheet."""
     sheet_name = ws.title
@@ -557,6 +571,7 @@ def extract_sheet_v2(ws):
     chain-refining dynamically, so the duplicate data is unnecessary."""
     sheet_name = ws.title
     starts = find_recipe_block_starts(ws)
+    all_costs = find_all_cost_rows(ws)
     recipes = []
     for header_row in starts:
         # Find the section label in column A. Priorities (closest wins):
@@ -586,7 +601,16 @@ def extract_sheet_v2(ws):
         # calculator handles chain-refining at runtime.
         if section and section.endswith('*'):
             continue
+        # End the block at the next 'Cost' row of ANY layout — not just
+        # standard Enchantment-0 blocks. This catches CapesFurniture, where
+        # the Furniture sub-block (Bed / Chest / Table) uses 'Cost' in G
+        # but lists item names in I, and would otherwise let the previous
+        # cape section absorb the Bed rows.
         end_row = ws.max_row
+        for next_cost in all_costs:
+            if next_cost > header_row:
+                end_row = min(end_row, next_cost - 1)
+                break
         for next_start in starts:
             if next_start > header_row:
                 end_row = min(end_row, next_start - 1)
