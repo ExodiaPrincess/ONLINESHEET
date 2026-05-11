@@ -88,6 +88,14 @@ const State = {
   view: { type: 'home', sheet: null },
 };
 
+/** Inline SVG warning triangle. Inherits color via `currentColor` so its
+ *  hue tracks `.danger-icon { color: ... }` in CSS. */
+const DANGER_ICON = `<svg class="danger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M12 3 L22 20 L2 20 Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+  <line x1="12" y1="10" x2="12" y2="14.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="12" cy="17.3" r="1.2" fill="currentColor"/>
+</svg>`;
+
 /** Render an Albion item icon for nav / landing card use. */
 function navIcon(itemId, size = 'md') {
   if (!itemId) return '';
@@ -999,7 +1007,7 @@ function pageSheet(sheet) {
   }
 
   const missingNote = totalMissing.size
-    ? `<div class="banner">⚠️ ${totalMissing.size} material price${totalMissing.size>1?'s are':' is'} missing — open
+    ? `<div class="banner">${DANGER_ICON}${totalMissing.size} material price${totalMissing.size>1?'s are':' is'} missing — open
         <a href="#" class="banner__link" data-go-materials data-mtab="${tabHint}">Material Prices</a>
         to fill them in.</div>`
     : '';
