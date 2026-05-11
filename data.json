@@ -15049,7 +15049,7 @@
     },
     {
       "sheet": "Potions",
-      "section": "Resistance",
+      "section": "Poison",
       "item": "Poison Potion T4",
       "tierLabel": "Poison Potion T4",
       "enchantments": {
@@ -15121,7 +15121,7 @@
     },
     {
       "sheet": "Potions",
-      "section": "Resistance",
+      "section": "Poison",
       "item": "Poison Potion T6",
       "tierLabel": "Poison Potion T6",
       "enchantments": {
@@ -15225,7 +15225,7 @@
     },
     {
       "sheet": "Potions",
-      "section": "Resistance",
+      "section": "Poison",
       "item": "Poison PotionT8",
       "tierLabel": "Poison PotionT8",
       "enchantments": {

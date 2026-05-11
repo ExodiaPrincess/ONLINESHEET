@@ -360,7 +360,8 @@
     "Berserker": "T8_POTION_BERSERK",
     "Bootlegger": "T4_POTION_REVEAL",
     "Acid": "T4_POTION_DAMAGE",
-    "Gathering": "T4_POTION_GATHERER"
+    "Gathering": "T4_POTION_GATHERER",
+    "Poison": "T6_POTION_COOLDOWN"
   },
   "GatheringHarvester": {
     "Harvester Cap": "T8_HEAD_GATHERER_FIBER",

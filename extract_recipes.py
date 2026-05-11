@@ -559,12 +559,28 @@ def extract_sheet_v2(ws):
     starts = find_recipe_block_starts(ws)
     recipes = []
     for header_row in starts:
+        # Find the section label in column A. Priorities (closest wins):
+        #   (1) header_row itself
+        #   (2) the row immediately below the header — some sections in
+        #       the Nendys sheet (e.g. Potions / Poison) put the section
+        #       name on the first data row, NOT above the Cost header,
+        #       and the old upward-only search would inherit the previous
+        #       section's name ('Resistance') for Poison.
+        #   (3) walk upward (Soups / Salads style, where the label sits
+        #       a couple of rows ABOVE the Cost header)
         section = None
-        for rr in range(header_row, max(0, header_row - 20), -1):
-            v = ws.cell(row=rr, column=1).value
+        def _cell_label(r):
+            v = ws.cell(row=r, column=1).value
             if isinstance(v, str) and v.strip() and not v.strip().startswith('*'):
-                section = v.strip()
-                break
+                return v.strip()
+            return None
+        section = _cell_label(header_row) or _cell_label(header_row + 1)
+        if not section:
+            for rr in range(header_row - 1, max(0, header_row - 20), -1):
+                lbl = _cell_label(rr)
+                if lbl:
+                    section = lbl
+                    break
         # Skip the asterisk variants that refining sheets use to express
         # "compute as if you crafted the previous tiers yourself". The
         # calculator handles chain-refining at runtime.
