@@ -413,8 +413,8 @@
   },
   "Furniture": {
     "Chest": "T5_FURNITUREITEM_CHEST",
-    "Bed": "T8_FURNITUREITEM_BED",
-    "Table": "T8_FURNITUREITEM_TABLE",
+    "Bed": "T5_FURNITUREITEM_BED",
+    "Table": "T5_FURNITUREITEM_TABLE",
     "Trophy Shark": "T8_FURNITUREITEM_TROPHY_FISHING_BOSS"
   }
 }
