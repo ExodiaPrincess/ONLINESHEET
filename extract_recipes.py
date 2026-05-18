@@ -850,23 +850,13 @@ for rec in all_recipes:
         fix(items)
 
 
-# ---------- STONE REFINING: STRIP FAKE ENCHANT COLUMNS ----------
-# Stone blocks have no enchant variants in Albion (T4_STONEBLOCK exists,
-# but T4_STONEBLOCK_LEVEL1/2/3/4 do NOT). The Nendys spreadsheet
-# nonetheless emits formulas in the Enchantment 1/2/3 columns of Stone
-# Refining; those produce recipes for items that don't exist. Drop them.
-for rec in all_recipes:
-    if rec['sheet'] != 'StoneRefining':
-        continue
-    # Keep only the lowest enchant key (ench 0, str or int)
-    e0 = rec['enchantments'].get(0, rec['enchantments'].get('0'))
-    rec['enchantments'] = {0: e0} if e0 else {}
-    if rec.get('iv'):
-        iv0 = rec['iv'].get(0, rec['iv'].get('0'))
-        rec['iv'] = {0: iv0} if iv0 else {}
-    if rec.get('batch'):
-        b0 = rec['batch'].get(0, rec['batch'].get('0'))
-        rec['batch'] = {0: b0} if b0 else {}
+# Stone Refining keeps its full enchant-column set. The Nendys formulas
+# are correct as written: refining with enchant-N raw rocks produces base
+# (non-enchanted) stoneblocks, and the columns let the user compare the
+# silver-per-craft cost of using base / uncommon / rare / exceptional
+# rocks side-by-side. The Stone Refining page renames the column headers
+# to reflect that ("Base / Uncommon / Rare / Exceptional" raws) instead
+# of "Enchantment 0/1/2/3".
 
 
 # ---------- MERGE FURNITURE RECIPES ----------
