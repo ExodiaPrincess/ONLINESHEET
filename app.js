@@ -1153,40 +1153,6 @@ function bindTopbar() {
     render();
   });
 
-  document.getElementById('exportBtn').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify({
-      prices: State.prices, settings: State.settings,
-    }, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'nendys-prices.json'; a.click();
-    URL.revokeObjectURL(url);
-  });
-
-  const importInput = document.getElementById('importFile');
-  document.getElementById('importBtn').addEventListener('click', () => importInput.click());
-  importInput.addEventListener('change', (e) => {
-    const f = e.target.files[0]; if (!f) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        const obj = JSON.parse(reader.result);
-        if (!obj || typeof obj !== 'object') throw new Error('not an object');
-        if (obj.prices && typeof obj.prices === 'object') {
-          State.prices = sanitizePrices(obj.prices);
-          savePrices();
-        }
-        if (obj.settings && typeof obj.settings === 'object') {
-          Object.assign(State.settings, sanitizeSettings(obj.settings));
-          saveSettings();
-        }
-        render();
-      } catch { alert('Invalid JSON file.'); }
-    };
-    reader.readAsText(f);
-    e.target.value = '';
-  });
-
   document.getElementById('resetBtn').addEventListener('click', () => {
     if (!confirm('Reset all stored prices and settings?')) return;
     State.prices = {};
@@ -1214,7 +1180,7 @@ function hideLogin() {
   toggleAppChrome(true);
 }
 function toggleAppChrome(loggedIn) {
-  const ids = ['logoutBtn', 'current-user', 'exportBtn', 'importBtn', 'resetBtn'];
+  const ids = ['logoutBtn', 'current-user', 'resetBtn'];
   for (const id of ids) {
     const el = document.getElementById(id);
     if (el) el.hidden = !loggedIn;
