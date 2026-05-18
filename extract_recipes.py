@@ -87,9 +87,30 @@ RAW_COLS = {'D': 'LOGS', 'I': 'ORE', 'N': 'HIDE', 'S': 'FIBER', 'X': 'STONE'}
 mat_map = {}      # 'I12' -> id
 mat_meta = {}     # id -> {family,tier,name,kind}
 
+# Stone block (refined) has NO enchant variants in Albion — the V column
+# in the refined section therefore labels rows 12-26 as T1..T8 with no
+# decimal suffix. The standard REFINED_TIERS map would (wrongly) create
+# BLOCKS_T4.0/T4.1/...
+BLOCKS_TIERS = {
+    12: 'T1', 14: 'T2', 16: 'T3',
+    18: 'T4', 20: 'T5', 22: 'T6', 24: 'T7', 26: 'T8',
+}
+# Raw stone (rocks) has only 4 enchant variants per tier 4+ (base + LEVEL1-3,
+# no LEVEL4). The V column in the raw section therefore "shifts" relative
+# to logs/ore/hide/fiber.
+STONE_TIERS = {
+    81: 'T1', 83: 'T2', 85: 'T3',
+    87: 'T4.0',  89: 'T4.1',  91: 'T4.2',  93: 'T4.3',
+    95: 'T5.0',  97: 'T5.1',  99: 'T5.2', 101: 'T5.3',
+    103:'T6.0', 105: 'T6.1', 107: 'T6.2', 109: 'T6.3',
+    111:'T7.0', 113: 'T7.1', 115: 'T7.2', 117: 'T7.3',
+    119:'T8.0', 121: 'T8.1', 123: 'T8.2', 125: 'T8.3',
+}
+
 # Refined
 for col, family in REFINED_COLS.items():
-    for row, tier in REFINED_TIERS.items():
+    tiers = BLOCKS_TIERS if family == 'BLOCKS' else REFINED_TIERS
+    for row, tier in tiers.items():
         mid = f'{family}_{tier}'
         mat_map[f'{col}{row}'] = mid
         mat_meta[mid] = {'id': mid, 'family': family, 'tier': tier, 'kind': 'refined',
@@ -97,26 +118,12 @@ for col, family in REFINED_COLS.items():
 
 # Raw
 for col, family in RAW_COLS.items():
-    for row, tier in RAW_TIERS.items():
+    tiers = STONE_TIERS if family == 'STONE' else RAW_TIERS
+    for row, tier in tiers.items():
         mid = f'{family}_{tier}'
         mat_map[f'{col}{row}'] = mid
         mat_meta[mid] = {'id': mid, 'family': family, 'tier': tier, 'kind': 'raw',
                          'name': f'{family.title()} {tier}'}
-
-# Special: Stone column V uses RAW_TIERS but with shifted labels:
-# V81=T1...V95=T5.0...V119=T8.0  -> override label
-stone_override = {
-    81:'T1',83:'T2',85:'T3',87:'T4.0',89:'T4.1',91:'T4.2',93:'T4.3',
-    95:'T5.0',97:'T5.1',99:'T5.2',101:'T5.3',
-    103:'T6.0',105:'T6.1',107:'T6.2',109:'T6.3',
-    111:'T7.0',113:'T7.1',115:'T7.2',117:'T7.3',
-    119:'T8.0',121:'T8.1',123:'T8.2',125:'T8.3',
-}
-# But V column on raw section follows "shifted" labels per spreadsheet header.
-# Use the labels from the actual header strings instead. Use refined tier mapping for V.
-# Actually inspecting earlier dump: V is BLOCKS in refined section (V9 header), prices in X.
-# In raw section (V78 STONE), prices in X column. Already covered by mat_map['X<row>'] above with family STONE.
-# So for raw STONE, the mapping is X81..X135. Good.
 
 # Hearts (column X, rows 33-45 odd-ish in refined section)
 HEARTS = {33: 'Beastheart', 35: 'Mountainheart', 37: 'Treeheart',
@@ -841,6 +848,25 @@ for rec in all_recipes:
     if not fix: continue
     for ench, items in rec['enchantments'].items():
         fix(items)
+
+
+# ---------- STONE REFINING: STRIP FAKE ENCHANT COLUMNS ----------
+# Stone blocks have no enchant variants in Albion (T4_STONEBLOCK exists,
+# but T4_STONEBLOCK_LEVEL1/2/3/4 do NOT). The Nendys spreadsheet
+# nonetheless emits formulas in the Enchantment 1/2/3 columns of Stone
+# Refining; those produce recipes for items that don't exist. Drop them.
+for rec in all_recipes:
+    if rec['sheet'] != 'StoneRefining':
+        continue
+    # Keep only the lowest enchant key (ench 0, str or int)
+    e0 = rec['enchantments'].get(0, rec['enchantments'].get('0'))
+    rec['enchantments'] = {0: e0} if e0 else {}
+    if rec.get('iv'):
+        iv0 = rec['iv'].get(0, rec['iv'].get('0'))
+        rec['iv'] = {0: iv0} if iv0 else {}
+    if rec.get('batch'):
+        b0 = rec['batch'].get(0, rec['batch'].get('0'))
+        rec['batch'] = {0: b0} if b0 else {}
 
 
 # ---------- MERGE FURNITURE RECIPES ----------

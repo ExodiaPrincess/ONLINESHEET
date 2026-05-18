@@ -921,204 +921,44 @@
       "iv": 8.0
     },
     {
-      "id": "BLOCKS_T4.0",
+      "id": "BLOCKS_T4",
       "family": "BLOCKS",
-      "tier": "T4.0",
+      "tier": "T4",
       "kind": "refined",
-      "name": "Blocks T4.0",
+      "name": "Blocks T4",
       "iv": 16
     },
     {
-      "id": "BLOCKS_T4.1",
+      "id": "BLOCKS_T5",
       "family": "BLOCKS",
-      "tier": "T4.1",
+      "tier": "T5",
       "kind": "refined",
-      "name": "Blocks T4.1",
+      "name": "Blocks T5",
       "iv": 32
     },
     {
-      "id": "BLOCKS_T4.2",
+      "id": "BLOCKS_T6",
       "family": "BLOCKS",
-      "tier": "T4.2",
+      "tier": "T6",
       "kind": "refined",
-      "name": "Blocks T4.2",
+      "name": "Blocks T6",
       "iv": 64
     },
     {
-      "id": "BLOCKS_T4.3",
+      "id": "BLOCKS_T7",
       "family": "BLOCKS",
-      "tier": "T4.3",
+      "tier": "T7",
       "kind": "refined",
-      "name": "Blocks T4.3",
+      "name": "Blocks T7",
       "iv": 128
     },
     {
-      "id": "BLOCKS_T4.4",
+      "id": "BLOCKS_T8",
       "family": "BLOCKS",
-      "tier": "T4.4",
+      "tier": "T8",
       "kind": "refined",
-      "name": "Blocks T4.4",
+      "name": "Blocks T8",
       "iv": 256
-    },
-    {
-      "id": "BLOCKS_T5.0",
-      "family": "BLOCKS",
-      "tier": "T5.0",
-      "kind": "refined",
-      "name": "Blocks T5.0",
-      "iv": 32
-    },
-    {
-      "id": "BLOCKS_T5.1",
-      "family": "BLOCKS",
-      "tier": "T5.1",
-      "kind": "refined",
-      "name": "Blocks T5.1",
-      "iv": 64
-    },
-    {
-      "id": "BLOCKS_T5.2",
-      "family": "BLOCKS",
-      "tier": "T5.2",
-      "kind": "refined",
-      "name": "Blocks T5.2",
-      "iv": 128
-    },
-    {
-      "id": "BLOCKS_T5.3",
-      "family": "BLOCKS",
-      "tier": "T5.3",
-      "kind": "refined",
-      "name": "Blocks T5.3",
-      "iv": 256
-    },
-    {
-      "id": "BLOCKS_T5.4",
-      "family": "BLOCKS",
-      "tier": "T5.4",
-      "kind": "refined",
-      "name": "Blocks T5.4",
-      "iv": 512
-    },
-    {
-      "id": "BLOCKS_T6.0",
-      "family": "BLOCKS",
-      "tier": "T6.0",
-      "kind": "refined",
-      "name": "Blocks T6.0",
-      "iv": 64
-    },
-    {
-      "id": "BLOCKS_T6.1",
-      "family": "BLOCKS",
-      "tier": "T6.1",
-      "kind": "refined",
-      "name": "Blocks T6.1",
-      "iv": 128
-    },
-    {
-      "id": "BLOCKS_T6.2",
-      "family": "BLOCKS",
-      "tier": "T6.2",
-      "kind": "refined",
-      "name": "Blocks T6.2",
-      "iv": 256
-    },
-    {
-      "id": "BLOCKS_T6.3",
-      "family": "BLOCKS",
-      "tier": "T6.3",
-      "kind": "refined",
-      "name": "Blocks T6.3",
-      "iv": 512
-    },
-    {
-      "id": "BLOCKS_T6.4",
-      "family": "BLOCKS",
-      "tier": "T6.4",
-      "kind": "refined",
-      "name": "Blocks T6.4",
-      "iv": 1024
-    },
-    {
-      "id": "BLOCKS_T7.0",
-      "family": "BLOCKS",
-      "tier": "T7.0",
-      "kind": "refined",
-      "name": "Blocks T7.0",
-      "iv": 128
-    },
-    {
-      "id": "BLOCKS_T7.1",
-      "family": "BLOCKS",
-      "tier": "T7.1",
-      "kind": "refined",
-      "name": "Blocks T7.1",
-      "iv": 256
-    },
-    {
-      "id": "BLOCKS_T7.2",
-      "family": "BLOCKS",
-      "tier": "T7.2",
-      "kind": "refined",
-      "name": "Blocks T7.2",
-      "iv": 512
-    },
-    {
-      "id": "BLOCKS_T7.3",
-      "family": "BLOCKS",
-      "tier": "T7.3",
-      "kind": "refined",
-      "name": "Blocks T7.3",
-      "iv": 1024
-    },
-    {
-      "id": "BLOCKS_T7.4",
-      "family": "BLOCKS",
-      "tier": "T7.4",
-      "kind": "refined",
-      "name": "Blocks T7.4",
-      "iv": 2048
-    },
-    {
-      "id": "BLOCKS_T8.0",
-      "family": "BLOCKS",
-      "tier": "T8.0",
-      "kind": "refined",
-      "name": "Blocks T8.0",
-      "iv": 256
-    },
-    {
-      "id": "BLOCKS_T8.1",
-      "family": "BLOCKS",
-      "tier": "T8.1",
-      "kind": "refined",
-      "name": "Blocks T8.1",
-      "iv": 512
-    },
-    {
-      "id": "BLOCKS_T8.2",
-      "family": "BLOCKS",
-      "tier": "T8.2",
-      "kind": "refined",
-      "name": "Blocks T8.2",
-      "iv": 1024
-    },
-    {
-      "id": "BLOCKS_T8.3",
-      "family": "BLOCKS",
-      "tier": "T8.3",
-      "kind": "refined",
-      "name": "Blocks T8.3",
-      "iv": 2048
-    },
-    {
-      "id": "BLOCKS_T8.4",
-      "family": "BLOCKS",
-      "tier": "T8.4",
-      "kind": "refined",
-      "name": "Blocks T8.4",
-      "iv": 4096
     },
     {
       "id": "LOGS_T1",
@@ -2073,14 +1913,6 @@
       "iv": 128
     },
     {
-      "id": "STONE_T4.4",
-      "family": "STONE",
-      "tier": "T4.4",
-      "kind": "raw",
-      "name": "Stone T4.4",
-      "iv": 256
-    },
-    {
       "id": "STONE_T5.0",
       "family": "STONE",
       "tier": "T5.0",
@@ -2111,14 +1943,6 @@
       "kind": "raw",
       "name": "Stone T5.3",
       "iv": 256
-    },
-    {
-      "id": "STONE_T5.4",
-      "family": "STONE",
-      "tier": "T5.4",
-      "kind": "raw",
-      "name": "Stone T5.4",
-      "iv": 512
     },
     {
       "id": "STONE_T6.0",
@@ -2153,14 +1977,6 @@
       "iv": 512
     },
     {
-      "id": "STONE_T6.4",
-      "family": "STONE",
-      "tier": "T6.4",
-      "kind": "raw",
-      "name": "Stone T6.4",
-      "iv": 1024
-    },
-    {
       "id": "STONE_T7.0",
       "family": "STONE",
       "tier": "T7.0",
@@ -2193,14 +2009,6 @@
       "iv": 1024
     },
     {
-      "id": "STONE_T7.4",
-      "family": "STONE",
-      "tier": "T7.4",
-      "kind": "raw",
-      "name": "Stone T7.4",
-      "iv": 2048
-    },
-    {
       "id": "STONE_T8.0",
       "family": "STONE",
       "tier": "T8.0",
@@ -2231,14 +2039,6 @@
       "kind": "raw",
       "name": "Stone T8.3",
       "iv": 2048
-    },
-    {
-      "id": "STONE_T8.4",
-      "family": "STONE",
-      "tier": "T8.4",
-      "kind": "raw",
-      "name": "Stone T8.4",
-      "iv": 4096
     },
     {
       "id": "HEART_BEASTHEART",
@@ -18639,43 +18439,10 @@
             "mat": "BLOCKS_T3",
             "qty": 1
           }
-        ],
-        "1": [
-          {
-            "mat": "STONE_T4.1",
-            "qty": 2.0
-          },
-          {
-            "mat": "BLOCKS_T3",
-            "qty": 2.0
-          }
-        ],
-        "2": [
-          {
-            "mat": "STONE_T4.2",
-            "qty": 2.0
-          },
-          {
-            "mat": "BLOCKS_T3",
-            "qty": 4.0
-          }
-        ],
-        "3": [
-          {
-            "mat": "STONE_T4.3",
-            "qty": 2.0
-          },
-          {
-            "mat": "BLOCKS_T3",
-            "qty": 8.0
-          }
         ]
       },
       "iv": {
-        "0": 16,
-        "1": 32,
-        "2": 64,
-        "3": 128
+        "0": 16
       }
     },
     {
@@ -18686,7 +18453,7 @@
       "enchantments": {
         "0": [
           {
-            "mat": "STONE_T4.4",
+            "mat": "STONE_T5.0",
             "qty": 3.0,
             "heartReducesQty": true
           },
@@ -18696,46 +18463,13 @@
             "heartGated": true
           },
           {
-            "mat": "BLOCKS_T4.0",
+            "mat": "BLOCKS_T4",
             "qty": 1
-          }
-        ],
-        "1": [
-          {
-            "mat": "STONE_T5.0",
-            "qty": 3.0
-          },
-          {
-            "mat": "BLOCKS_T4.0",
-            "qty": 2.0
-          }
-        ],
-        "2": [
-          {
-            "mat": "STONE_T5.1",
-            "qty": 3.0
-          },
-          {
-            "mat": "BLOCKS_T4.0",
-            "qty": 4.0
-          }
-        ],
-        "3": [
-          {
-            "mat": "STONE_T5.2",
-            "qty": 3.0
-          },
-          {
-            "mat": "BLOCKS_T4.0",
-            "qty": 8.0
           }
         ]
       },
       "iv": {
-        "0": 32,
-        "1": 64,
-        "2": 128,
-        "3": 256
+        "0": 32
       }
     },
     {
@@ -18746,7 +18480,7 @@
       "enchantments": {
         "0": [
           {
-            "mat": "STONE_T5.3",
+            "mat": "STONE_T6.0",
             "qty": 4.0,
             "heartReducesQty": true
           },
@@ -18756,46 +18490,13 @@
             "heartGated": true
           },
           {
-            "mat": "BLOCKS_T4.1",
+            "mat": "BLOCKS_T5",
             "qty": 1
-          }
-        ],
-        "1": [
-          {
-            "mat": "STONE_T5.4",
-            "qty": 4.0
-          },
-          {
-            "mat": "BLOCKS_T4.1",
-            "qty": 2.0
-          }
-        ],
-        "2": [
-          {
-            "mat": "STONE_T6.0",
-            "qty": 4.0
-          },
-          {
-            "mat": "BLOCKS_T4.1",
-            "qty": 4.0
-          }
-        ],
-        "3": [
-          {
-            "mat": "STONE_T6.1",
-            "qty": 4.0
-          },
-          {
-            "mat": "BLOCKS_T4.1",
-            "qty": 8.0
           }
         ]
       },
       "iv": {
-        "0": 64,
-        "1": 128,
-        "2": 256,
-        "3": 512
+        "0": 64
       }
     },
     {
@@ -18806,7 +18507,7 @@
       "enchantments": {
         "0": [
           {
-            "mat": "STONE_T6.2",
+            "mat": "STONE_T7.0",
             "qty": 5.0,
             "heartReducesQty": true
           },
@@ -18816,46 +18517,13 @@
             "heartGated": true
           },
           {
-            "mat": "BLOCKS_T4.2",
+            "mat": "BLOCKS_T6",
             "qty": 1
-          }
-        ],
-        "1": [
-          {
-            "mat": "STONE_T6.3",
-            "qty": 5.0
-          },
-          {
-            "mat": "BLOCKS_T4.2",
-            "qty": 2.0
-          }
-        ],
-        "2": [
-          {
-            "mat": "STONE_T6.4",
-            "qty": 5.0
-          },
-          {
-            "mat": "BLOCKS_T4.2",
-            "qty": 4.0
-          }
-        ],
-        "3": [
-          {
-            "mat": "STONE_T7.0",
-            "qty": 5.0
-          },
-          {
-            "mat": "BLOCKS_T4.2",
-            "qty": 8.0
           }
         ]
       },
       "iv": {
-        "0": 128,
-        "1": 256,
-        "2": 512,
-        "3": 1024
+        "0": 128
       }
     },
     {
@@ -18866,7 +18534,7 @@
       "enchantments": {
         "0": [
           {
-            "mat": "STONE_T7.1",
+            "mat": "STONE_T8.0",
             "qty": 5.0,
             "heartReducesQty": true
           },
@@ -18876,46 +18544,13 @@
             "heartGated": true
           },
           {
-            "mat": "BLOCKS_T4.3",
+            "mat": "BLOCKS_T7",
             "qty": 1
-          }
-        ],
-        "1": [
-          {
-            "mat": "STONE_T7.2",
-            "qty": 5.0
-          },
-          {
-            "mat": "BLOCKS_T4.3",
-            "qty": 2.0
-          }
-        ],
-        "2": [
-          {
-            "mat": "STONE_T7.3",
-            "qty": 5.0
-          },
-          {
-            "mat": "BLOCKS_T4.3",
-            "qty": 4.0
-          }
-        ],
-        "3": [
-          {
-            "mat": "STONE_T8.0",
-            "qty": 5.0
-          },
-          {
-            "mat": "BLOCKS_T4.3",
-            "qty": 8.0
           }
         ]
       },
       "iv": {
-        "0": 256,
-        "1": 512,
-        "2": 1024,
-        "3": 2048
+        "0": 256
       }
     },
     {
@@ -25339,7 +24974,7 @@
             "qty": 8.0
           },
           {
-            "mat": "BLOCKS_T4.0",
+            "mat": "BLOCKS_T4",
             "qty": 8.0
           }
         ]
@@ -25449,7 +25084,7 @@
             "qty": 8.0
           },
           {
-            "mat": "BLOCKS_T4.1",
+            "mat": "BLOCKS_T5",
             "qty": 8.0
           }
         ]
@@ -25559,7 +25194,7 @@
             "qty": 8.0
           },
           {
-            "mat": "BLOCKS_T4.2",
+            "mat": "BLOCKS_T6",
             "qty": 8.0
           }
         ]
@@ -25669,7 +25304,7 @@
             "qty": 8.0
           },
           {
-            "mat": "BLOCKS_T4.3",
+            "mat": "BLOCKS_T7",
             "qty": 8.0
           }
         ]
@@ -25779,7 +25414,7 @@
             "qty": 8.0
           },
           {
-            "mat": "BLOCKS_T4.4",
+            "mat": "BLOCKS_T8",
             "qty": 8.0
           }
         ]
