@@ -740,6 +740,10 @@ RECIPE_FAMILY_FIXES = {
     ('LeatherJackets', 'Jacket of Tenacity'):      {'STEEL':  'LEATHER'},
     # Avalonian cloth armor extracted with STEEL — needs CLOTH.
     ('ClothRobes',     'Robe of Purity'):          {'STEEL':  'CLOTH'},
+    # Assassin leather pieces had their material column set to STEEL ($I)
+    # in the Nendys spreadsheet instead of LEATHER ($N). Jacket is fine.
+    ('LeatherHoods',   'Assassin Hood'):           {'STEEL':  'LEATHER'},
+    ('LeatherShoes',   'Assassin Shoes'):          {'STEEL':  'LEATHER'},
     # Fishing rod extracted with STEEL — needs CLOTH (per official recipe).
     ('GatheringFisherman', 'Rod'):                 {'STEEL':  'CLOTH'},
 }
