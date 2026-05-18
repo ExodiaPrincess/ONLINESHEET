@@ -96,6 +96,33 @@ const DANGER_ICON = `<svg class="danger-icon" viewBox="0 0 24 24" aria-hidden="t
   <circle cx="12" cy="17.3" r="1.2" fill="currentColor"/>
 </svg>`;
 
+/** Resolve a material id to its current price.
+ *
+ *  Special-case: raw STONE (T4.0–T8.3) — Albion refines any enchant level
+ *  of rock into a base (non-enchanted) stone block, so when a recipe asks
+ *  for STONE_T<X>.0 the calculator scans every enchant variant the user
+ *  has a price for (T<X>.0 .. T<X>.3) and returns the cheapest one. The
+ *  user can then leave any subset of those enchant slots blank; only
+ *  priced ones participate. */
+function priceFor(matId) {
+  if (typeof matId === 'string' && /^STONE_T\d+\.\d+$/.test(matId)) {
+    const base = matId.substring(0, matId.lastIndexOf('.'));
+    let best = null;
+    for (let e = 0; e <= 3; e++) {
+      const id  = `${base}.${e}`;
+      const raw = State.prices[id];
+      if (raw == null || raw === '' || isNaN(raw)) continue;
+      const n = Number(raw);
+      if (n <= 0) continue;
+      if (best == null || n < best) best = n;
+    }
+    return best;
+  }
+  const raw = State.prices[matId];
+  if (raw == null || raw === '' || isNaN(raw)) return null;
+  return Number(raw);
+}
+
 /** Build the URL for an icon id. Plain Albion item ids (T1_..., UNIQUE_...)
  *  route to the render API. Anything that looks like a path or filename
  *  (contains '/' or '.') is treated as a local asset so we can ship our
@@ -293,13 +320,12 @@ function chainProduceCost(sheet, tier, ench) {
     const isPrevRefined = parsed && parsed.family === family && parsed.tier < tier;
 
     if (isPrevRefined) {
-      const market   = State.prices[it.mat];
+      const market   = priceFor(it.mat);
       const produced = chainProduceCost(sheet, parsed.tier, parsed.ench);
       const candidates = [market, produced].filter(v => v != null && !isNaN(v));
       unitPrice = candidates.length ? Math.min(...candidates) : null;
     } else {
-      const market = State.prices[it.mat];
-      unitPrice = (market != null && !isNaN(market)) ? Number(market) : null;
+      unitPrice = priceFor(it.mat);
     }
     if (unitPrice == null) { missingAny = true; continue; }
 
@@ -340,9 +366,9 @@ function refiningCellCost(sheet, recipe, ench) {
     const isPrevRefined = parsed && family && parsed.family === family && parsed.tier < tier;
 
     // Market branch
-    const marketPrice = State.prices[it.mat];
-    if (marketPrice != null && !isNaN(marketPrice)) {
-      costMarket += qty * Number(marketPrice) * factor;
+    const marketPrice = priceFor(it.mat);
+    if (marketPrice != null) {
+      costMarket += qty * marketPrice * factor;
     } else {
       hasMarket = false; missingMarket.add(it.mat);
     }
@@ -355,8 +381,8 @@ function refiningCellCost(sheet, recipe, ench) {
       } else {
         hasChain = false; missingChain.add(it.mat);
       }
-    } else if (marketPrice != null && !isNaN(marketPrice)) {
-      costChain += qty * Number(marketPrice) * factor;
+    } else if (marketPrice != null) {
+      costChain += qty * marketPrice * factor;
     } else {
       hasChain = false; missingChain.add(it.mat);
     }
@@ -404,8 +430,8 @@ function computeRecipeCost(items, sheet, iv = 0, batchDivisor = 1) {
     if (it.heartReducesQty && useHearts) qty = Math.max(0, qty - 1);
     if (qty <= 0) continue;
 
-    const price = State.prices[it.mat];
-    if (price === undefined || price === null || price === '' || isNaN(price)) {
+    const price = priceFor(it.mat);
+    if (price == null) {
       missing.push(it.mat);
       continue;
     }
@@ -413,7 +439,7 @@ function computeRecipeCost(items, sheet, iv = 0, batchDivisor = 1) {
     // in the spreadsheet formula — they're not affected by return rate.
     const noDiscount = it.heartGated || it.noReturnDiscount;
     const factor = noDiscount ? 1 : (1 - ret);
-    matTotal += qty * Number(price) * factor;
+    matTotal += qty * price * factor;
   }
   let total = batchDivisor > 0 ? matTotal / batchDivisor : matTotal;
   if (iv > 0) {
