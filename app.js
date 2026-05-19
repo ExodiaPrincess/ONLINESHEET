@@ -101,7 +101,7 @@ const DANGER_ICON = `<svg class="danger-icon" viewBox="0 0 24 24" aria-hidden="t
  *  Refining is special: the output is always a BASE (non-enchanted)
  *  stoneblock regardless of input, so each column represents what
  *  enchant level of raw rock you fed in instead.  */
-const STONE_ENCH_LABELS = ['Base raws', 'Uncommon raws', 'Rare raws', 'Exceptional raws'];
+const STONE_ENCH_LABELS = ['Base Stone', 'Uncommon Stone', 'Rare Stone', 'Exceptional Stone'];
 function enchHeaderLabel(sheet, e) {
   if (sheet === 'StoneRefining' && STONE_ENCH_LABELS[e]) return STONE_ENCH_LABELS[e];
   return `Enchantment ${e}`;
@@ -1073,7 +1073,7 @@ function pageSheet(sheet) {
     ${artBlock}
     <div class="panel" style="padding:0;">
       <div class="tbl-wrap">
-        <table class="tbl">${head}<tbody>${body}</tbody></table>
+        <table class="tbl ${isRefining ? 'tbl--refining' : ''}">${head}<tbody>${body}</tbody></table>
       </div>
     </div>
     ${refiningCaption}

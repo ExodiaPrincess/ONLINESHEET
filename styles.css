@@ -611,6 +611,13 @@ table.tbl {
 .tbl tbody tr.section-start:first-child td { border-top: none; }
 .tbl tbody tr.section-end td { border-bottom: 1px solid var(--line-2); }
 .tbl .tier-cell { color: var(--text-3); font-size: 12px; }
+/* Refining tables: force equal-width enchant columns so Base / Uncommon /
+   Rare / Exceptional read as a uniform grid instead of the longer
+   header ("Exceptional Stone") stealing extra width. */
+.tbl--refining { table-layout: fixed; }
+.tbl--refining .item-name--merged { width: 220px; }
+.tbl--refining .tier-cell { width: 90px; }
+.tbl--refining thead th.ench-th { width: auto; }
 .tbl .price-cell {
   font-family: var(--mono);
   text-align: right;
