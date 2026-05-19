@@ -105,6 +105,10 @@ STONE_TIERS = {
     103:'T6.0', 105: 'T6.1', 107: 'T6.2', 109: 'T6.3',
     111:'T7.0', 113: 'T7.1', 115: 'T7.2', 117: 'T7.3',
     119:'T8.0', 121: 'T8.1', 123: 'T8.2', 125: 'T8.3',
+    # Stone Refining T8 ench 3 formula in the spreadsheet references X127,
+    # which would be a non-existent T8.4 rock. Re-route the typo to T8.3
+    # so the recipe resolves to the correct material id.
+    127: 'T8.3',
 }
 
 # Refined
