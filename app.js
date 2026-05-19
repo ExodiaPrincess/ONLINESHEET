@@ -340,8 +340,7 @@ function chainProduceCost(sheet, tier, ench) {
   // Add station fee (paid per craft, not return-rate-refunded), then divide
   // by per-craft output count so the value returned is per-unit (per-block
   // for stone). Non-stone refining outputs 1 per craft → divisor = 1.
-  const recipe = findRefiningRecipe(sheet, tier);
-  const iv = (recipe && recipe.iv && (recipe.iv[String(ench)] ?? recipe.iv[ench])) || 0;
+  const iv = (recipe.iv && (recipe.iv[String(ench)] ?? recipe.iv[ench])) || 0;
   const stationFee = Number(State.settings.stationFee) || 0;
   total += iv * 0.1125 * stationFee / 100;
   const outCount = refiningOutputCount(sheet, ench);
