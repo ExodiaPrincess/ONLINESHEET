@@ -337,6 +337,15 @@ function chainProduceCost(sheet, tier, ench) {
     const factor = noDiscount ? 1 : (1 - ret);
     total += qty * unitPrice * factor;
   }
+  // Add station fee (paid per craft, not return-rate-refunded), then divide
+  // by per-craft output count so the value returned is per-unit (per-block
+  // for stone). Non-stone refining outputs 1 per craft → divisor = 1.
+  const recipe = findRefiningRecipe(sheet, tier);
+  const iv = (recipe && recipe.iv && (recipe.iv[String(ench)] ?? recipe.iv[ench])) || 0;
+  const stationFee = Number(State.settings.stationFee) || 0;
+  total += iv * 0.1125 * stationFee / 100;
+  const outCount = refiningOutputCount(sheet, ench);
+  if (outCount > 1) total /= outCount;
   const result = missingAny ? null : total;
   _chainCostCache.set(key, result);
   return result;
@@ -391,6 +400,18 @@ function refiningCellCost(sheet, recipe, ench) {
       hasChain = false; missingChain.add(it.mat);
     }
   }
+
+  // Station fee — paid per craft, NOT refunded by return rate. Formula
+  // matches the spreadsheet & crafting branch: iv * 0.1125 * stationFee / 100.
+  // For stone, recipe.iv[ench] = base_block_iv * output_count, so this is
+  // already the per-craft total IV. Dividing by outCount below gives the
+  // correct per-block fee. For plank/steel/cloth/leather, output is 1 per
+  // craft so per-craft == per-block automatically.
+  const iv = (recipe.iv && (recipe.iv[String(ench)] ?? recipe.iv[ench])) || 0;
+  const stationFee = Number(State.settings.stationFee) || 0;
+  const feeCost = iv * 0.1125 * stationFee / 100;
+  costMarket += feeCost;
+  costChain  += feeCost;
 
   // Stone Refining outputs N blocks per craft for enchanted columns
   // (1 / 2 / 4 / 8 for Base / Uncommon / Rare / Exceptional). The cost we
