@@ -107,6 +107,19 @@ function enchHeaderLabel(sheet, e) {
   return `Enchantment ${e}`;
 }
 
+/** Per-enchant output count for Stone Refining.
+ *  Albion's stoneblocks have no enchant variants, so refining 1 enchanted
+ *  raw rock outputs *multiple* base blocks instead — 2/4/8 for uncommon/
+ *  rare/exceptional. The recipe inputs already scale (e.g. exceptional
+ *  consumes 8x the prev-tier blocks); we divide the total recipe cost by
+ *  this multiplier to get the per-block cost users actually see in game.
+ *  Base enchant outputs 1 block, so divisor 1 is a no-op. */
+const STONE_OUTPUT_PER_ENCH = [1, 2, 4, 8];
+function refiningOutputCount(sheet, ench) {
+  if (sheet === 'StoneRefining') return STONE_OUTPUT_PER_ENCH[ench] || 1;
+  return 1;
+}
+
 /** Resolve a material id to its current price (or null if unset / invalid). */
 function priceFor(matId) {
   const raw = State.prices[matId];
@@ -377,6 +390,15 @@ function refiningCellCost(sheet, recipe, ench) {
     } else {
       hasChain = false; missingChain.add(it.mat);
     }
+  }
+
+  // Stone Refining outputs N blocks per craft for enchanted columns
+  // (1 / 2 / 4 / 8 for Base / Uncommon / Rare / Exceptional). The cost we
+  // computed above is per-craft; divide so the cell shows per-block.
+  const outCount = refiningOutputCount(sheet, ench);
+  if (outCount > 1) {
+    costMarket /= outCount;
+    costChain  /= outCount;
   }
 
   const mode = State.settings.pricingMode || 'auto';
