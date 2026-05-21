@@ -3096,6 +3096,276 @@
       "iv": 256
     },
     {
+      "id": "ART_CAPESFURNITURE_BRECILIEN_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Brecilien Crest T4",
+      "sheet": "CapesFurniture",
+      "iv": 16
+    },
+    {
+      "id": "ART_CAPESFURNITURE_BRECILIEN_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Brecilien Crest T5",
+      "sheet": "CapesFurniture",
+      "iv": 32
+    },
+    {
+      "id": "ART_CAPESFURNITURE_BRECILIEN_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Brecilien Crest T6",
+      "sheet": "CapesFurniture",
+      "iv": 64
+    },
+    {
+      "id": "ART_CAPESFURNITURE_BRECILIEN_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Brecilien Crest T7",
+      "sheet": "CapesFurniture",
+      "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_BRECILIEN_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Brecilien Crest T8",
+      "sheet": "CapesFurniture",
+      "iv": 256
+    },
+    {
+      "id": "ART_CAPESFURNITURE_HERETIC_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Heretic Crest T4",
+      "sheet": "CapesFurniture",
+      "iv": 16
+    },
+    {
+      "id": "ART_CAPESFURNITURE_HERETIC_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Heretic Crest T5",
+      "sheet": "CapesFurniture",
+      "iv": 32
+    },
+    {
+      "id": "ART_CAPESFURNITURE_HERETIC_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Heretic Crest T6",
+      "sheet": "CapesFurniture",
+      "iv": 64
+    },
+    {
+      "id": "ART_CAPESFURNITURE_HERETIC_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Heretic Crest T7",
+      "sheet": "CapesFurniture",
+      "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_HERETIC_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Heretic Crest T8",
+      "sheet": "CapesFurniture",
+      "iv": 256
+    },
+    {
+      "id": "ART_CAPESFURNITURE_KEEPER_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Keeper Crest T4",
+      "sheet": "CapesFurniture",
+      "iv": 16
+    },
+    {
+      "id": "ART_CAPESFURNITURE_KEEPER_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Keeper Crest T5",
+      "sheet": "CapesFurniture",
+      "iv": 32
+    },
+    {
+      "id": "ART_CAPESFURNITURE_KEEPER_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Keeper Crest T6",
+      "sheet": "CapesFurniture",
+      "iv": 64
+    },
+    {
+      "id": "ART_CAPESFURNITURE_KEEPER_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Keeper Crest T7",
+      "sheet": "CapesFurniture",
+      "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_KEEPER_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Keeper Crest T8",
+      "sheet": "CapesFurniture",
+      "iv": 256
+    },
+    {
+      "id": "ART_CAPESFURNITURE_MORGANA_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Morgana Crest T4",
+      "sheet": "CapesFurniture",
+      "iv": 16
+    },
+    {
+      "id": "ART_CAPESFURNITURE_MORGANA_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Morgana Crest T5",
+      "sheet": "CapesFurniture",
+      "iv": 32
+    },
+    {
+      "id": "ART_CAPESFURNITURE_MORGANA_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Morgana Crest T6",
+      "sheet": "CapesFurniture",
+      "iv": 64
+    },
+    {
+      "id": "ART_CAPESFURNITURE_MORGANA_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Morgana Crest T7",
+      "sheet": "CapesFurniture",
+      "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_MORGANA_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Morgana Crest T8",
+      "sheet": "CapesFurniture",
+      "iv": 256
+    },
+    {
+      "id": "ART_CAPESFURNITURE_UNDEAD_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Undead Crest T4",
+      "sheet": "CapesFurniture",
+      "iv": 16
+    },
+    {
+      "id": "ART_CAPESFURNITURE_UNDEAD_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Undead Crest T5",
+      "sheet": "CapesFurniture",
+      "iv": 32
+    },
+    {
+      "id": "ART_CAPESFURNITURE_UNDEAD_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Undead Crest T6",
+      "sheet": "CapesFurniture",
+      "iv": 64
+    },
+    {
+      "id": "ART_CAPESFURNITURE_UNDEAD_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Undead Crest T7",
+      "sheet": "CapesFurniture",
+      "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_UNDEAD_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Undead Crest T8",
+      "sheet": "CapesFurniture",
+      "iv": 256
+    },
+    {
+      "id": "ART_CAPESFURNITURE_DEMON_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Demon Crest T4",
+      "sheet": "CapesFurniture",
+      "iv": 16
+    },
+    {
+      "id": "ART_CAPESFURNITURE_DEMON_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Demon Crest T5",
+      "sheet": "CapesFurniture",
+      "iv": 32
+    },
+    {
+      "id": "ART_CAPESFURNITURE_DEMON_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Demon Crest T6",
+      "sheet": "CapesFurniture",
+      "iv": 64
+    },
+    {
+      "id": "ART_CAPESFURNITURE_DEMON_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Demon Crest T7",
+      "sheet": "CapesFurniture",
+      "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_DEMON_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Demon Crest T8",
+      "sheet": "CapesFurniture",
+      "iv": 256
+    },
+    {
       "id": "ART_PLATEBOOTS_ANCIENT_BINDINGS_T4",
       "family": "ARTIFACT_PlateBoots",
       "tier": "T4",
@@ -29457,6 +29727,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -29470,6 +29745,11 @@
           },
           {
             "mat": "HEART_FAERIE_FIRE",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -29487,6 +29767,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -29502,6 +29787,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -29515,6 +29805,11 @@
           },
           {
             "mat": "HEART_FAERIE_FIRE",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -29547,6 +29842,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -29560,6 +29860,11 @@
           },
           {
             "mat": "HEART_FAERIE_FIRE",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -29577,6 +29882,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -29592,6 +29902,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -29605,6 +29920,11 @@
           },
           {
             "mat": "HEART_FAERIE_FIRE",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -29637,6 +29957,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -29651,6 +29976,11 @@
           {
             "mat": "HEART_FAERIE_FIRE",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -29667,6 +29997,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -29682,6 +30017,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -29696,6 +30036,11 @@
           {
             "mat": "HEART_FAERIE_FIRE",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -29727,6 +30072,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -29741,6 +30091,11 @@
           {
             "mat": "HEART_FAERIE_FIRE",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -29757,6 +30112,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -29772,6 +30132,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -29786,6 +30151,11 @@
           {
             "mat": "HEART_FAERIE_FIRE",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -29817,6 +30187,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -29831,6 +30206,11 @@
           {
             "mat": "HEART_FAERIE_FIRE",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -29847,6 +30227,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -29862,6 +30247,11 @@
             "mat": "HEART_FAERIE_FIRE",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -29876,6 +30266,11 @@
           {
             "mat": "HEART_FAERIE_FIRE",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_BRECILIEN_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -29907,6 +30302,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -29920,6 +30320,11 @@
           },
           {
             "mat": "HEART_TREEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -29937,6 +30342,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -29952,6 +30362,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -29965,6 +30380,11 @@
           },
           {
             "mat": "HEART_TREEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -29997,6 +30417,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30010,6 +30435,11 @@
           },
           {
             "mat": "HEART_TREEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30027,6 +30457,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30042,6 +30477,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30055,6 +30495,11 @@
           },
           {
             "mat": "HEART_TREEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30087,6 +30532,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30101,6 +30551,11 @@
           {
             "mat": "HEART_TREEHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -30117,6 +30572,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30132,6 +30592,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30146,6 +30611,11 @@
           {
             "mat": "HEART_TREEHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -30177,6 +30647,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30191,6 +30666,11 @@
           {
             "mat": "HEART_TREEHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -30207,6 +30687,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30222,6 +30707,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30236,6 +30726,11 @@
           {
             "mat": "HEART_TREEHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -30267,6 +30762,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30281,6 +30781,11 @@
           {
             "mat": "HEART_TREEHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -30297,6 +30802,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30312,6 +30822,11 @@
             "mat": "HEART_TREEHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30326,6 +30841,11 @@
           {
             "mat": "HEART_TREEHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_HERETIC_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -30357,6 +30877,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30370,6 +30895,11 @@
           },
           {
             "mat": "HEART_ROCKHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30387,6 +30917,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30402,6 +30937,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30415,6 +30955,11 @@
           },
           {
             "mat": "HEART_ROCKHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30447,6 +30992,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30460,6 +31010,11 @@
           },
           {
             "mat": "HEART_ROCKHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30477,6 +31032,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30492,6 +31052,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30505,6 +31070,11 @@
           },
           {
             "mat": "HEART_ROCKHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30537,6 +31107,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30551,6 +31126,11 @@
           {
             "mat": "HEART_ROCKHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -30567,6 +31147,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30582,6 +31167,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30596,6 +31186,11 @@
           {
             "mat": "HEART_ROCKHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -30627,6 +31222,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30641,6 +31241,11 @@
           {
             "mat": "HEART_ROCKHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -30657,6 +31262,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30672,6 +31282,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30686,6 +31301,11 @@
           {
             "mat": "HEART_ROCKHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -30717,6 +31337,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30731,6 +31356,11 @@
           {
             "mat": "HEART_ROCKHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -30747,6 +31377,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30762,6 +31397,11 @@
             "mat": "HEART_ROCKHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30776,6 +31416,11 @@
           {
             "mat": "HEART_ROCKHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_KEEPER_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -30807,6 +31452,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30820,6 +31470,11 @@
           },
           {
             "mat": "HEART_VINEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30837,6 +31492,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30852,6 +31512,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30865,6 +31530,11 @@
           },
           {
             "mat": "HEART_VINEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30897,6 +31567,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -30910,6 +31585,11 @@
           },
           {
             "mat": "HEART_VINEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30927,6 +31607,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -30942,6 +31627,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -30955,6 +31645,11 @@
           },
           {
             "mat": "HEART_VINEHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -30987,6 +31682,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31001,6 +31701,11 @@
           {
             "mat": "HEART_VINEHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31017,6 +31722,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31032,6 +31742,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31046,6 +31761,11 @@
           {
             "mat": "HEART_VINEHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31077,6 +31797,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31091,6 +31816,11 @@
           {
             "mat": "HEART_VINEHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31107,6 +31837,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31122,6 +31857,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31136,6 +31876,11 @@
           {
             "mat": "HEART_VINEHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31167,6 +31912,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31181,6 +31931,11 @@
           {
             "mat": "HEART_VINEHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31197,6 +31952,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31212,6 +31972,11 @@
             "mat": "HEART_VINEHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31226,6 +31991,11 @@
           {
             "mat": "HEART_VINEHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_MORGANA_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31257,6 +32027,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31270,6 +32045,11 @@
           },
           {
             "mat": "HEART_MOUNTAINHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31287,6 +32067,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31302,6 +32087,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31315,6 +32105,11 @@
           },
           {
             "mat": "HEART_MOUNTAINHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31347,6 +32142,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31360,6 +32160,11 @@
           },
           {
             "mat": "HEART_MOUNTAINHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31377,6 +32182,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31392,6 +32202,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31405,6 +32220,11 @@
           },
           {
             "mat": "HEART_MOUNTAINHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31437,6 +32257,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31451,6 +32276,11 @@
           {
             "mat": "HEART_MOUNTAINHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31467,6 +32297,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31482,6 +32317,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31496,6 +32336,11 @@
           {
             "mat": "HEART_MOUNTAINHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31527,6 +32372,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31541,6 +32391,11 @@
           {
             "mat": "HEART_MOUNTAINHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31557,6 +32412,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31572,6 +32432,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31586,6 +32451,11 @@
           {
             "mat": "HEART_MOUNTAINHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31617,6 +32487,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31631,6 +32506,11 @@
           {
             "mat": "HEART_MOUNTAINHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31647,6 +32527,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31662,6 +32547,11 @@
             "mat": "HEART_MOUNTAINHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31676,6 +32566,11 @@
           {
             "mat": "HEART_MOUNTAINHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_UNDEAD_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31707,6 +32602,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31720,6 +32620,11 @@
           },
           {
             "mat": "HEART_BEASTHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31737,6 +32642,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31752,6 +32662,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31765,6 +32680,11 @@
           },
           {
             "mat": "HEART_BEASTHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T4",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31797,6 +32717,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31810,6 +32735,11 @@
           },
           {
             "mat": "HEART_BEASTHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31827,6 +32757,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31842,6 +32777,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 1,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31855,6 +32795,11 @@
           },
           {
             "mat": "HEART_BEASTHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T5",
             "qty": 1,
             "noReturnDiscount": true
           }
@@ -31887,6 +32832,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31901,6 +32851,11 @@
           {
             "mat": "HEART_BEASTHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -31917,6 +32872,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -31932,6 +32892,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 3.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -31946,6 +32911,11 @@
           {
             "mat": "HEART_BEASTHEART",
             "qty": 3.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T6",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -31977,6 +32947,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -31991,6 +32966,11 @@
           {
             "mat": "HEART_BEASTHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -32007,6 +32987,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -32022,6 +33007,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 5.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -32036,6 +33026,11 @@
           {
             "mat": "HEART_BEASTHEART",
             "qty": 5.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T7",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]
@@ -32067,6 +33062,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "1": [
@@ -32081,6 +33081,11 @@
           {
             "mat": "HEART_BEASTHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ],
@@ -32097,6 +33102,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "3": [
@@ -32112,6 +33122,11 @@
             "mat": "HEART_BEASTHEART",
             "qty": 10.0,
             "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
           }
         ],
         "4": [
@@ -32126,6 +33141,11 @@
           {
             "mat": "HEART_BEASTHEART",
             "qty": 10.0,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_DEMON_CREST_T8",
+            "qty": 1,
             "noReturnDiscount": true
           }
         ]

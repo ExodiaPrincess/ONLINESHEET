@@ -11,7 +11,7 @@ import re
 from openpyxl import load_workbook
 
 PATH = r'C:\Users\Bernardo\Downloads\Nendys V2 (7).xlsx'
-OUT = r'C:\Users\Bernardo\Desktop\Graf Site\.claude\worktrees\keen-hypatia-1d2f88\albion\data.json'
+OUT = r'C:\Users\Bernardo\Desktop\AlbionSite\albion\data.json'
 
 wb = load_workbook(PATH, data_only=False)
 
@@ -466,10 +466,14 @@ def extract_gathering_gear(ws):
 
 
 # ---------- ARTIFACT CATALOG PER SHEET ----------
-# Each weapon/armor/accessory sheet has up to 6 artifact items in row 5
+# Most weapon/armor/accessory sheets have up to 6 artifact items in row 5
 # (cols I/K/M/O/Q, plus S for CapesFurniture). Tier rows 6/8/10/12/14 = T4-T8.
+# CapesFurniture is special: it has 13 cape crests stretching across
+# I/K/M/O/Q/S/U/W/Y/AA/AC/AE (6 city + Brecilien + 5 faction). Extending
+# the column list catches them all; other sheets are blank past S so the
+# extra columns simply produce no entries there.
 ARTIFACT_TIER_ROWS = {6: 'T4', 8: 'T5', 10: 'T6', 12: 'T7', 14: 'T8'}
-ARTIFACT_COLS = ['I', 'K', 'M', 'O', 'Q', 'S']
+ARTIFACT_COLS = ['I', 'K', 'M', 'O', 'Q', 'S', 'U', 'W', 'Y', 'AA', 'AC', 'AE']
 
 # Per-sheet artifact maps: sheet_name -> { local_coord (e.g. 'I6') -> material_id }
 sheet_artifact_maps = {}
@@ -534,8 +538,12 @@ if ws_food is not None:
 
 # ---------- UPDATE FORMULA PARSER FOR LOCAL REFS ----------
 # Match $-anchored OR bare cell refs that aren't prefixed with `Materials!`.
-# Examples: $I$6 (artifact, Sword sheet), Q7 (fish, Food sheet).
-LOCAL_REF = re.compile(r"\$?([A-Z])\$?(\d+)")
+# Examples: $I$6 (artifact, Sword sheet), Q7 (fish, Food sheet),
+# AE6 (Demon Crest artifact on CapesFurniture — uses a double-letter
+# column past Z). The `[A-Z]{1,2}` class catches both single and double
+# letter columns; `\b` boundary stops a stray `E6` mid-formula from being
+# misparsed as the cell `E6`.
+LOCAL_REF = re.compile(r"\$?\b([A-Z]{1,2})\$?(\d+)")
 
 def parse_formula_with_artifacts(formula, sheet_name):
     """Wraps parse_formula; additionally detects local artifact refs."""
