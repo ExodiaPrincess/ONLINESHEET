@@ -658,7 +658,7 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
       </div>
       <div class="field">
         <label for="set-fee">Station Fee</label>
-        <input type="number" id="set-fee" min="0" step="1" value="${s.stationFee}" />
+        <input type="text" inputmode="numeric" pattern="[0-9]*" id="set-fee" value="${s.stationFee}" autocomplete="off" />
       </div>
       ${heartsField}
       ${pricingField}
@@ -816,8 +816,8 @@ function pageMaterials() {
         mats.map(m => `
           <div class="row">
             <label title="${m.id}">${m.name}</label>
-            <input type="number" min="0" step="1" data-mat="${m.id}"
-                   value="${State.prices[m.id] ?? ''}" placeholder="0" />
+            <input type="text" inputmode="numeric" pattern="[0-9]*" data-mat="${m.id}"
+                   value="${State.prices[m.id] ?? ''}" placeholder="0" autocomplete="off" />
           </div>
         `).join('') +
         `</div>`;
@@ -830,8 +830,8 @@ function pageMaterials() {
         mats.map(m => `
           <div class="row">
             <label title="${m.id}">${m.name}</label>
-            <input type="number" min="0" step="1" data-mat="${m.id}"
-                   value="${State.prices[m.id] ?? ''}" placeholder="0" />
+            <input type="text" inputmode="numeric" pattern="[0-9]*" data-mat="${m.id}"
+                   value="${State.prices[m.id] ?? ''}" placeholder="0" autocomplete="off" />
           </div>
         `).join('') +
         `</div>`;
@@ -874,7 +874,7 @@ function renderArtifactCard(sheet, mats, { showSheetTitle = false } = {}) {
       tierLetters.map(t => {
         const m = tierMap[t];
         return m
-          ? `<input type="number" min="0" step="1" data-mat="${m.id}" value="${State.prices[m.id] ?? ''}" placeholder="0" />`
+          ? `<input type="text" inputmode="numeric" pattern="[0-9]*" data-mat="${m.id}" value="${State.prices[m.id] ?? ''}" placeholder="0" autocomplete="off" />`
           : `<span class="muted">—</span>`;
       }).join('') +
       `</div>`;
