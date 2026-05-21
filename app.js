@@ -17,9 +17,9 @@ const REFINING_SHEETS = new Set([
 // render.albiononline.com API as the recipe-table icons).
 const SHEET_GROUPS = [
   { title: 'Refining',         icon: 'T8_METALBAR',         sheets: ['PlankRefining', 'SteelRefining', 'LeatherRefining', 'ClothRefining', 'StoneRefining'] },
-  { title: 'Weapons · Warrior',icon: 'T8_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Quarterstaffs', 'Gloves'] },
-  { title: 'Weapons · Hunter', icon: 'T8_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears', 'ShapeShifters'] },
-  { title: 'Weapons · Mage',   icon: 'T8_MAIN_FIRESTAFF',   sheets: ['CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff', 'NatureStaff'] },
+  { title: 'Weapons · Warrior',icon: 'T8_MAIN_SWORD',       sheets: ['Swords', 'Axes', 'Maces', 'Hammers', 'Gloves'] },
+  { title: 'Weapons · Hunter', icon: 'T8_2H_BOW',           sheets: ['Bows', 'Crossbows', 'Daggers', 'Spears', 'Quarterstaffs', 'NatureStaff', 'ShapeShifters'] },
+  { title: 'Weapons · Mage',   icon: 'T8_MAIN_FIRESTAFF',   sheets: ['CursedStaff', 'FrostStaff', 'ArcaneStaff', 'HolyStaffs', 'FireStaff'] },
   { title: 'Off-hands',        icon: 'T8_OFF_SHIELD',       sheets: ['Shields', 'Tomes', 'Torch'] },
   { title: 'Armor · Plate',    icon: 'T8_HEAD_PLATE_SET1',  sheets: ['PlateHelmets', 'PlateArmors', 'PlateBoots'] },
   { title: 'Armor · Leather',  icon: 'T8_HEAD_LEATHER_SET1',sheets: ['LeatherHoods', 'LeatherJackets', 'LeatherShoes'] },
