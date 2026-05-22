@@ -1091,6 +1091,17 @@ for rec in all_recipes:
         rec['iv'] = iv_map
 
 
+# Expand abbreviated names in the Food sheet — the spreadsheet uses
+# "Ava" as shorthand for Avalonian variants (Ava Stew, Ava Omelette,
+# Ava Goat Sandwich, etc.). Spell it out so the UI label is clearer.
+for r in all_recipes:
+    if r.get('sheet') != 'Food':
+        continue
+    for field in ('item', 'tierLabel'):
+        v = r.get(field)
+        if isinstance(v, str) and v.startswith('Ava '):
+            r[field] = 'Avalonian ' + v[4:]
+
 # Group recipes by sheet
 by_sheet = {}
 for r in all_recipes:
