@@ -420,7 +420,8 @@ img.nav-emoji--md { width: 30px; height: 30px; }
 }
 .panel--settings .field label { font-size: 10.5px; }
 .panel--settings .field select,
-.panel--settings .field input[type="number"] {
+.panel--settings .field input[type="number"],
+.panel--settings .field input[type="text"] {
   padding: 6px 8px;
   font-size: 12.5px;
 }
@@ -433,7 +434,9 @@ img.nav-emoji--md { width: 30px; height: 30px; }
   text-transform: uppercase;
   color: var(--text-3);
 }
-.field select, .field input[type="number"] {
+.field select,
+.field input[type="number"],
+.field input[type="text"] {
   background: var(--bg-3);
   color: var(--text);
   border: 1px solid var(--line-2);
