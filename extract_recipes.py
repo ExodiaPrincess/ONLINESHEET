@@ -955,6 +955,58 @@ for rec in all_recipes:
     if iv_map:
         rec['iv'] = iv_map
 
+# ---------- HAND-AUTHORED ADDITIONS (post-spreadsheet) ----------
+# Items added to Albion after the source spreadsheet was last updated.
+# These are inlined here rather than carried in data.json so re-extracting
+# from a fresh xlsx doesn't drop them.
+
+# Smuggler's Cape — Brecilien-themed faction cape using Shadowheart +
+# its own crest artifact. Same shape as the other artifact capes: per
+# tier 4×Cloth + 4×Leather + 1×Shadowheart + 1×Smuggler Crest, with
+# enchantment levels 0-4 scaling cloth/leather tier only.
+SMUGGLER_TIERS = ['T4', 'T5', 'T6', 'T7', 'T8']
+# Define the 5 crest tiers as artifact materials
+for t in SMUGGLER_TIERS:
+    mid = f'ART_CAPESFURNITURE_SMUGGLER_CREST_{t}'
+    mat_meta[mid] = {
+        'id': mid,
+        'family': 'ARTIFACT_CapesFurniture',
+        'tier': t,
+        'kind': 'artifact',
+        'name': f'Smuggler Crest {t}',
+        'sheet': 'CapesFurniture',
+    }
+
+# Build the 5 cape recipes (T4-T8)
+def _smuggler_recipe(tier_num):
+    """Per-tier recipe: 5 enchant levels (0-4), each = 4 cloth + 4 leather
+    + 1 shadowheart + 1 smuggler crest. Enchant levels 0-4 scale the
+    cloth/leather tier suffix only."""
+    crest = f'ART_CAPESFURNITURE_SMUGGLER_CREST_T{tier_num}'
+    ench = {}
+    iv_map = {}
+    for e in range(5):
+        ench[str(e)] = [
+            {'mat': f'CLOTH_T{tier_num}.{e}',   'qty': 4.0},
+            {'mat': f'LEATHER_T{tier_num}.{e}', 'qty': 4.0},
+            {'mat': 'HEART_SHADOWHEART', 'qty': 1, 'noReturnDiscount': True},
+            {'mat': crest, 'qty': 1, 'noReturnDiscount': True},
+        ]
+        # IV(T, e) = 128 * 2^(T-4) * 2^e  (cape base IV = 128 at T4)
+        iv_map[str(e)] = 128 * (2 ** (tier_num - 4)) * (2 ** e)
+    return {
+        'sheet': 'CapesFurniture',
+        'section': 'Smuggler Cape',
+        'item': f'Smuggler Cape Tier {tier_num}',
+        'tierLabel': f'Tier {tier_num}',
+        'enchantments': ench,
+        'iv': iv_map,
+    }
+
+for t in [4, 5, 6, 7, 8]:
+    all_recipes.append(_smuggler_recipe(t))
+
+
 # Group recipes by sheet
 by_sheet = {}
 for r in all_recipes:

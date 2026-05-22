@@ -10078,6 +10078,46 @@
       "kind": "fish",
       "name": "Snapper T7",
       "iv": 128
+    },
+    {
+      "id": "ART_CAPESFURNITURE_SMUGGLER_CREST_T4",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T4",
+      "kind": "artifact",
+      "name": "Smuggler Crest T4",
+      "sheet": "CapesFurniture"
+    },
+    {
+      "id": "ART_CAPESFURNITURE_SMUGGLER_CREST_T5",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T5",
+      "kind": "artifact",
+      "name": "Smuggler Crest T5",
+      "sheet": "CapesFurniture"
+    },
+    {
+      "id": "ART_CAPESFURNITURE_SMUGGLER_CREST_T6",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T6",
+      "kind": "artifact",
+      "name": "Smuggler Crest T6",
+      "sheet": "CapesFurniture"
+    },
+    {
+      "id": "ART_CAPESFURNITURE_SMUGGLER_CREST_T7",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T7",
+      "kind": "artifact",
+      "name": "Smuggler Crest T7",
+      "sheet": "CapesFurniture"
+    },
+    {
+      "id": "ART_CAPESFURNITURE_SMUGGLER_CREST_T8",
+      "family": "ARTIFACT_CapesFurniture",
+      "tier": "T8",
+      "kind": "artifact",
+      "name": "Smuggler Crest T8",
+      "sheet": "CapesFurniture"
     }
   ],
   "recipes": [
@@ -122652,6 +122692,581 @@
       },
       "iv": {
         "0": 1536.0
+      }
+    },
+    {
+      "sheet": "CapesFurniture",
+      "section": "Smuggler Cape",
+      "item": "Smuggler Cape Tier 4",
+      "tierLabel": "Tier 4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "CLOTH_T4.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T4.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "1": [
+          {
+            "mat": "CLOTH_T4.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T4.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "2": [
+          {
+            "mat": "CLOTH_T4.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T4.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "3": [
+          {
+            "mat": "CLOTH_T4.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T4.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "4": [
+          {
+            "mat": "CLOTH_T4.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T4.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T4",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ]
+      },
+      "iv": {
+        "0": 128,
+        "1": 256,
+        "2": 512,
+        "3": 1024,
+        "4": 2048
+      }
+    },
+    {
+      "sheet": "CapesFurniture",
+      "section": "Smuggler Cape",
+      "item": "Smuggler Cape Tier 5",
+      "tierLabel": "Tier 5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "CLOTH_T5.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T5.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "1": [
+          {
+            "mat": "CLOTH_T5.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T5.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "2": [
+          {
+            "mat": "CLOTH_T5.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T5.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "3": [
+          {
+            "mat": "CLOTH_T5.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T5.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "4": [
+          {
+            "mat": "CLOTH_T5.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T5.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T5",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ]
+      },
+      "iv": {
+        "0": 256,
+        "1": 512,
+        "2": 1024,
+        "3": 2048,
+        "4": 4096
+      }
+    },
+    {
+      "sheet": "CapesFurniture",
+      "section": "Smuggler Cape",
+      "item": "Smuggler Cape Tier 6",
+      "tierLabel": "Tier 6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "CLOTH_T6.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T6.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "1": [
+          {
+            "mat": "CLOTH_T6.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T6.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "2": [
+          {
+            "mat": "CLOTH_T6.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T6.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "3": [
+          {
+            "mat": "CLOTH_T6.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T6.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "4": [
+          {
+            "mat": "CLOTH_T6.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T6.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T6",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ]
+      },
+      "iv": {
+        "0": 512,
+        "1": 1024,
+        "2": 2048,
+        "3": 4096,
+        "4": 8192
+      }
+    },
+    {
+      "sheet": "CapesFurniture",
+      "section": "Smuggler Cape",
+      "item": "Smuggler Cape Tier 7",
+      "tierLabel": "Tier 7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "CLOTH_T7.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T7.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "1": [
+          {
+            "mat": "CLOTH_T7.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T7.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "2": [
+          {
+            "mat": "CLOTH_T7.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T7.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "3": [
+          {
+            "mat": "CLOTH_T7.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T7.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "4": [
+          {
+            "mat": "CLOTH_T7.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T7.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T7",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ]
+      },
+      "iv": {
+        "0": 1024,
+        "1": 2048,
+        "2": 4096,
+        "3": 8192,
+        "4": 16384
+      }
+    },
+    {
+      "sheet": "CapesFurniture",
+      "section": "Smuggler Cape",
+      "item": "Smuggler Cape Tier 8",
+      "tierLabel": "Tier 8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "CLOTH_T8.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T8.0",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "1": [
+          {
+            "mat": "CLOTH_T8.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T8.1",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "2": [
+          {
+            "mat": "CLOTH_T8.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T8.2",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "3": [
+          {
+            "mat": "CLOTH_T8.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T8.3",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ],
+        "4": [
+          {
+            "mat": "CLOTH_T8.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "LEATHER_T8.4",
+            "qty": 4.0
+          },
+          {
+            "mat": "HEART_SHADOWHEART",
+            "qty": 1,
+            "noReturnDiscount": true
+          },
+          {
+            "mat": "ART_CAPESFURNITURE_SMUGGLER_CREST_T8",
+            "qty": 1,
+            "noReturnDiscount": true
+          }
+        ]
+      },
+      "iv": {
+        "0": 2048,
+        "1": 4096,
+        "2": 8192,
+        "3": 16384,
+        "4": 32768
       }
     }
   ],

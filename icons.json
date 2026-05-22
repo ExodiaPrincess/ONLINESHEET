@@ -315,7 +315,8 @@
     "Heretic Cape": "T8_CAPEITEM_HERETIC",
     "Keeper Cape": "T8_CAPEITEM_KEEPER",
     "Morgana Cape": "T8_CAPEITEM_MORGANA",
-    "Undead Cape": "T8_CAPEITEM_UNDEAD"
+    "Undead Cape": "T8_CAPEITEM_UNDEAD",
+    "Smuggler Cape": "T8_CAPEITEM_SMUGGLER"
   },
   "PlankRefining": {
     "Plank Refine": "T8_PLANKS",
