@@ -341,11 +341,11 @@
   "Food": {
     "Soups": "T3_MEAL_SOUP",
     "Salads": "T2_MEAL_SALAD",
-    "Pie": "T4_MEAL_PIE",
+    "Pie": "T7_MEAL_PIE",
     "Sandwiches": "T6_MEAL_SANDWICH",
     "Omelettes": "T3_MEAL_OMELETTE",
     "Stew": "T6_MEAL_STEW",
-    "Roasts": "T6_MEAL_ROAST",
+    "Roasts": "T7_MEAL_ROAST",
     "Baits and Fish Sauce": "T1_FISHSAUCE_LEVEL3"
   },
   "Potions": {
