@@ -123288,13 +123288,73 @@
             "mat": "FP_TIER_4___GOATS_MILK",
             "qty": 4.0
           }
+        ],
+        "1": [
+          {
+            "mat": "FP_TIER_3___RAW_CHICKEN",
+            "qty": 8.0
+          },
+          {
+            "mat": "FP_TIER_2___BEANS",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_BASIC_FISH_SAUCE",
+            "qty": 10.0
+          }
+        ],
+        "2": [
+          {
+            "mat": "FP_TIER_3___RAW_CHICKEN",
+            "qty": 8.0
+          },
+          {
+            "mat": "FP_TIER_2___BEANS",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_FANCY_FISH_SAUCE",
+            "qty": 10.0
+          }
+        ],
+        "3": [
+          {
+            "mat": "FP_TIER_3___RAW_CHICKEN",
+            "qty": 8.0
+          },
+          {
+            "mat": "FP_TIER_2___BEANS",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_SPECIAL_FISH_SAUCE",
+            "qty": 10.0
+          }
         ]
       },
       "batch": {
-        "0": 10.0
+        "0": 10.0,
+        "1": 10.0,
+        "2": 10.0,
+        "3": 10.0
       },
       "iv": {
-        "0": 144.0
+        "0": 144.0,
+        "1": 144.0,
+        "2": 144.0,
+        "3": 144.0
       }
     },
     {
@@ -123316,13 +123376,73 @@
             "mat": "FP_TIER_6___SHEEPS_MILK",
             "qty": 12.0
           }
+        ],
+        "1": [
+          {
+            "mat": "FP_TIER_5___RAW_GOOSE",
+            "qty": 24.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_BASIC_FISH_SAUCE",
+            "qty": 30.0
+          }
+        ],
+        "2": [
+          {
+            "mat": "FP_TIER_5___RAW_GOOSE",
+            "qty": 24.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_FANCY_FISH_SAUCE",
+            "qty": 30.0
+          }
+        ],
+        "3": [
+          {
+            "mat": "FP_TIER_5___RAW_GOOSE",
+            "qty": 24.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_SPECIAL_FISH_SAUCE",
+            "qty": 30.0
+          }
         ]
       },
       "batch": {
-        "0": 10.0
+        "0": 10.0,
+        "1": 10.0,
+        "2": 10.0,
+        "3": 10.0
       },
       "iv": {
-        "0": 1920.0
+        "0": 1920.0,
+        "1": 1920.0,
+        "2": 1920.0,
+        "3": 1920.0
       }
     },
     {
@@ -123344,13 +123464,73 @@
             "mat": "FP_TIER_8___COWS_MILK",
             "qty": 36.0
           }
+        ],
+        "1": [
+          {
+            "mat": "FP_TIER_7___RAW_PORK",
+            "qty": 72.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_BASIC_FISH_SAUCE",
+            "qty": 90.0
+          }
+        ],
+        "2": [
+          {
+            "mat": "FP_TIER_7___RAW_PORK",
+            "qty": 72.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_FANCY_FISH_SAUCE",
+            "qty": 90.0
+          }
+        ],
+        "3": [
+          {
+            "mat": "FP_TIER_7___RAW_PORK",
+            "qty": 72.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_SPECIAL_FISH_SAUCE",
+            "qty": 90.0
+          }
         ]
       },
       "batch": {
-        "0": 10.0
+        "0": 10.0,
+        "1": 10.0,
+        "2": 10.0,
+        "3": 10.0
       },
       "iv": {
-        "0": 23040.0
+        "0": 23040.0,
+        "1": 23040.0,
+        "2": 23040.0,
+        "3": 23040.0
       }
     }
   ],
