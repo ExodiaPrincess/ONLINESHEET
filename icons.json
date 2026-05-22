@@ -345,6 +345,7 @@
     "Sandwiches": "T6_MEAL_SANDWICH",
     "Omelettes": "T3_MEAL_OMELETTE",
     "Stew": "T6_MEAL_STEW",
+    "Roasts": "T6_MEAL_ROAST",
     "Baits and Fish Sauce": "T1_FISHSAUCE_LEVEL3"
   },
   "Potions": {

@@ -122802,11 +122802,11 @@
         ]
       },
       "iv": {
-        "0": 128,
-        "1": 256,
-        "2": 512,
-        "3": 1024,
-        "4": 2048
+        "0": 128.0,
+        "1": 256.0,
+        "2": 512.0,
+        "3": 1024.0,
+        "4": 2048.0
       }
     },
     {
@@ -122917,11 +122917,11 @@
         ]
       },
       "iv": {
-        "0": 256,
-        "1": 512,
-        "2": 1024,
-        "3": 2048,
-        "4": 4096
+        "0": 256.0,
+        "1": 512.0,
+        "2": 1024.0,
+        "3": 2048.0,
+        "4": 4096.0
       }
     },
     {
@@ -123032,11 +123032,11 @@
         ]
       },
       "iv": {
-        "0": 512,
-        "1": 1024,
-        "2": 2048,
-        "3": 4096,
-        "4": 8192
+        "0": 512.0,
+        "1": 1024.0,
+        "2": 2048.0,
+        "3": 4096.0,
+        "4": 8192.0
       }
     },
     {
@@ -123147,11 +123147,11 @@
         ]
       },
       "iv": {
-        "0": 1024,
-        "1": 2048,
-        "2": 4096,
-        "3": 8192,
-        "4": 16384
+        "0": 1024.0,
+        "1": 2048.0,
+        "2": 4096.0,
+        "3": 8192.0,
+        "4": 16384.0
       }
     },
     {
@@ -123262,11 +123262,179 @@
         ]
       },
       "iv": {
-        "0": 2048,
-        "1": 4096,
-        "2": 8192,
-        "3": 16384,
-        "4": 32768
+        "0": 2048.0,
+        "1": 4096.0,
+        "2": 8192.0,
+        "3": 16384.0,
+        "4": 32768.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roast Chicken T3",
+      "tierLabel": "Roast Chicken T3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FP_TIER_3___RAW_CHICKEN",
+            "qty": 8.0
+          },
+          {
+            "mat": "FP_TIER_2___BEANS",
+            "qty": 4.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_BUTTER",
+            "qty": 4.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0
+      },
+      "iv": {
+        "0": 144.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roast Goat T4",
+      "tierLabel": "Roast Goat T4",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FP_TIER_4___RAW_GOAT",
+            "qty": 16.0
+          },
+          {
+            "mat": "FP_TIER_4___TURNIPS",
+            "qty": 8.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_BUTTER",
+            "qty": 8.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0
+      },
+      "iv": {
+        "0": 512.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roast Goose T5",
+      "tierLabel": "Roast Goose T5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FP_TIER_5___RAW_GOOSE",
+            "qty": 24.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 12.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_BUTTER",
+            "qty": 12.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0
+      },
+      "iv": {
+        "0": 1920.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roast Mutton T6",
+      "tierLabel": "Roast Mutton T6",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FP_TIER_6___RAW_MUTTON",
+            "qty": 48.0
+          },
+          {
+            "mat": "FP_TIER_6___POTATOES",
+            "qty": 24.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_BUTTER",
+            "qty": 24.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0
+      },
+      "iv": {
+        "0": 6144.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roast Pork T7",
+      "tierLabel": "Roast Pork T7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FP_TIER_7___RAW_PORK",
+            "qty": 72.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 36.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_BUTTER",
+            "qty": 36.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0
+      },
+      "iv": {
+        "0": 23040.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roast Beef T8",
+      "tierLabel": "Roast Beef T8",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FP_TIER_8___RAW_BEEF",
+            "qty": 144.0
+          },
+          {
+            "mat": "FP_TIER_8__PUMPKIN",
+            "qty": 72.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_BUTTER",
+            "qty": 72.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0
+      },
+      "iv": {
+        "0": 73728.0
       }
     }
   ],

@@ -932,6 +932,93 @@ def refining_output_iv(rec, ench):
     return 16 * (2 ** (base_tier - 4)) * (2 ** e_int)
 
 
+# ---------- HAND-AUTHORED ADDITIONS (post-spreadsheet) ----------
+# Items added to Albion after the source spreadsheet was last updated.
+# These are inlined here rather than carried in data.json so re-extracting
+# from a fresh xlsx doesn't drop them.
+#
+# IMPORTANT: this block runs BEFORE the IV-computation loop below so that
+# recipes without an explicit iv get auto-computed from their ingredient
+# IVs (sum of qty * mat.iv). Recipes that DO set iv (like Smuggler Cape)
+# are preserved by the loop's "spreadsheet value wins" rule.
+
+# Smuggler's Cape — Brecilien-themed faction cape using Shadowheart +
+# its own crest artifact. Same shape as the other artifact capes: per
+# tier 4×Cloth + 4×Leather + 1×Shadowheart + 1×Smuggler Crest, with
+# enchantment levels 0-4 scaling cloth/leather tier only.
+SMUGGLER_TIERS = ['T4', 'T5', 'T6', 'T7', 'T8']
+for t in SMUGGLER_TIERS:
+    mid = f'ART_CAPESFURNITURE_SMUGGLER_CREST_{t}'
+    mat_meta[mid] = {
+        'id': mid,
+        'family': 'ARTIFACT_CapesFurniture',
+        'tier': t,
+        'kind': 'artifact',
+        'name': f'Smuggler Crest {t}',
+        'sheet': 'CapesFurniture',
+    }
+
+def _smuggler_recipe(tier_num):
+    crest = f'ART_CAPESFURNITURE_SMUGGLER_CREST_T{tier_num}'
+    ench = {}
+    for e in range(5):
+        ench[str(e)] = [
+            {'mat': f'CLOTH_T{tier_num}.{e}',   'qty': 4.0},
+            {'mat': f'LEATHER_T{tier_num}.{e}', 'qty': 4.0},
+            {'mat': 'HEART_SHADOWHEART', 'qty': 1, 'noReturnDiscount': True},
+            {'mat': crest, 'qty': 1, 'noReturnDiscount': True},
+        ]
+    return {
+        'sheet': 'CapesFurniture',
+        'section': 'Smuggler Cape',
+        'item': f'Smuggler Cape Tier {tier_num}',
+        'tierLabel': f'Tier {tier_num}',
+        'enchantments': ench,
+    }
+for t in [4, 5, 6, 7, 8]:
+    all_recipes.append(_smuggler_recipe(t))
+
+
+# Roasts (Food sheet) — meat-heavy meal added to Albion after the
+# spreadsheet's last update. Per-tier recipe shapes (confirmed in-game
+# by the user for T3/T5/T7; T4/T6/T8 extrapolated using the 2x/1.5x
+# scaling pattern that holds across the three confirmed tiers).
+#
+#   T3 Roast Chicken: 8 Raw Chicken + 4 T2 Beans       + 4 T4 Butter
+#   T4 Roast Goat:    16 Raw Goat   + 8 T4 Turnips     + 8 T4 Butter
+#   T5 Roast Goose:   24 Raw Goose  + 12 T5 Cabbage    + 12 T6 Butter
+#   T6 Roast Mutton:  48 Raw Mutton + 24 T6 Potatoes   + 24 T6 Butter
+#   T7 Roast Pork:    72 Raw Pork   + 36 T7 Corn       + 36 T8 Butter
+#   T8 Roast Beef:    144 Raw Beef  + 72 T8 Pumpkin    + 72 T8 Butter
+#
+# batch=10 (matches other food meals); IV is auto-computed by the loop
+# below from each ingredient's IV.
+_ROASTS = [
+    # (tier, item-name, meat-id,                 veg-id,                          butter-id,                  meat-qty, veg-qty, butter-qty)
+    (3, 'Roast Chicken', 'FP_TIER_3___RAW_CHICKEN', 'FP_TIER_2___BEANS',             'FP_TIER_4___GOATS_BUTTER',  8,  4,  4),
+    (4, 'Roast Goat',    'FP_TIER_4___RAW_GOAT',    'FP_TIER_4___TURNIPS',           'FP_TIER_4___GOATS_BUTTER', 16,  8,  8),
+    (5, 'Roast Goose',   'FP_TIER_5___RAW_GOOSE',   'FP_TIER_5___CABBAGE',           'FP_TIER_6___SHEEPS_BUTTER', 24, 12, 12),
+    (6, 'Roast Mutton',  'FP_TIER_6___RAW_MUTTON',  'FP_TIER_6___POTATOES',          'FP_TIER_6___SHEEPS_BUTTER', 48, 24, 24),
+    (7, 'Roast Pork',    'FP_TIER_7___RAW_PORK',    'FP_TIER_7___BUNDLE_OF_CORN',    'FP_TIER_8___COWS_BUTTER',   72, 36, 36),
+    (8, 'Roast Beef',    'FP_TIER_8___RAW_BEEF',    'FP_TIER_8__PUMPKIN',            'FP_TIER_8___COWS_BUTTER',  144, 72, 72),
+]
+for tier, item_name, meat, veg, butter, mq, vq, bq in _ROASTS:
+    all_recipes.append({
+        'sheet': 'Food',
+        'section': 'Roasts',
+        'item': f'{item_name} T{tier}',
+        'tierLabel': f'{item_name} T{tier}',
+        'enchantments': {
+            '0': [
+                {'mat': meat,   'qty': float(mq)},
+                {'mat': veg,    'qty': float(vq)},
+                {'mat': butter, 'qty': float(bq)},
+            ],
+        },
+        'batch': {'0': 10.0},
+    })
+
+
 for rec in all_recipes:
     iv_map = rec.get('iv', {})
     is_refining = rec['sheet'] in REFINING_TO_FAMILY
@@ -954,57 +1041,6 @@ for rec in all_recipes:
             iv_map[ench] = total
     if iv_map:
         rec['iv'] = iv_map
-
-# ---------- HAND-AUTHORED ADDITIONS (post-spreadsheet) ----------
-# Items added to Albion after the source spreadsheet was last updated.
-# These are inlined here rather than carried in data.json so re-extracting
-# from a fresh xlsx doesn't drop them.
-
-# Smuggler's Cape — Brecilien-themed faction cape using Shadowheart +
-# its own crest artifact. Same shape as the other artifact capes: per
-# tier 4×Cloth + 4×Leather + 1×Shadowheart + 1×Smuggler Crest, with
-# enchantment levels 0-4 scaling cloth/leather tier only.
-SMUGGLER_TIERS = ['T4', 'T5', 'T6', 'T7', 'T8']
-# Define the 5 crest tiers as artifact materials
-for t in SMUGGLER_TIERS:
-    mid = f'ART_CAPESFURNITURE_SMUGGLER_CREST_{t}'
-    mat_meta[mid] = {
-        'id': mid,
-        'family': 'ARTIFACT_CapesFurniture',
-        'tier': t,
-        'kind': 'artifact',
-        'name': f'Smuggler Crest {t}',
-        'sheet': 'CapesFurniture',
-    }
-
-# Build the 5 cape recipes (T4-T8)
-def _smuggler_recipe(tier_num):
-    """Per-tier recipe: 5 enchant levels (0-4), each = 4 cloth + 4 leather
-    + 1 shadowheart + 1 smuggler crest. Enchant levels 0-4 scale the
-    cloth/leather tier suffix only."""
-    crest = f'ART_CAPESFURNITURE_SMUGGLER_CREST_T{tier_num}'
-    ench = {}
-    iv_map = {}
-    for e in range(5):
-        ench[str(e)] = [
-            {'mat': f'CLOTH_T{tier_num}.{e}',   'qty': 4.0},
-            {'mat': f'LEATHER_T{tier_num}.{e}', 'qty': 4.0},
-            {'mat': 'HEART_SHADOWHEART', 'qty': 1, 'noReturnDiscount': True},
-            {'mat': crest, 'qty': 1, 'noReturnDiscount': True},
-        ]
-        # IV(T, e) = 128 * 2^(T-4) * 2^e  (cape base IV = 128 at T4)
-        iv_map[str(e)] = 128 * (2 ** (tier_num - 4)) * (2 ** e)
-    return {
-        'sheet': 'CapesFurniture',
-        'section': 'Smuggler Cape',
-        'item': f'Smuggler Cape Tier {tier_num}',
-        'tierLabel': f'Tier {tier_num}',
-        'enchantments': ench,
-        'iv': iv_map,
-    }
-
-for t in [4, 5, 6, 7, 8]:
-    all_recipes.append(_smuggler_recipe(t))
 
 
 # Group recipes by sheet
