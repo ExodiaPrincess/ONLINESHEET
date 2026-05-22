@@ -1024,6 +1024,48 @@ for tier, item_name, meat, veg, milk, mq, vq, kq, sq in _ROASTS:
         'batch': batch,
     })
 
+# Fish-roast variants (same Roasts section). Rare-snapper-themed dishes:
+#   T3 Roasted Whitefrog Snapper:  1 Snapper T3 + 1 Comfrey         + 1 T4 Goat's Milk
+#   T5 Roasted Clearhaze Snapper:  1 Snapper T5 + 2 Cabbage + 2 Dragon Teasel + 2 T6 Sheep's Milk
+#   T7 Roasted Puremist Snapper:   1 Snapper T7 + 6 Corn + 6 Firetouched Mullein + 6 T8 Cow's Milk
+# Enchant fish-sauce qty follows the seafood-meal pattern (Eel Stew /
+# Squid Salad / Lurcher Sandwich): 3 / 9 / 27 by tier — smaller than
+# meat-meal sauce qty because the base recipe quantities are smaller.
+_FISH_ROASTS = [
+    # (tier, item-name,                    fish-id,            extra-ingredients [list of (mat, qty)], sauce-qty)
+    (3, 'Roasted Whitefrog Snapper', 'FISH_SNAPPER_T3', [
+        ('FP_TIER_3___BRIGHTLEAF_COMFREY', 1),
+        ('FP_TIER_4___GOATS_MILK',          1),
+    ], 3),
+    (5, 'Roasted Clearhaze Snapper', 'FISH_SNAPPER_T5', [
+        ('FP_TIER_5___CABBAGE',       2),
+        ('FP_TIER_5___DRAGON_TEASEL', 2),
+        ('FP_TIER_6___SHEEPS_MILK',   2),
+    ], 9),
+    (7, 'Roasted Puremist Snapper',  'FISH_SNAPPER_T7', [
+        ('FP_TIER_7___BUNDLE_OF_CORN',         6),
+        ('FP_TIER_7___FIRETOUCHED_MULLEIN',    6),
+        ('FP_TIER_8___COWS_MILK',              6),
+    ], 27),
+]
+for tier, item_name, fish_id, extras, sq in _FISH_ROASTS:
+    base = [{'mat': fish_id, 'qty': 1.0}] + [
+        {'mat': m, 'qty': float(q)} for m, q in extras
+    ]
+    ench = {'0': list(base)}
+    batch = {'0': 10.0}
+    for e, sauce_id in _FISH_SAUCE_BY_ENCH.items():
+        ench[str(e)] = list(base) + [{'mat': sauce_id, 'qty': float(sq)}]
+        batch[str(e)] = 10.0
+    all_recipes.append({
+        'sheet': 'Food',
+        'section': 'Roasts',
+        'item': f'{item_name} T{tier}',
+        'tierLabel': f'{item_name} T{tier}',
+        'enchantments': ench,
+        'batch': batch,
+    })
+
 
 for rec in all_recipes:
     iv_map = rec.get('iv', {})

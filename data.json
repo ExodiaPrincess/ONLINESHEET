@@ -123532,6 +123532,302 @@
         "2": 23040.0,
         "3": 23040.0
       }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roasted Whitefrog Snapper T3",
+      "tierLabel": "Roasted Whitefrog Snapper T3",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FISH_SNAPPER_T3",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_3___BRIGHTLEAF_COMFREY",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 1.0
+          }
+        ],
+        "1": [
+          {
+            "mat": "FISH_SNAPPER_T3",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_3___BRIGHTLEAF_COMFREY",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_BASIC_FISH_SAUCE",
+            "qty": 3.0
+          }
+        ],
+        "2": [
+          {
+            "mat": "FISH_SNAPPER_T3",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_3___BRIGHTLEAF_COMFREY",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_FANCY_FISH_SAUCE",
+            "qty": 3.0
+          }
+        ],
+        "3": [
+          {
+            "mat": "FISH_SNAPPER_T3",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_3___BRIGHTLEAF_COMFREY",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_4___GOATS_MILK",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_SPECIAL_FISH_SAUCE",
+            "qty": 3.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0,
+        "1": 10.0,
+        "2": 10.0,
+        "3": 10.0
+      },
+      "iv": {
+        "0": 32.0,
+        "1": 32.0,
+        "2": 32.0,
+        "3": 32.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roasted Clearhaze Snapper T5",
+      "tierLabel": "Roasted Clearhaze Snapper T5",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FISH_SNAPPER_T5",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_5___DRAGON_TEASEL",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 2.0
+          }
+        ],
+        "1": [
+          {
+            "mat": "FISH_SNAPPER_T5",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_5___DRAGON_TEASEL",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_BASIC_FISH_SAUCE",
+            "qty": 9.0
+          }
+        ],
+        "2": [
+          {
+            "mat": "FISH_SNAPPER_T5",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_5___DRAGON_TEASEL",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_FANCY_FISH_SAUCE",
+            "qty": 9.0
+          }
+        ],
+        "3": [
+          {
+            "mat": "FISH_SNAPPER_T5",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_5___CABBAGE",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_5___DRAGON_TEASEL",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_TIER_6___SHEEPS_MILK",
+            "qty": 2.0
+          },
+          {
+            "mat": "FP_SPECIAL_FISH_SAUCE",
+            "qty": 9.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0,
+        "1": 10.0,
+        "2": 10.0,
+        "3": 10.0
+      },
+      "iv": {
+        "0": 288.0,
+        "1": 288.0,
+        "2": 288.0,
+        "3": 288.0
+      }
+    },
+    {
+      "sheet": "Food",
+      "section": "Roasts",
+      "item": "Roasted Puremist Snapper T7",
+      "tierLabel": "Roasted Puremist Snapper T7",
+      "enchantments": {
+        "0": [
+          {
+            "mat": "FISH_SNAPPER_T7",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_7___FIRETOUCHED_MULLEIN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 6.0
+          }
+        ],
+        "1": [
+          {
+            "mat": "FISH_SNAPPER_T7",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_7___FIRETOUCHED_MULLEIN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_BASIC_FISH_SAUCE",
+            "qty": 27.0
+          }
+        ],
+        "2": [
+          {
+            "mat": "FISH_SNAPPER_T7",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_7___FIRETOUCHED_MULLEIN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_FANCY_FISH_SAUCE",
+            "qty": 27.0
+          }
+        ],
+        "3": [
+          {
+            "mat": "FISH_SNAPPER_T7",
+            "qty": 1.0
+          },
+          {
+            "mat": "FP_TIER_7___BUNDLE_OF_CORN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_7___FIRETOUCHED_MULLEIN",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_TIER_8___COWS_MILK",
+            "qty": 6.0
+          },
+          {
+            "mat": "FP_SPECIAL_FISH_SAUCE",
+            "qty": 27.0
+          }
+        ]
+      },
+      "batch": {
+        "0": 10.0,
+        "1": 10.0,
+        "2": 10.0,
+        "3": 10.0
+      },
+      "iv": {
+        "0": 3200.0,
+        "1": 3200.0,
+        "2": 3200.0,
+        "3": 3200.0
+      }
     }
   ],
   "sheets": [
