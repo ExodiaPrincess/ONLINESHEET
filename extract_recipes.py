@@ -980,29 +980,22 @@ for t in [4, 5, 6, 7, 8]:
 
 
 # Roasts (Food sheet) — meat-heavy meal added to Albion after the
-# spreadsheet's last update. Per-tier recipe shapes (confirmed in-game
-# by the user for T3/T5/T7; T4/T6/T8 extrapolated using the 2x/1.5x
-# scaling pattern that holds across the three confirmed tiers).
+# spreadsheet's last update. Only T3 / T5 / T7 exist in-game (no
+# even-tier roasts). User-confirmed recipes:
 #
-#   T3 Roast Chicken: 8 Raw Chicken + 4 T2 Beans       + 4 T4 Butter
-#   T4 Roast Goat:    16 Raw Goat   + 8 T4 Turnips     + 8 T4 Butter
-#   T5 Roast Goose:   24 Raw Goose  + 12 T5 Cabbage    + 12 T6 Butter
-#   T6 Roast Mutton:  48 Raw Mutton + 24 T6 Potatoes   + 24 T6 Butter
-#   T7 Roast Pork:    72 Raw Pork   + 36 T7 Corn       + 36 T8 Butter
-#   T8 Roast Beef:    144 Raw Beef  + 72 T8 Pumpkin    + 72 T8 Butter
+#   T3 Roast Chicken: 8  Raw Chicken + 4  T2 Beans   + 4  T4 Goat's Milk
+#   T5 Roast Goose:   24 Raw Goose   + 12 T5 Cabbage + 12 T6 Sheep's Milk
+#   T7 Roast Pork:    72 Raw Pork    + 36 T7 Corn    + 36 T8 Cow's Milk
 #
 # batch=10 (matches other food meals); IV is auto-computed by the loop
 # below from each ingredient's IV.
 _ROASTS = [
-    # (tier, item-name, meat-id,                 veg-id,                          butter-id,                  meat-qty, veg-qty, butter-qty)
-    (3, 'Roast Chicken', 'FP_TIER_3___RAW_CHICKEN', 'FP_TIER_2___BEANS',             'FP_TIER_4___GOATS_BUTTER',  8,  4,  4),
-    (4, 'Roast Goat',    'FP_TIER_4___RAW_GOAT',    'FP_TIER_4___TURNIPS',           'FP_TIER_4___GOATS_BUTTER', 16,  8,  8),
-    (5, 'Roast Goose',   'FP_TIER_5___RAW_GOOSE',   'FP_TIER_5___CABBAGE',           'FP_TIER_6___SHEEPS_BUTTER', 24, 12, 12),
-    (6, 'Roast Mutton',  'FP_TIER_6___RAW_MUTTON',  'FP_TIER_6___POTATOES',          'FP_TIER_6___SHEEPS_BUTTER', 48, 24, 24),
-    (7, 'Roast Pork',    'FP_TIER_7___RAW_PORK',    'FP_TIER_7___BUNDLE_OF_CORN',    'FP_TIER_8___COWS_BUTTER',   72, 36, 36),
-    (8, 'Roast Beef',    'FP_TIER_8___RAW_BEEF',    'FP_TIER_8__PUMPKIN',            'FP_TIER_8___COWS_BUTTER',  144, 72, 72),
+    # (tier, item-name,     meat-id,                   veg-id,                         milk-id,                    meat-qty, veg-qty, milk-qty)
+    (3, 'Roast Chicken', 'FP_TIER_3___RAW_CHICKEN', 'FP_TIER_2___BEANS',          'FP_TIER_4___GOATS_MILK',    8,  4,  4),
+    (5, 'Roast Goose',   'FP_TIER_5___RAW_GOOSE',   'FP_TIER_5___CABBAGE',        'FP_TIER_6___SHEEPS_MILK',  24, 12, 12),
+    (7, 'Roast Pork',    'FP_TIER_7___RAW_PORK',    'FP_TIER_7___BUNDLE_OF_CORN', 'FP_TIER_8___COWS_MILK',    72, 36, 36),
 ]
-for tier, item_name, meat, veg, butter, mq, vq, bq in _ROASTS:
+for tier, item_name, meat, veg, milk, mq, vq, kq in _ROASTS:
     all_recipes.append({
         'sheet': 'Food',
         'section': 'Roasts',
@@ -1010,9 +1003,9 @@ for tier, item_name, meat, veg, butter, mq, vq, bq in _ROASTS:
         'tierLabel': f'{item_name} T{tier}',
         'enchantments': {
             '0': [
-                {'mat': meat,   'qty': float(mq)},
-                {'mat': veg,    'qty': float(vq)},
-                {'mat': butter, 'qty': float(bq)},
+                {'mat': meat, 'qty': float(mq)},
+                {'mat': veg,  'qty': float(vq)},
+                {'mat': milk, 'qty': float(kq)},
             ],
         },
         'batch': {'0': 10.0},

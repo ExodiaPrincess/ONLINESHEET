@@ -123285,7 +123285,7 @@
             "qty": 4.0
           },
           {
-            "mat": "FP_TIER_4___GOATS_BUTTER",
+            "mat": "FP_TIER_4___GOATS_MILK",
             "qty": 4.0
           }
         ]
@@ -123295,34 +123295,6 @@
       },
       "iv": {
         "0": 144.0
-      }
-    },
-    {
-      "sheet": "Food",
-      "section": "Roasts",
-      "item": "Roast Goat T4",
-      "tierLabel": "Roast Goat T4",
-      "enchantments": {
-        "0": [
-          {
-            "mat": "FP_TIER_4___RAW_GOAT",
-            "qty": 16.0
-          },
-          {
-            "mat": "FP_TIER_4___TURNIPS",
-            "qty": 8.0
-          },
-          {
-            "mat": "FP_TIER_4___GOATS_BUTTER",
-            "qty": 8.0
-          }
-        ]
-      },
-      "batch": {
-        "0": 10.0
-      },
-      "iv": {
-        "0": 512.0
       }
     },
     {
@@ -123341,7 +123313,7 @@
             "qty": 12.0
           },
           {
-            "mat": "FP_TIER_6___SHEEPS_BUTTER",
+            "mat": "FP_TIER_6___SHEEPS_MILK",
             "qty": 12.0
           }
         ]
@@ -123351,34 +123323,6 @@
       },
       "iv": {
         "0": 1920.0
-      }
-    },
-    {
-      "sheet": "Food",
-      "section": "Roasts",
-      "item": "Roast Mutton T6",
-      "tierLabel": "Roast Mutton T6",
-      "enchantments": {
-        "0": [
-          {
-            "mat": "FP_TIER_6___RAW_MUTTON",
-            "qty": 48.0
-          },
-          {
-            "mat": "FP_TIER_6___POTATOES",
-            "qty": 24.0
-          },
-          {
-            "mat": "FP_TIER_6___SHEEPS_BUTTER",
-            "qty": 24.0
-          }
-        ]
-      },
-      "batch": {
-        "0": 10.0
-      },
-      "iv": {
-        "0": 6144.0
       }
     },
     {
@@ -123397,7 +123341,7 @@
             "qty": 36.0
           },
           {
-            "mat": "FP_TIER_8___COWS_BUTTER",
+            "mat": "FP_TIER_8___COWS_MILK",
             "qty": 36.0
           }
         ]
@@ -123407,34 +123351,6 @@
       },
       "iv": {
         "0": 23040.0
-      }
-    },
-    {
-      "sheet": "Food",
-      "section": "Roasts",
-      "item": "Roast Beef T8",
-      "tierLabel": "Roast Beef T8",
-      "enchantments": {
-        "0": [
-          {
-            "mat": "FP_TIER_8___RAW_BEEF",
-            "qty": 144.0
-          },
-          {
-            "mat": "FP_TIER_8__PUMPKIN",
-            "qty": 72.0
-          },
-          {
-            "mat": "FP_TIER_8___COWS_BUTTER",
-            "qty": 72.0
-          }
-        ]
-      },
-      "batch": {
-        "0": 10.0
-      },
-      "iv": {
-        "0": 73728.0
       }
     }
   ],
