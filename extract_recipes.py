@@ -979,6 +979,44 @@ for t in [4, 5, 6, 7, 8]:
     all_recipes.append(_smuggler_recipe(t))
 
 
+# Avalonian Cape — post-spreadsheet artifact cape that uses Avalonian
+# Energy instead of a heart. Recipe shape per Albion: 4×Cloth + 4×Leather
+# + N×Avalonian Energy + 1×Avalonian Cape artifact. Energy qty matches
+# the Avalonian gathering-tool scaling (20/90/160/230/300 across T4-T8).
+AVALON_TIERS = ['T4', 'T5', 'T6', 'T7', 'T8']
+for t in AVALON_TIERS:
+    mid = f'ART_CAPESFURNITURE_AVALONIAN_CAPE_{t}'
+    mat_meta[mid] = {
+        'id': mid,
+        'family': 'ARTIFACT_CapesFurniture',
+        'tier': t,
+        'kind': 'artifact',
+        'name': f'Avalonian Cape {t}',
+        'sheet': 'CapesFurniture',
+    }
+_AVALON_ENERGY_PER_TIER = {4: 20, 5: 90, 6: 160, 7: 230, 8: 300}
+def _avalon_cape_recipe(tier_num):
+    artifact = f'ART_CAPESFURNITURE_AVALONIAN_CAPE_T{tier_num}'
+    energy_qty = _AVALON_ENERGY_PER_TIER[tier_num]
+    ench = {}
+    for e in range(5):
+        ench[str(e)] = [
+            {'mat': f'CLOTH_T{tier_num}.{e}',   'qty': 4.0},
+            {'mat': f'LEATHER_T{tier_num}.{e}', 'qty': 4.0},
+            {'mat': 'MISC_AVALONIAN_ENERGY', 'qty': float(energy_qty), 'noReturnDiscount': True},
+            {'mat': artifact, 'qty': 1, 'noReturnDiscount': True},
+        ]
+    return {
+        'sheet': 'CapesFurniture',
+        'section': 'Avalonian Cape',
+        'item': f'Avalonian Cape Tier {tier_num}',
+        'tierLabel': f'Tier {tier_num}',
+        'enchantments': ench,
+    }
+for t in [4, 5, 6, 7, 8]:
+    all_recipes.append(_avalon_cape_recipe(t))
+
+
 # Roasts (Food sheet) — meat-heavy meal added to Albion after the
 # spreadsheet's last update. Only T3 / T5 / T7 exist in-game (no
 # even-tier roasts). User-confirmed recipes:

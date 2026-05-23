@@ -316,7 +316,8 @@
     "Keeper Cape": "T8_CAPEITEM_KEEPER",
     "Morgana Cape": "T8_CAPEITEM_MORGANA",
     "Undead Cape": "T8_CAPEITEM_UNDEAD",
-    "Smuggler Cape": "T4_CAPEITEM_SMUGGLER"
+    "Smuggler Cape": "T4_CAPEITEM_SMUGGLER",
+    "Avalonian Cape": "T4_CAPEITEM_AVALON@1"
   },
   "PlankRefining": {
     "Plank Refine": "T8_PLANKS",
