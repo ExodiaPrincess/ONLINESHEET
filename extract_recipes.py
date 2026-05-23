@@ -981,8 +981,8 @@ for t in [4, 5, 6, 7, 8]:
 
 # Avalonian Cape — post-spreadsheet artifact cape that uses Avalonian
 # Energy instead of a heart. Recipe shape per Albion: 4×Cloth + 4×Leather
-# + N×Avalonian Energy + 1×Avalonian Cape artifact. Energy qty matches
-# the Avalonian gathering-tool scaling (20/90/160/230/300 across T4-T8).
+# + N×Avalonian Energy + 1×Avalonian Cape artifact. Energy quantities
+# per tier (user-confirmed): T4=15, T5=15, T6=45, T7=75, T8=150.
 AVALON_TIERS = ['T4', 'T5', 'T6', 'T7', 'T8']
 for t in AVALON_TIERS:
     mid = f'ART_CAPESFURNITURE_AVALONIAN_CAPE_{t}'
@@ -994,7 +994,7 @@ for t in AVALON_TIERS:
         'name': f'Avalonian Cape {t}',
         'sheet': 'CapesFurniture',
     }
-_AVALON_ENERGY_PER_TIER = {4: 20, 5: 90, 6: 160, 7: 230, 8: 300}
+_AVALON_ENERGY_PER_TIER = {4: 15, 5: 15, 6: 45, 7: 75, 8: 150}
 def _avalon_cape_recipe(tier_num):
     artifact = f'ART_CAPESFURNITURE_AVALONIAN_CAPE_T{tier_num}'
     energy_qty = _AVALON_ENERGY_PER_TIER[tier_num]
