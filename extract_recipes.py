@@ -1091,17 +1091,17 @@ for tier, item_name, fish_id, extras, sq in _FISH_ROASTS:
         {'mat': m, 'qty': float(q)} for m, q in extras
     ]
     ench = {'0': list(base)}
-    batch = {'0': 10.0}
     for e, sauce_id in _FISH_SAUCE_BY_ENCH.items():
         ench[str(e)] = list(base) + [{'mat': sauce_id, 'qty': float(sq)}]
-        batch[str(e)] = 10.0
+    # Snapper roasts output 1 unit per craft (like every other fish meal:
+    # Eel Stew, Squid Salad, Clam Soup, etc.) — do NOT set batch=10 here.
+    # Missing batch defaults to 1 in the app's cost formula.
     all_recipes.append({
         'sheet': 'Food',
         'section': 'Roasts',
         'item': f'{item_name} T{tier}',
         'tierLabel': f'{item_name} T{tier}',
         'enchantments': ench,
-        'batch': batch,
     })
 
 
