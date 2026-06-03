@@ -1140,6 +1140,21 @@ for r in all_recipes:
         if isinstance(v, str) and v.startswith('Ava '):
             r[field] = 'Avalonian ' + v[4:]
 
+# Correct spreadsheet-side artifact name typos. Only the displayed `name`
+# field is rewritten — the underlying material ID is kept so any prices
+# the user has already saved stay attached to the right artifact.
+_ARTIFACT_NAME_FIXES = {
+    'Infernal Cloth Binding': 'Infernal Cloth Visor',
+}
+for m in mat_meta.values():
+    if m.get('kind') != 'artifact':
+        continue
+    name = m.get('name', '')
+    for wrong, right in _ARTIFACT_NAME_FIXES.items():
+        if name.startswith(wrong + ' '):  # match "Wrong Name T4" etc.
+            m['name'] = right + name[len(wrong):]
+            break
+
 # Group recipes by sheet
 by_sheet = {}
 for r in all_recipes:

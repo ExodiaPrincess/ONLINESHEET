@@ -9715,7 +9715,7 @@
       "family": "ARTIFACT_ClothCowls",
       "tier": "T4",
       "kind": "artifact",
-      "name": "Infernal Cloth Binding T4",
+      "name": "Infernal Cloth Visor T4",
       "sheet": "ClothCowls",
       "iv": 16
     },
@@ -9724,7 +9724,7 @@
       "family": "ARTIFACT_ClothCowls",
       "tier": "T5",
       "kind": "artifact",
-      "name": "Infernal Cloth Binding T5",
+      "name": "Infernal Cloth Visor T5",
       "sheet": "ClothCowls",
       "iv": 32
     },
@@ -9733,7 +9733,7 @@
       "family": "ARTIFACT_ClothCowls",
       "tier": "T6",
       "kind": "artifact",
-      "name": "Infernal Cloth Binding T6",
+      "name": "Infernal Cloth Visor T6",
       "sheet": "ClothCowls",
       "iv": 64
     },
@@ -9742,7 +9742,7 @@
       "family": "ARTIFACT_ClothCowls",
       "tier": "T7",
       "kind": "artifact",
-      "name": "Infernal Cloth Binding T7",
+      "name": "Infernal Cloth Visor T7",
       "sheet": "ClothCowls",
       "iv": 128
     },
@@ -9751,7 +9751,7 @@
       "family": "ARTIFACT_ClothCowls",
       "tier": "T8",
       "kind": "artifact",
-      "name": "Infernal Cloth Binding T8",
+      "name": "Infernal Cloth Visor T8",
       "sheet": "ClothCowls",
       "iv": 256
     },
