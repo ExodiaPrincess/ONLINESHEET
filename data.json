@@ -18549,7 +18549,7 @@
         "0": [
           {
             "mat": "HIDE_T7.0",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -18565,7 +18565,7 @@
         "1": [
           {
             "mat": "HIDE_T7.1",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -18581,7 +18581,7 @@
         "2": [
           {
             "mat": "HIDE_T7.2",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -18597,7 +18597,7 @@
         "3": [
           {
             "mat": "HIDE_T7.3",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -18613,7 +18613,7 @@
         "4": [
           {
             "mat": "HIDE_T7.4",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19400,7 +19400,7 @@
         "0": [
           {
             "mat": "LOGS_T7.0",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19416,7 +19416,7 @@
         "1": [
           {
             "mat": "LOGS_T7.1",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19432,7 +19432,7 @@
         "2": [
           {
             "mat": "LOGS_T7.2",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19448,7 +19448,7 @@
         "3": [
           {
             "mat": "LOGS_T7.3",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19464,7 +19464,7 @@
         "4": [
           {
             "mat": "LOGS_T7.4",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19913,7 +19913,7 @@
         "0": [
           {
             "mat": "ORE_T7.0",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19929,7 +19929,7 @@
         "1": [
           {
             "mat": "ORE_T7.1",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19945,7 +19945,7 @@
         "2": [
           {
             "mat": "ORE_T7.2",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19961,7 +19961,7 @@
         "3": [
           {
             "mat": "ORE_T7.3",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -19977,7 +19977,7 @@
         "4": [
           {
             "mat": "ORE_T7.4",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -20426,7 +20426,7 @@
         "0": [
           {
             "mat": "FIBER_T7.0",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -20442,7 +20442,7 @@
         "1": [
           {
             "mat": "FIBER_T7.1",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -20458,7 +20458,7 @@
         "2": [
           {
             "mat": "FIBER_T7.2",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -20474,7 +20474,7 @@
         "3": [
           {
             "mat": "FIBER_T7.3",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {
@@ -20490,7 +20490,7 @@
         "4": [
           {
             "mat": "FIBER_T7.4",
-            "qty": 4.0,
+            "qty": 5.0,
             "heartReducesQty": true
           },
           {

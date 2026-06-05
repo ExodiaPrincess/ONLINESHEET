@@ -1155,6 +1155,31 @@ for m in mat_meta.values():
             m['name'] = right + name[len(wrong):]
             break
 
+# Tier-7 raw-quantity bug — the spreadsheet hardcodes 4 raws at T7 for
+# Plank / Steel / Leather / Cloth refining ("MAX(4 - IF(hearts,1,0), 0)
+# * raw"), but Albion's actual T7 refining needs 5 raws (reduced to 4
+# with hearts). The same spreadsheet correctly has Stone Refining T7 =
+# 5 raws, so this is just an oversight on the other four sheets.
+# Rewrite raw qty 4 → 5 on T7 rows. Heart logic (heartReducesQty) still
+# applies on top, so Hearts ON drops it back to 4.
+_T7_RAW_FAMILY = {
+    'PlankRefining':   'LOGS',
+    'SteelRefining':   'ORE',
+    'LeatherRefining': 'HIDE',
+    'ClothRefining':   'FIBER',
+}
+for rec in all_recipes:
+    fam = _T7_RAW_FAMILY.get(rec.get('sheet'))
+    if not fam:
+        continue
+    if 'Tier 7' not in rec.get('item', ''):
+        continue
+    for items in rec.get('enchantments', {}).values():
+        for it in items:
+            if it.get('mat', '').startswith(fam + '_T7') and it.get('qty') == 4:
+                it['qty'] = 5.0
+
+
 # Steel Refining prev-tier ingredient bug — the spreadsheet author copied
 # the T(N-1).0 base-steel cell reference across every enchant column and
 # only updated the T(N-1).4 reference in the last column. Result: T5-T8
