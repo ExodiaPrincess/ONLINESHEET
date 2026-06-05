@@ -1155,6 +1155,29 @@ for m in mat_meta.values():
             m['name'] = right + name[len(wrong):]
             break
 
+# Pristine (.4) heart bug — the spreadsheet uses HEART_VINEHEART for
+# Plank and Leather T_.4 columns, but in-game each refining type uses
+# its NATIVE heart at every enchant level: Plank=Treeheart,
+# Leather=Beastheart (Steel keeps Mountainheart correctly; Cloth's
+# native IS Vineheart so it's consistent; Stone has no heart on .1-.3).
+# Rewrite the e4 heart back to the sheet's native heart.
+_NATIVE_HEART_BY_SHEET = {
+    'PlankRefining':   'HEART_TREEHEART',
+    'LeatherRefining': 'HEART_BEASTHEART',
+}
+for rec in all_recipes:
+    native = _NATIVE_HEART_BY_SHEET.get(rec.get('sheet'))
+    if not native:
+        continue
+    ench = rec.get('enchantments', {})
+    # enchantment keys may be either int (during extraction) or str
+    # (after JSON round-trip); check both.
+    items = ench.get(4) if 4 in ench else ench.get('4', [])
+    for it in items or []:
+        if it.get('mat') == 'HEART_VINEHEART':
+            it['mat'] = native
+
+
 # Tier-7 raw-quantity bug — the spreadsheet hardcodes 4 raws at T7 for
 # Plank / Steel / Leather / Cloth refining ("MAX(4 - IF(hearts,1,0), 0)
 # * raw"), but Albion's actual T7 refining needs 5 raws (reduced to 4

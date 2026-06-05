@@ -18332,7 +18332,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_BEASTHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -18427,7 +18427,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_BEASTHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -18522,7 +18522,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_BEASTHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -18617,7 +18617,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_BEASTHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -18712,7 +18712,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_BEASTHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -19183,7 +19183,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_TREEHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -19278,7 +19278,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_TREEHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -19373,7 +19373,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_TREEHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -19468,7 +19468,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_TREEHEART",
             "qty": 1,
             "heartGated": true
           },
@@ -19563,7 +19563,7 @@
             "heartReducesQty": true
           },
           {
-            "mat": "HEART_VINEHEART",
+            "mat": "HEART_TREEHEART",
             "qty": 1,
             "heartGated": true
           },
