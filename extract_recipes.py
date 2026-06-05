@@ -1155,6 +1155,38 @@ for m in mat_meta.values():
             m['name'] = right + name[len(wrong):]
             break
 
+# Steel Refining prev-tier ingredient bug — the spreadsheet author copied
+# the T(N-1).0 base-steel cell reference across every enchant column and
+# only updated the T(N-1).4 reference in the last column. Result: T5-T8
+# refining at e1/e2/e3 incorrectly demands base prev-tier steel instead
+# of the matching enchanted bar. Every other refining sheet (Plank,
+# Leather, Cloth) chains matching enchants correctly; Steel is the
+# outlier. Rewrite STEEL_T{N-1}.0 → STEEL_T{N-1}.{E} for affected cells
+# so the recipe matches Albion's actual game requirement.
+import re as _re_steel
+for rec in all_recipes:
+    if rec.get('sheet') != 'SteelRefining':
+        continue
+    m = _re_steel.search(r'Tier\s*(\d+)', rec.get('item', ''))
+    if not m:
+        continue
+    tier = int(m.group(1))
+    if tier < 5:  # T3/T4 have no enchant variants in the prev-tier slot
+        continue
+    prev = tier - 1
+    for ench_str, items in rec.get('enchantments', {}).items():
+        try:
+            e = int(ench_str)
+        except (TypeError, ValueError):
+            continue
+        if e == 0 or e == 4:  # e0 already T(prev).0, e4 already T(prev).4
+            continue
+        correct = f'STEEL_T{prev}.{e}'
+        wrong   = f'STEEL_T{prev}.0'
+        for it in items:
+            if it.get('mat') == wrong:
+                it['mat'] = correct
+
 # Group recipes by sheet
 by_sheet = {}
 for r in all_recipes:
