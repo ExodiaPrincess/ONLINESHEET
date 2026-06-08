@@ -1155,6 +1155,35 @@ for m in mat_meta.values():
             m['name'] = right + name[len(wrong):]
             break
 
+# Safety net: certain materials are NEVER refunded by Albion's return
+# rate (artifacts, hearts, special drops like Shadow Claws, energies,
+# Royal Sigils). The formula parser flags most of these automatically
+# from their bracket position, but spreadsheet inconsistencies can
+# slip through — e.g. Avalonian Hammer T8 has Royal Sigils inside the
+# discount bracket. Force the flag on by material-id prefix so no
+# combination of bracket placement can ever miss them.
+def _is_never_refundable(mat_id):
+    if not isinstance(mat_id, str):
+        return False
+    if mat_id.startswith(('ART_', 'HEART_', 'MISC_')):
+        return True
+    # Special drops — flagged via subFamily on the material, but we
+    # check by id substring here to keep the check self-contained.
+    NEVER_REFUND_SUBSTR = (
+        'SHADOW_CLAW', 'WEREWOLF_FANG', 'SPIRIT_PAW',
+        'RUNESTONE_TOOTH', 'SYLVIAN_ROOT', 'DAWNFEATHER',
+        'IMPS_HORN', 'IMP_HORN', 'IMPS_HORNS',
+        'ARCANE_EXTRACT', 'RARE_ANIMAL_REMANINGS',
+    )
+    return any(s in mat_id for s in NEVER_REFUND_SUBSTR)
+
+for rec in all_recipes:
+    for items in rec.get('enchantments', {}).values():
+        for it in items:
+            if _is_never_refundable(it.get('mat')) and not it.get('noReturnDiscount'):
+                it['noReturnDiscount'] = True
+
+
 # Pristine (.4) heart bug — the spreadsheet uses HEART_VINEHEART for
 # Plank and Leather T_.4 columns, but in-game each refining type uses
 # its NATIVE heart at every enchant level: Plank=Treeheart,
