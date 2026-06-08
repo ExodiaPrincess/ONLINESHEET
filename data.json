@@ -2730,7 +2730,7 @@
     {
       "id": "FP_BASIC_ARCANE_EXTRACT",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "ARCANE EXTRACTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Basic Arcane Extract",
@@ -2739,7 +2739,7 @@
     {
       "id": "FP_REFINED_ARCANE_EXTRACT",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "ARCANE EXTRACTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Refined Arcane Extract",
@@ -2748,7 +2748,7 @@
     {
       "id": "FP_PURE_ARCANE_EXTRACT",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "ARCANE EXTRACTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Pure Arcane Extract",
@@ -2757,7 +2757,7 @@
     {
       "id": "FP_CHOPPED_FISH",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "BAIT INGREDIENTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Chopped Fish",
@@ -2766,7 +2766,7 @@
     {
       "id": "FP_SEAWEED",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "BAIT INGREDIENTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Seaweed",
@@ -2775,7 +2775,7 @@
     {
       "id": "FP_BASIC_FISH_SAUCE",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "FISH SAUCES",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Basic Fish Sauce",
@@ -2784,7 +2784,7 @@
     {
       "id": "FP_FANCY_FISH_SAUCE",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "FISH SAUCES",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Fancy Fish Sauce",
@@ -2793,7 +2793,7 @@
     {
       "id": "FP_SPECIAL_FISH_SAUCE",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "FISH SAUCES",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Special Fish Sauce",
@@ -2802,19 +2802,10 @@
     {
       "id": "FP_WORMS",
       "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
+      "subFamily": "BAIT INGREDIENTS",
       "tier": "-",
       "kind": "foodpotion",
       "name": "Worms",
-      "iv": 0
-    },
-    {
-      "id": "FP_HIDEOUT_SILVER_COST",
-      "family": "FOOD_POTION",
-      "subFamily": "OTHER ITEMS",
-      "tier": "-",
-      "kind": "foodpotion",
-      "name": "Hideout Silver Cost",
       "iv": 0
     },
     {

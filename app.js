@@ -793,10 +793,14 @@ function pageMaterials() {
     for (const m of (byFamily['FISH'] || [])) {
       (bySub['FISH'] ||= []).push(m);
     }
-    // Preferred display order — common ingredients first, harvested artifacts last
+    // Preferred display order — common ingredients first, then enchant
+    // catalysts (fish sauces / arcane extracts) since they're the next
+    // thing a user fills in, then bait, then the rare boss-drop catalysts,
+    // with the junk-drawer OTHER bucket at the very end.
     const order = [
       'CROPS', 'HERBS', 'FISH', 'MILK', 'BUTTER', 'EGGS', 'RAW MEAT', 'ANIMALS',
       'BREWING', 'WHEAT PRODUCTS', 'FLOUR',
+      'FISH SAUCES', 'ARCANE EXTRACTS', 'BAIT INGREDIENTS',
       'SHADOW CLAWS', 'SYLVIAN ROOT', 'WEREWOLF FANGS', 'SPIRIT PAWS',
       'IMP\'S HORNS', 'RUNESTONE TOOTH', 'DAWNFEATHER',
       'OTHER ITEMS', 'OTHER',

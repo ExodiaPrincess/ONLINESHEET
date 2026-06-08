@@ -1155,6 +1155,38 @@ for m in mat_meta.values():
             m['name'] = right + name[len(wrong):]
             break
 
+# Reorganize food/potion materials into clearer sub-categories. The
+# spreadsheet originally dumped fish sauces, arcane extracts, bait
+# ingredients, and a few oddballs all into one "OTHER ITEMS" bucket,
+# which users found confusing. Split into dedicated categories.
+_FOOD_SUBFAMILY_FIXES = {
+    'FP_BASIC_FISH_SAUCE':       'FISH SAUCES',
+    'FP_FANCY_FISH_SAUCE':       'FISH SAUCES',
+    'FP_SPECIAL_FISH_SAUCE':     'FISH SAUCES',
+    'FP_BASIC_ARCANE_EXTRACT':   'ARCANE EXTRACTS',
+    'FP_REFINED_ARCANE_EXTRACT': 'ARCANE EXTRACTS',
+    'FP_PURE_ARCANE_EXTRACT':    'ARCANE EXTRACTS',
+    'FP_CHOPPED_FISH':           'BAIT INGREDIENTS',
+    'FP_SEAWEED':                'BAIT INGREDIENTS',
+    'FP_WORMS':                  'BAIT INGREDIENTS',
+}
+for m in mat_meta.values():
+    if m.get('family') == 'FOOD_POTION':
+        new_sub = _FOOD_SUBFAMILY_FIXES.get(m.get('id'))
+        if new_sub:
+            m['subFamily'] = new_sub
+
+# Drop the FP_HIDEOUT_SILVER_COST phantom material. The food extractor
+# loop accidentally picked it up from a cell label in the V column;
+# it's not used in any recipe and showed up as confusing junk in the
+# Materials > Other Items list.
+_PHANTOM_FOOD_MATERIALS = {
+    'FP_HIDEOUT_SILVER_COST',
+}
+for mid in list(mat_meta.keys()):
+    if mid in _PHANTOM_FOOD_MATERIALS:
+        del mat_meta[mid]
+
 # Safety net: certain materials are NEVER refunded by Albion's return
 # rate (artifacts, hearts, special drops like Shadow Claws, energies,
 # Royal Sigils). The formula parser flags most of these automatically
