@@ -1167,15 +1167,28 @@ def _is_never_refundable(mat_id):
         return False
     if mat_id.startswith(('ART_', 'HEART_', 'MISC_')):
         return True
-    # Special drops — flagged via subFamily on the material, but we
-    # check by id substring here to keep the check self-contained.
+    # Rare drop catalysts — not crafted, can't be returned. Arcane
+    # Extracts and Rare Animal Remains are crafted ingredients and DO
+    # get return-rate discount, so they're NOT in this list.
     NEVER_REFUND_SUBSTR = (
         'SHADOW_CLAW', 'WEREWOLF_FANG', 'SPIRIT_PAW',
         'RUNESTONE_TOOTH', 'SYLVIAN_ROOT', 'DAWNFEATHER',
         'IMPS_HORN', 'IMP_HORN', 'IMPS_HORNS',
-        'ARCANE_EXTRACT', 'RARE_ANIMAL_REMANINGS',
     )
     return any(s in mat_id for s in NEVER_REFUND_SUBSTR)
+
+# Force-clear the noReturnDiscount flag on Arcane Extracts everywhere —
+# the spreadsheet's formula structure left some instances flagged. In
+# Albion these crafted catalysts ARE refunded by return rate, same as
+# herbs and other base ingredients.
+_FORCE_REFUNDABLE = ('ARCANE_EXTRACT', 'RARE_ANIMAL_REMANINGS')
+for rec in all_recipes:
+    for items in rec.get('enchantments', {}).values():
+        for it in items:
+            mat = it.get('mat', '')
+            if any(s in mat for s in _FORCE_REFUNDABLE):
+                if it.get('noReturnDiscount'):
+                    del it['noReturnDiscount']
 
 for rec in all_recipes:
     for items in rec.get('enchantments', {}).values():

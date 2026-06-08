@@ -14272,8 +14272,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "2": [
@@ -14283,8 +14282,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "3": [
@@ -14294,8 +14292,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
@@ -14339,8 +14336,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "2": [
@@ -14354,8 +14350,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "3": [
@@ -14369,8 +14364,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ]
       },
@@ -14422,8 +14416,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -14441,8 +14434,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -14460,8 +14452,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -14497,8 +14488,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "2": [
@@ -14508,8 +14498,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "3": [
@@ -14519,8 +14508,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
@@ -14572,8 +14560,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "2": [
@@ -14591,8 +14578,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "3": [
@@ -14610,8 +14596,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ]
       },
@@ -14671,8 +14656,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -14694,8 +14678,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -14717,8 +14700,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -14754,8 +14736,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "2": [
@@ -14765,8 +14746,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "3": [
@@ -14776,8 +14756,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
@@ -14821,8 +14800,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "2": [
@@ -14836,8 +14814,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "3": [
@@ -14851,8 +14828,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ]
       },
@@ -14904,8 +14880,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -14923,8 +14898,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -14942,8 +14916,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -14979,8 +14952,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "2": [
@@ -14990,8 +14962,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "3": [
@@ -15001,8 +14972,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
@@ -15054,8 +15024,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "2": [
@@ -15073,8 +15042,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "3": [
@@ -15092,8 +15060,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ]
       },
@@ -15161,8 +15128,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -15188,8 +15154,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -15215,8 +15180,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -15260,8 +15224,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "2": [
@@ -15275,8 +15238,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "3": [
@@ -15290,8 +15252,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
@@ -15351,8 +15312,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "2": [
@@ -15374,8 +15334,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "3": [
@@ -15397,8 +15356,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ]
       },
@@ -15466,8 +15424,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -15493,8 +15450,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -15520,8 +15476,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -15557,8 +15512,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "2": [
@@ -15568,8 +15522,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ],
         "3": [
@@ -15579,8 +15532,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
@@ -15632,8 +15584,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "2": [
@@ -15651,8 +15602,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ],
         "3": [
@@ -15670,8 +15620,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 15.0,
-            "noReturnDiscount": true
+            "qty": 15.0
           }
         ]
       },
@@ -15739,8 +15688,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -15766,8 +15714,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -15793,8 +15740,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -15862,8 +15808,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "2": [
@@ -15889,8 +15834,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ],
         "3": [
@@ -15916,8 +15860,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 45.0,
-            "noReturnDiscount": true
+            "qty": 45.0
           }
         ]
       },
@@ -15958,8 +15901,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SHADOW_CLAW",
@@ -15974,8 +15916,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SHADOW_CLAW",
@@ -15990,8 +15931,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SHADOW_CLAW",
@@ -16053,8 +15993,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SHADOW_CLAW",
@@ -16077,8 +16016,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SHADOW_CLAW",
@@ -16101,8 +16039,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SHADOW_CLAW",
@@ -16180,8 +16117,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SHADOW_CLAW",
@@ -16212,8 +16148,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SHADOW_CLAW",
@@ -16244,8 +16179,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SHADOW_CLAW",
@@ -16291,8 +16225,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SYLVIAN_ROOT",
@@ -16307,8 +16240,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SYLVIAN_ROOT",
@@ -16323,8 +16255,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SYLVIAN_ROOT",
@@ -16386,8 +16317,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SYLVIAN_ROOT",
@@ -16410,8 +16340,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SYLVIAN_ROOT",
@@ -16434,8 +16363,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SYLVIAN_ROOT",
@@ -16513,8 +16441,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SYLVIAN_ROOT",
@@ -16545,8 +16472,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SYLVIAN_ROOT",
@@ -16577,8 +16503,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SYLVIAN_ROOT",
@@ -16624,8 +16549,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SPIRIT_PAWS",
@@ -16640,8 +16564,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SPIRIT_PAWS",
@@ -16656,8 +16579,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_SPIRIT_PAWS",
@@ -16719,8 +16641,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SPIRIT_PAWS",
@@ -16743,8 +16664,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SPIRIT_PAWS",
@@ -16767,8 +16687,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_SPIRIT_PAWS",
@@ -16846,8 +16765,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SPIRIT_PAWS",
@@ -16878,8 +16796,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SPIRIT_PAWS",
@@ -16910,8 +16827,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_SPIRIT_PAWS",
@@ -16957,8 +16873,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_WEREWOLF_FANGS",
@@ -16973,8 +16888,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_WEREWOLF_FANGS",
@@ -16989,8 +16903,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_WEREWOLF_FANGS",
@@ -17052,8 +16965,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_WEREWOLF_FANGS",
@@ -17076,8 +16988,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_WEREWOLF_FANGS",
@@ -17100,8 +17011,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_WEREWOLF_FANGS",
@@ -17179,8 +17089,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_WEREWOLF_FANGS",
@@ -17211,8 +17120,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_WEREWOLF_FANGS",
@@ -17243,8 +17151,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_WEREWOLF_FANGS",
@@ -17290,8 +17197,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_IMPS_HORNS",
@@ -17306,8 +17212,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_IMPS_HORNS",
@@ -17322,8 +17227,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_IMPS_HORNS",
@@ -17385,8 +17289,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_IMPS_HORNS",
@@ -17409,8 +17312,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_IMPS_HORNS",
@@ -17433,8 +17335,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_IMPS_HORNS",
@@ -17512,8 +17413,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_IMPS_HORNS",
@@ -17544,8 +17444,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_IMPS_HORNS",
@@ -17576,8 +17475,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_IMPS_HORNS",
@@ -17623,8 +17521,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_RUNESTONE_TOOTH",
@@ -17639,8 +17536,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_RUNESTONE_TOOTH",
@@ -17655,8 +17551,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_RUNESTONE_TOOTH",
@@ -17718,8 +17613,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_RUNESTONE_TOOTH",
@@ -17742,8 +17636,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_RUNESTONE_TOOTH",
@@ -17766,8 +17659,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_RUNESTONE_TOOTH",
@@ -17845,8 +17737,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_RUNESTONE_TOOTH",
@@ -17877,8 +17768,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_RUNESTONE_TOOTH",
@@ -17909,8 +17799,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_RUNESTONE_TOOTH",
@@ -17956,8 +17845,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_DAWNFEATHER",
@@ -17972,8 +17860,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_DAWNFEATHER",
@@ -17988,8 +17875,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 10.0,
-            "noReturnDiscount": true
+            "qty": 10.0
           },
           {
             "mat": "FP_TIER_3___RUGGED_DAWNFEATHER",
@@ -18051,8 +17937,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_DAWNFEATHER",
@@ -18075,8 +17960,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_DAWNFEATHER",
@@ -18099,8 +17983,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 30.0,
-            "noReturnDiscount": true
+            "qty": 30.0
           },
           {
             "mat": "FP_TIER_5___FINE_DAWNFEATHER",
@@ -18178,8 +18061,7 @@
           },
           {
             "mat": "FP_BASIC_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_DAWNFEATHER",
@@ -18210,8 +18092,7 @@
           },
           {
             "mat": "FP_REFINED_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_DAWNFEATHER",
@@ -18242,8 +18123,7 @@
           },
           {
             "mat": "FP_PURE_ARCANE_EXTRACT",
-            "qty": 90.0,
-            "noReturnDiscount": true
+            "qty": 90.0
           },
           {
             "mat": "FP_TIER_7___EXCELLENT_DAWNFEATHER",
@@ -39112,8 +38992,7 @@
           },
           {
             "mat": "FP_RARE_ANIMAL_REMANINGS",
-            "qty": 5.0,
-            "noReturnDiscount": true
+            "qty": 5.0
           }
         ]
       },
