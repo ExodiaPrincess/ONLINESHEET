@@ -4,27 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!--
-    Content Security Policy:
-      - default-src 'self'           : everything from this origin unless overridden
-      - script-src   'self' 'unsafe-inline' jsdelivr  : we use inline onerror
-        on item icons; Supabase JS comes from jsdelivr.
-      - style-src    allows inline styles + Google Fonts CSS.
-      - img-src      our origin + data: + the Albion render API.
-      - connect-src  Supabase HTTPS + WSS (auth + realtime).
-      - frame-ancestors 'none'       : nobody can iframe this site (clickjacking).
-      - base-uri / form-action 'self': stops base-tag and form-action injections.
+    Security headers (CSP, Permissions-Policy, HSTS, X-Frame-Options, etc.)
+    are set as HTTP response headers in vercel.json — they apply more broadly
+    than meta tags (e.g. to prefetch and framing) and live in one place.
   -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://render.albiononline.com;
-    connect-src 'self' https://*.supabase.co wss://*.supabase.co;
-    frame-ancestors 'none';
-    base-uri 'self';
-    form-action 'self';
-  " />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Nendys Calculator – Albion Online Crafting, Refining, Food &amp; Potions</title>
   <meta name="description" content="Albion Online crafting, refining, food and potions calculator. Real recipes, live cost calculations, return-rate-aware (Island / City / Bonus City / Hideout), with chain-refining, hearts and focus support." />

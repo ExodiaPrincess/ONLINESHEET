@@ -3,6 +3,16 @@
    Replicates the core formulas of the Nendys V2 spreadsheet.
    ============================================================================ */
 
+// Delegated image-error handler: any <img data-hide-on-error> that fails to
+// load is hidden. Replaces inline onerror= so the CSP can drop 'unsafe-inline'.
+// Registered in capture phase because error events do not bubble.
+document.addEventListener('error', (e) => {
+  const t = e.target;
+  if (t && t.tagName === 'IMG' && t.hasAttribute('data-hide-on-error')) {
+    t.style.display = 'none';
+  }
+}, true);
+
 const STORAGE_KEY = 'nendys.v2';
 const PRICES_KEY  = 'nendys.prices';
 
@@ -141,7 +151,7 @@ function iconUrl(id, size = 96) {
 function navIcon(itemId, size = 'md') {
   if (!itemId) return '';
   const cls = `nav-emoji nav-emoji--${size}`;
-  return `<img class="${cls}" src="${iconUrl(itemId, 64)}" alt="" loading="lazy" onerror="this.style.display='none'" />`;
+  return `<img class="${cls}" src="${iconUrl(itemId, 64)}" alt="" loading="lazy" data-hide-on-error />`;
 }
 
 // =============================================================================
@@ -546,7 +556,7 @@ function pageHome() {
       <div class="landing-grid">
         ${SHEET_GROUPS.map(g => `
           <div class="landing-card" data-route="group" data-grp="${g.title}">
-            <img class="landing-card__icon" src="${iconUrl(g.icon, 96)}" alt="${g.title}" loading="lazy" onerror="this.style.display='none'" />
+            <img class="landing-card__icon" src="${iconUrl(g.icon, 96)}" alt="${g.title}" loading="lazy" data-hide-on-error />
             <h3>${g.title}</h3>
             <p>${g.sheets.length} categor${g.sheets.length === 1 ? 'y' : 'ies'}</p>
           </div>
@@ -575,7 +585,7 @@ function pageGroup(groupTitle) {
     const label = SHEET_LABELS[sh] || sh;
     const count = recipesBySheet[sh] || 0;
     const img = icon
-      ? `<img class="landing-card__icon" src="${iconUrl(icon, 96)}" alt="${label}" loading="lazy" onerror="this.style.display='none'" />`
+      ? `<img class="landing-card__icon" src="${iconUrl(icon, 96)}" alt="${label}" loading="lazy" data-hide-on-error />`
       : '';
     return `
       <div class="landing-card" data-route="sheet" data-sheet="${sh}">
@@ -1022,7 +1032,7 @@ function pageSheet(sheet) {
     const span = recs.length;
     const itemId = sheetIcons[sectionName];
     const imgHtml = itemId
-      ? `<img class="item-icon" src="${iconUrl(itemId, 96)}" alt="${sectionName}" loading="lazy" onerror="this.style.display='none'" />`
+      ? `<img class="item-icon" src="${iconUrl(itemId, 96)}" alt="${sectionName}" loading="lazy" data-hide-on-error />`
       : '';
     const itemCellHtml = `<td class="item-name item-name--merged" rowspan="${span}">
         ${imgHtml}<div class="item-label">${sectionName}</div>
@@ -1097,7 +1107,7 @@ function pageSheet(sheet) {
   // title and an explanatory caption below the table.
   const heroIcon = isRefining && REFINING_HERO_ICON[sheet];
   const heroBlock = heroIcon
-    ? `<img class="page-hero-icon" src="${iconUrl(heroIcon, 128)}" alt="${SHEET_LABELS[sheet] || sheet}" loading="lazy" onerror="this.style.display='none'" />`
+    ? `<img class="page-hero-icon" src="${iconUrl(heroIcon, 128)}" alt="${SHEET_LABELS[sheet] || sheet}" loading="lazy" data-hide-on-error />`
     : '';
   const refiningCaption = isRefining ? `
     <div class="page-caption">
