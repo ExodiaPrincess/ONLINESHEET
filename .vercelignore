@@ -1,0 +1,10 @@
+# Recipe data is served from the PRIVATE Supabase Storage bucket `recipe-data`
+# (authenticated users only), NOT as public static files. These stay in git as
+# the source of truth, but must never be deployed to the CDN — otherwise anyone
+# could download the full dataset without signing in.
+data.json
+icons.json
+furniture.json
+
+# Build-time tooling / inputs — not part of the served site.
+*.py

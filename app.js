@@ -1314,6 +1314,25 @@ async function initAppForUser(user) {
   const userLabel = document.getElementById('current-user');
   if (userLabel) userLabel.textContent = user.email || 'Signed in';
 
+  // Recipe data is gated behind auth — load it (once per session) from the
+  // private `recipe-data` bucket now that we have a signed-in session. It is
+  // cached client-side by version, so this is a no-network no-op on revisits.
+  if (!State.data) {
+    document.getElementById('main').innerHTML = '<div class="loading">Loading recipe data…</div>';
+    try {
+      const [data, icons] = await Promise.all([
+        NendysData.loadJSON('data.json'),
+        NendysData.loadJSON('icons.json').catch(() => ({})),
+      ]);
+      State.data  = data;
+      State.icons = icons || {};
+    } catch (err) {
+      document.getElementById('main').innerHTML =
+        `<div class="panel"><p style="color:var(--bad)">Failed to load recipe data: ${err.message}</p></div>`;
+      return;
+    }
+  }
+
   // Pull the user's stored prices & settings from Supabase, falling back to
   // anything in localStorage if the cloud row is empty / unreachable.
   try {
@@ -1349,33 +1368,16 @@ async function initAppForUser(user) {
 // BOOT
 // =============================================================================
 async function boot() {
-  document.getElementById('main').innerHTML = '<div class="loading">Loading recipe data…</div>';
+  document.getElementById('main').innerHTML = '<div class="loading">Loading…</div>';
   loadStored();
   bindLoginForm();
   bindLogout();
 
-  // Load static data first — the calculator needs it whether logged in or not.
-  try {
-    // Cache-bust on every load — `data.json` / `icons.json` are small and
-    // update with the source repo. The query string defeats stale browser
-    // and CDN caches that would otherwise hide newly-added recipes.
-    const v = Date.now();
-    const [data, icons] = await Promise.all([
-      fetch(`data.json?v=${v}`,  { cache: 'no-cache' }).then(r => r.json()),
-      fetch(`icons.json?v=${v}`, { cache: 'no-cache' }).then(r => r.json()).catch(() => ({})),
-    ]);
-    State.data = data;
-    State.icons = icons || {};
-  } catch (err) {
-    document.getElementById('main').innerHTML =
-      `<div class="panel"><p style="color:var(--bad)">Failed to load data.json: ${err.message}</p></div>`;
-    return;
-  }
-
-  // If Supabase isn't configured yet, fall back to local-only mode so the
-  // site is still demoable while the admin sets credentials.
+  // Recipe data now lives in a private, auth-gated bucket, so the app cannot
+  // load anything meaningful without Supabase configured. (The data fetch
+  // itself happens in initAppForUser, after sign-in.)
   if (!window.NendysAuth || !NendysAuth.isConfigured) {
-    console.warn('[Nendys] Supabase not configured. Running in local-only mode. Edit albion/config.js.');
+    console.warn('[Nendys] Supabase not configured. Edit albion/config.js.');
     document.getElementById('main').innerHTML =
       `<div class="panel" style="border-color: var(--warn);">
          <h2 class="panel__title" style="color: var(--warn);">Auth not configured</h2>
