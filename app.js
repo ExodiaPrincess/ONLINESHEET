@@ -944,6 +944,18 @@ function updateSheetCosts() {
   // Chain cost cache must be cleared whenever prices/settings change.
   if (typeof clearChainCache === 'function') clearChainCache();
   const recipes = (State.data.recipes || []).filter(r => r.sheet === sheet);
+  // Rows are rendered grouped by section (see pageSheet), but the raw recipe
+  // order can interleave sections by tier (e.g. gathering gear: Rod, Cap,
+  // Garb, ... Rod again). We must walk recipes in the SAME grouped order the
+  // table was built with, or the positional row↔recipe mapping below is wrong
+  // and we'd write each recipe's cost into the wrong row.
+  const sections = {};
+  for (const r of recipes) {
+    const key = r.section || '—';
+    (sections[key] ||= []).push(r);
+  }
+  const ordered = [];
+  for (const name of Object.keys(sections)) ordered.push(...sections[name]);
   // Determine enchant column count from first recipe
   let maxEnch = 0;
   for (const r of recipes) {
@@ -954,7 +966,7 @@ function updateSheetCosts() {
   // Every <tr> in the recipe table corresponds to one (item, tier) pair.
   const rows = Array.from(tbody.children);
   let i = 0;
-  for (const r of recipes) {
+  for (const r of ordered) {
     const tr = rows[i++];
     if (!tr) continue;
     const cells = tr.querySelectorAll('td.price-cell');
