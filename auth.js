@@ -29,12 +29,14 @@
       return data?.user || null;
     },
 
-    /** Sign in with email + password. Returns {user} on success or {error}. */
-    async signIn(email, password) {
+    /** Sign in with email + password. Pass a Turnstile token when CAPTCHA is
+     *  enabled. Returns {user} on success or {error}. */
+    async signIn(email, password, captchaToken) {
       if (!supabase) return { error: 'Auth not configured. Edit albion/config.js.' };
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email.trim(),
         password,
+        options: captchaToken ? { captchaToken } : undefined,
       });
       if (error) return { error: error.message };
       return { user: data.user };

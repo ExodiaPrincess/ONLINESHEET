@@ -167,6 +167,13 @@ body {
   box-sizing: border-box;
 }
 .login-card .field input:focus { border-color: var(--accent); }
+.login-card__captcha {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 2px;
+  min-height: 65px; /* reserve Turnstile's height to avoid layout shift */
+}
+.login-card__captcha:empty { min-height: 0; margin: 0; } /* collapses when CAPTCHA disabled */
 .login-card__submit {
   width: 100%;
   padding: 10px;

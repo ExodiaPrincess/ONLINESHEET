@@ -21,6 +21,7 @@ sign in.
 |---|---|
 | Anyone-can-sign-up | **Public sign-up MUST be disabled** in Supabase: *Authentication → Sign In / Up → Allow new users to sign up = OFF*. Verify this on every Supabase project change. |
 | Unauthenticated data scraping | The recipe dataset (`data.json`, `icons.json`) is the paid product. It is served from the **private** Supabase Storage bucket `recipe-data` (RLS grants `SELECT` to the `authenticated` role only) and fetched by `app.js` *after* sign-in. `.vercelignore` keeps the files off the CDN, so an anonymous `curl https://thealbioncalculator.com/data.json` returns 404 instead of the data. |
+| Brute-force / credential stuffing on login | Supabase Auth **Rate Limits** (sign-in/sign-up capped per IP) plus optional **Cloudflare Turnstile** CAPTCHA on the login form. See *Login CAPTCHA* below. |
 | Cross-user data read | RLS policy `auth.uid() = user_id` on `public.user_data` for select / insert / update. A logged-in user querying another user's row gets an empty result; a write is rejected by policy. |
 | Stolen anon key | Anon keys are designed to be public — they cannot bypass RLS. The real protection is the RLS policies. |
 | Session theft via XSS | Mitigated by minimising XSS surface (see below). Token stored in localStorage as `nendys.auth`. A successful XSS would steal it; without one, the token is inaccessible to other origins. |
@@ -51,6 +52,40 @@ client cache version automatically, so users pick up the new data on next load.
 `furniture.json` is a *build-time* input only (merged into `data.json` by
 `extract_recipes.py`); the client never fetches it, so it doesn't need uploading.
 
+## Login CAPTCHA (Cloudflare Turnstile)
+
+Optional bot / credential-stuffing defence on the login form, layered on top of
+Supabase Auth rate limits. **Disabled until a site key is present**, so the app
+works without it out of the box.
+
+How it works:
+- `config.js` holds the public `TURNSTILE_SITE_KEY` (empty string = disabled).
+- `app.js` lazy-loads the Turnstile script the first time the login form is
+  shown, renders an explicit widget into `#login-captcha`, and passes the token
+  to `signInWithPassword({ options: { captchaToken } })`. Tokens are single-use,
+  so the widget is reset after a failed attempt.
+- `vercel.json` CSP allows `challenges.cloudflare.com` (script-src, connect-src,
+  frame-src).
+
+**Enabling it — follow this order exactly, or you can lock everyone out:**
+
+1. Cloudflare dashboard → **Turnstile** → add a widget; add hostnames
+   `thealbioncalculator.com` **and** your `*.vercel.app` preview domain. Copy the
+   **site key** (public) and **secret key** (private).
+2. Put the **site key** into `config.js` → `TURNSTILE_SITE_KEY`, commit, and let it
+   deploy to production. The widget now renders, but is **not yet enforced** — a
+   token is simply ignored while the Supabase toggle is still off, so login keeps
+   working for everyone.
+3. **Only after step 2 is live in production**, go to Supabase → Authentication →
+   **Attack Protection** → enable CAPTCHA → provider **Turnstile** → paste the
+   **secret key** → save. Enforcement is now on.
+4. If anything misbehaves, **turn the Supabase CAPTCHA toggle back off** — it is an
+   instant server-side switch (no redeploy) and login works again immediately.
+
+> The Supabase CAPTCHA setting is **project-wide**, so it applies to preview and
+> production at the same time. Keep `TURNSTILE_SITE_KEY` committed so every
+> deployment can satisfy it.
+
 ## Known limitations
 
 - **JWT in localStorage.** Industry-standard for SPAs but means an XSS would be a session takeover. Defended by the CSP + sanitisers above. Not switching to httpOnly cookies because that would require a backend (we are static).
@@ -63,7 +98,7 @@ client cache version automatically, so users pick up the new data on next load.
 - [ ] **Authentication → Sign In / Up → Allow new users to sign up = OFF**
 - [ ] **Authentication → Providers → Email**: enabled, `Confirm email` = OFF
 - [ ] **Authentication → Rate Limits**: token endpoint capped to ~5 attempts / minute / IP (mitigates brute-force & credential-stuffing)
-- [ ] **Authentication → Attack Protection / CAPTCHA**: hCaptcha or Cloudflare Turnstile enabled on sign-in
+- [ ] **(Optional) Authentication → Attack Protection → CAPTCHA**: Cloudflare Turnstile enabled with secret key — only *after* `TURNSTILE_SITE_KEY` is live in production (see *Login CAPTCHA* for the safe enable order)
 - [ ] **SQL Editor**: ran the `user_data` table + RLS snippet from `README.md`
 - [ ] **Database → Policies → public.user_data**: three policies present, all using `auth.uid() = user_id`
 - [ ] **SQL Editor**: `revoke select on public.user_data from anon;` — only the `authenticated` role needs access, RLS does the rest

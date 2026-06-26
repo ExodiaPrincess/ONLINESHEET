@@ -70,6 +70,8 @@
         <label for="login-password">Password</label>
         <input id="login-password" type="password" autocomplete="current-password" required />
       </div>
+      <!-- Cloudflare Turnstile renders here when TURNSTILE_SITE_KEY is set in config.js. -->
+      <div id="login-captcha" class="login-card__captcha"></div>
       <button type="submit" class="btn btn--primary login-card__submit" id="login-submit">Sign In</button>
       <div id="login-error" class="login-card__error" hidden></div>
       <div class="login-card__footer">

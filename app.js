@@ -1244,6 +1244,7 @@ function bindTopbar() {
 function showLogin() {
   const overlay = document.getElementById('login-overlay');
   if (overlay) overlay.hidden = false;
+  initCaptcha();   // lazy-load the CAPTCHA widget the first time login is shown
   // Hide app chrome bits while not authed
   toggleAppChrome(false);
 }
@@ -1270,6 +1271,54 @@ function updateHomeFab(loggedIn = !!State.user) {
   fab.hidden = !loggedIn || onHome;
 }
 
+// =============================================================================
+// CAPTCHA (Cloudflare Turnstile)
+// Active only when TURNSTILE_SITE_KEY is set in config.js. The script is loaded
+// lazily the first time the login form is shown, and an explicit widget is
+// rendered into #login-captcha. The resulting token is passed to
+// signInWithPassword; Supabase verifies it server-side when CAPTCHA protection
+// is enabled for the project. When the key is empty, login works without it.
+// =============================================================================
+let captchaToken       = '';
+let captchaWidgetId    = null;
+let captchaInitStarted = false;
+
+function captchaEnabled() {
+  return !!(window.NENDYS_CONFIG && window.NENDYS_CONFIG.TURNSTILE_SITE_KEY);
+}
+
+/** Lazy-load Turnstile and render the widget. Idempotent; no-op when disabled. */
+function initCaptcha() {
+  if (captchaInitStarted || !captchaEnabled()) return;
+  captchaInitStarted = true;
+
+  // Called by the Turnstile script once it loads (explicit render mode).
+  window.onTurnstileReady = () => {
+    const el = document.getElementById('login-captcha');
+    if (!el || !window.turnstile) return;
+    captchaWidgetId = window.turnstile.render(el, {
+      sitekey: window.NENDYS_CONFIG.TURNSTILE_SITE_KEY,
+      callback:           (token) => { captchaToken = token; },
+      'expired-callback': ()      => { captchaToken = ''; },
+      'error-callback':   ()      => { captchaToken = ''; },
+    });
+  };
+
+  const s = document.createElement('script');
+  s.src   = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileReady';
+  s.async = true;
+  s.defer = true;
+  document.head.appendChild(s);
+}
+
+/** Reset the widget after a sign-in attempt — Turnstile tokens are single-use. */
+function resetCaptcha() {
+  captchaToken = '';
+  if (captchaWidgetId !== null && window.turnstile) {
+    try { window.turnstile.reset(captchaWidgetId); } catch (_) { /* ignore */ }
+  }
+}
+
 function bindLoginForm() {
   const form  = document.getElementById('login-form');
   const err   = document.getElementById('login-error');
@@ -1278,16 +1327,24 @@ function bindLoginForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     err.hidden = true;
+
+    if (captchaEnabled() && !captchaToken) {
+      err.textContent = 'Please complete the human-verification check below.';
+      err.hidden = false;
+      return;
+    }
+
     btn.disabled = true;
     btn.textContent = 'Signing in…';
     const email    = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
-    const { user, error } = await NendysAuth.signIn(email, password);
+    const { user, error } = await NendysAuth.signIn(email, password, captchaToken);
     btn.disabled = false;
     btn.textContent = 'Sign In';
     if (error) {
       err.textContent = error;
       err.hidden = false;
+      resetCaptcha();   // token is single-use; issue a fresh one for the retry
       return;
     }
     // onChange listener will pick up the new session and finish the boot.

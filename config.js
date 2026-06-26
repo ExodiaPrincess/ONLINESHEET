@@ -9,4 +9,10 @@
 window.NENDYS_CONFIG = {
   SUPABASE_URL:      'https://ucrykhjacbircldryule.supabase.co',
   SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVjcnlraGphY2JpcmNsZHJ5dWxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDk4MTksImV4cCI6MjA5Mzk4NTgxOX0._PWrSynjWNAcJfu58u3gKT1x9MoOI0slSoq8X7ybdjQ',
+
+  // Cloudflare Turnstile *site key* (public — safe to commit). Get it from the
+  // Cloudflare dashboard → Turnstile → your widget. Leave '' to disable the
+  // CAPTCHA entirely (login then works without it). The matching *secret key*
+  // goes into Supabase → Authentication → Attack Protection, never here.
+  TURNSTILE_SITE_KEY: '',
 };
