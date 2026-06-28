@@ -878,7 +878,10 @@ table.tbl {
   .layout { grid-template-columns: 1fr; min-height: auto; }
   .sidebar { display: none; }
 
-  .main { padding: 18px 16px 72px; max-width: 100%; }
+  /* min-width:0 stops this grid item from stretching to fit a wide child
+     (e.g. the artifact grid); inner scroll containers handle the overflow,
+     so the page never scrolls sideways and the footer spans the bottom. */
+  .main { padding: 18px 16px 72px; max-width: 100%; min-width: 0; }
   .page-title { font-size: 22px; }
 
   /* Floating Home button → bottom-right, clear of the content. */
