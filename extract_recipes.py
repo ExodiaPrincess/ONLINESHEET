@@ -1202,10 +1202,13 @@ def _is_never_refundable(mat_id):
     # Rare drop catalysts — not crafted, can't be returned. Arcane
     # Extracts and Rare Animal Remains are crafted ingredients and DO
     # get return-rate discount, so they're NOT in this list.
+    # Fish Sauce (food enchant catalyst) is never refunded by return rate
+    # in-game — its return is always 0%, so force it non-refundable.
     NEVER_REFUND_SUBSTR = (
         'SHADOW_CLAW', 'WEREWOLF_FANG', 'SPIRIT_PAW',
         'RUNESTONE_TOOTH', 'SYLVIAN_ROOT', 'DAWNFEATHER',
         'IMPS_HORN', 'IMP_HORN', 'IMPS_HORNS',
+        'FISH_SAUCE',
     )
     return any(s in mat_id for s in NEVER_REFUND_SUBSTR)
 
