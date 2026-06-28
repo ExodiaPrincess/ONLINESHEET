@@ -255,7 +255,7 @@ img.brand__mark--img {
 }
 .brand__title { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
 .brand__sub { color: var(--text-3); font-size: 12px; }
-.topbar__actions { display: flex; gap: 8px; align-items: center; }
+.topbar__actions { display: flex; gap: 8px; }
 
 /* ---------- BUTTONS ---------- */
 .btn {
@@ -576,19 +576,6 @@ table.tbl {
   border-bottom: 1px solid var(--line-2);
   position: sticky;
   top: 0;
-  z-index: 3;
-}
-/* Keep the Item column pinned to the left while the table scrolls
-   horizontally — essential on narrow screens with many enchant columns. */
-.tbl .item-name--merged {
-  position: sticky;
-  left: 0;
-  z-index: 2;
-}
-.tbl thead th:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 4;   /* above both the sticky header row and the sticky column */
 }
 /* Enchantment columns are right-aligned so the header text lines up with
    the right-aligned price numbers below it. */
@@ -859,17 +846,19 @@ table.tbl {
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE  (everything below is mobile/tablet-only — the desktop
+   layout above is left exactly as it was.)
    ============================================================ */
 
-/* Small desktops / large laptops — tighten the shell. */
-@media (max-width: 1100px) {
-  .layout { grid-template-columns: 220px 1fr; }
-  .main { padding: 22px 22px 56px; }
-}
+/* The "Material Prices" quick card on Home exists only for the phone/tablet
+   layout where the sidebar is hidden; on desktop the sidebar already has it,
+   so it stays hidden there. */
+.landing-card--mobile-only { display: none; }
 
 /* ---- Tablet & below: drop the sidebar; navigate via the on-page cards ---- */
 @media (max-width: 880px) {
+  .landing-card--mobile-only { display: block; }
+
   .topbar {
     padding: 9px 14px;
     flex-wrap: nowrap;
@@ -905,6 +894,11 @@ table.tbl {
   .tbl--refining .item-name--merged { width: 150px; }
   .tbl .item-icon { width: 84px; height: 84px; }
   .tbl .item-label { font-size: 13px; }
+
+  /* Pin the Item column while scrolling these wide tables sideways. */
+  .tbl thead th { z-index: 3; }
+  .tbl .item-name--merged { position: sticky; left: 0; z-index: 2; }
+  .tbl thead th:first-child { position: sticky; left: 0; z-index: 4; }
 
   /* Let wide artifact rows scroll horizontally within their panel. */
   .mat-grid--single { overflow-x: auto; }
@@ -958,8 +952,8 @@ table.tbl {
   }
 }
 
-/* ---- Touch devices: larger, comfortable tap targets ---- */
-@media (hover: none) and (pointer: coarse) {
+/* ---- Touch phones/tablets: larger, comfortable tap targets ---- */
+@media (max-width: 880px) and (hover: none) and (pointer: coarse) {
   .nav-item { padding: 12px 14px; }
   .tab { padding: 11px 14px; }
   .btn { padding: 9px 14px; }

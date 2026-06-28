@@ -554,7 +554,7 @@ function pageHome() {
     <div class="panel">
       <h2 class="panel__title">Jump to a category</h2>
       <div class="landing-grid">
-        <div class="landing-card" data-go="materials">
+        <div class="landing-card landing-card--mobile-only" data-go="materials">
           <img class="landing-card__icon" src="${iconUrl('T8_BAG', 96)}" alt="Material Prices" loading="lazy" data-hide-on-error />
           <h3>Material Prices</h3>
           <p>Enter buy prices</p>
