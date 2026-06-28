@@ -554,6 +554,11 @@ function pageHome() {
     <div class="panel">
       <h2 class="panel__title">Jump to a category</h2>
       <div class="landing-grid">
+        <div class="landing-card" data-go="materials">
+          <img class="landing-card__icon" src="${iconUrl('T8_BAG', 96)}" alt="Material Prices" loading="lazy" data-hide-on-error />
+          <h3>Material Prices</h3>
+          <p>Enter buy prices</p>
+        </div>
         ${SHEET_GROUPS.map(g => `
           <div class="landing-card" data-route="group" data-grp="${g.title}">
             <img class="landing-card__icon" src="${iconUrl(g.icon, 96)}" alt="${g.title}" loading="lazy" data-hide-on-error />
@@ -1204,6 +1209,14 @@ function render() {
     document.querySelectorAll('.landing-card[data-grp]').forEach(card => {
       card.addEventListener('click', () => {
         State.view = { type: 'group', group: card.dataset.grp };
+        render();
+      });
+    });
+    // "Material Prices" quick-access card (the one nav target not reachable
+    // via the category cards, important now the sidebar is hidden on phones).
+    document.querySelectorAll('.landing-card[data-go="materials"]').forEach(card => {
+      card.addEventListener('click', () => {
+        State.view = { type: 'materials' };
         render();
       });
     });
