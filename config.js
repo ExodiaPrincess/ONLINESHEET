@@ -14,5 +14,11 @@ window.NENDYS_CONFIG = {
   // Cloudflare dashboard → Turnstile → your widget. Leave '' to disable the
   // CAPTCHA entirely (login then works without it). The matching *secret key*
   // goes into Supabase → Authentication → Attack Protection, never here.
-  TURNSTILE_SITE_KEY: '0x4AAAAAADraNihf7OpenG64',
+  //
+  // !!! TEMPORARY — TESTING ONLY (branch claude/responsive-ui-overhaul) !!!
+  // Turnstile is disabled here so the Vercel preview is testable. Before
+  // merging to main, RESTORE the real key below and re-enable CAPTCHA in
+  // Supabase → Authentication → Attack Protection.
+  //   Real key: '0x4AAAAAADraNihf7OpenG64'
+  TURNSTILE_SITE_KEY: '',
 };
