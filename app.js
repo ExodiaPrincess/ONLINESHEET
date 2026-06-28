@@ -1128,9 +1128,10 @@ function pageSheet(sheet) {
     : '';
   const refiningCaption = isRefining ? `
     <div class="page-caption">
-      Each cell shows the cheaper option:<br>
-      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> Crafting and Refining yourself<br>
-      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> Buying the item from the Marketplace
+      Each number is the cost to <strong>refine this item yourself</strong> (not its market price).
+      The badge shows how the cheaper <strong>lower-tier refined ingredient</strong> was priced:<br>
+      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> refined yourself (chain) — cheaper to make the lower tier<br>
+      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> bought from the Market — cheaper to buy the lower tier
     </div>` : '';
 
   return `
