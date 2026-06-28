@@ -387,10 +387,14 @@ function refinedOutputId(sheet, tier, ench) {
   return null;
 }
 
-/** Cost to REFINE this item yourself, sourcing each lower-tier refined
- *  ingredient the cheapest way (buy it or make it). Returns { cost, missing };
- *  cost is null if any required price is missing. */
-function refineCostWithMissing(sheet, recipe, tier, ench) {
+/** Cost to REFINE this item yourself. `sourcing` controls how each lower-tier
+ *  refined ingredient is priced:
+ *    'auto'   – cheaper of buying it (market) or making it (chain)
+ *    'market' – always buy the ingredient from the market
+ *    'chain'  – always chain-refine the ingredient yourself
+ *  Raw inputs (fiber, ore, …) are always at market price. Returns
+ *  { cost, missing }; cost is null if any required price is missing. */
+function refineCostWithMissing(sheet, recipe, tier, ench, sourcing = 'auto') {
   const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
   if (!items) return { cost: null, missing: [] };
   const family = REFINING_OUTPUT_FAMILY[sheet];
@@ -409,14 +413,16 @@ function refineCostWithMissing(sheet, recipe, tier, ench) {
     const parsed = parseRefinedMatId(it.mat);
     const isPrevRefined = parsed && family && parsed.family === family && parsed.tier < tier;
     if (isPrevRefined) {
-      // Lower-tier refined input: use the cheaper of its market price or the
-      // cost to chain-refine it.
       const market   = priceFor(it.mat);
       const produced = chainProduceCost(sheet, parsed.tier, parsed.ench);
-      const cands = [market, produced].filter(v => v != null && !isNaN(v));
-      unitPrice = cands.length ? Math.min(...cands) : null;
+      if (sourcing === 'market')     unitPrice = market;
+      else if (sourcing === 'chain') unitPrice = produced;
+      else {
+        const cands = [market, produced].filter(v => v != null && !isNaN(v));
+        unitPrice = cands.length ? Math.min(...cands) : null;
+      }
     } else {
-      unitPrice = priceFor(it.mat);
+      unitPrice = priceFor(it.mat);   // raw inputs are always bought at market
     }
     if (unitPrice == null) { missing.push(it.mat); continue; }
 
@@ -434,32 +440,30 @@ function refineCostWithMissing(sheet, recipe, tier, ench) {
   return { cost: missing.length ? null : total, missing };
 }
 
-/** Public entry for refining cells. Compares the two real ways to obtain this
- *  item and returns the cheaper, with mode:
- *    'C' = cheaper to refine it yourself
- *    'M' = cheaper to buy it from the market (the price entered for this item)
- *  Returns { cost, mode, missing }. */
+/** Public entry for refining cells. Returns { cost, mode, missing }.
+ *  - Auto: cheaper of refining it yourself (cheapest ingredient sourcing) vs
+ *    buying the finished item — badge 'C' (refine) or 'M' (buy item).
+ *  - Market: refine it, buying all ingredients from the market.
+ *  - Chain:  refine it, chain-refining the lower-tier ingredients yourself. */
 function refiningCellCost(sheet, recipe, ench) {
   const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
   if (!items) return { cost: null, mode: null, missing: [] };
   const tier = Number((recipe.tierLabel.match(/(\d+)/) || [])[1] || 0);
+  const mode = State.settings.pricingMode || 'auto';
 
-  const refine  = refineCostWithMissing(sheet, recipe, tier, ench);
+  if (mode === 'market') {
+    const r = refineCostWithMissing(sheet, recipe, tier, ench, 'market');
+    return { cost: r.cost, mode: 'M', missing: r.cost == null ? r.missing : [] };
+  }
+  if (mode === 'chain') {
+    const r = refineCostWithMissing(sheet, recipe, tier, ench, 'chain');
+    return { cost: r.cost, mode: 'C', missing: r.cost == null ? r.missing : [] };
+  }
+
+  // Auto: refine-it-yourself (cheapest inputs) vs buy the finished item.
+  const refine  = refineCostWithMissing(sheet, recipe, tier, ench, 'auto');
   const outId   = refinedOutputId(sheet, tier, ench);
   const buyCost = outId ? priceFor(outId) : null;
-
-  const mode = State.settings.pricingMode || 'auto';
-  if (mode === 'chain') {
-    return refine.cost != null
-      ? { cost: refine.cost, mode: 'C', missing: [] }
-      : { cost: null, mode: 'C', missing: refine.missing };
-  }
-  if (mode === 'market') {
-    return buyCost != null
-      ? { cost: buyCost, mode: 'M', missing: [] }
-      : { cost: null, mode: 'M', missing: outId ? [outId] : [] };
-  }
-  // Auto: cheaper of refining vs buying this item (ties → refine).
   if (refine.cost != null && buyCost != null) {
     return refine.cost <= buyCost
       ? { cost: refine.cost, mode: 'C', missing: [] }
@@ -651,8 +655,8 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
         <label for="set-pricing">Pricing</label>
         <select id="set-pricing">
           <option value="auto"   ${s.pricingMode==='auto'  ?'selected':''}>Auto (cheapest)</option>
-          <option value="market" ${s.pricingMode==='market'?'selected':''}>Market only (buy)</option>
-          <option value="chain"  ${s.pricingMode==='chain' ?'selected':''}>Chain only (refine)</option>
+          <option value="market" ${s.pricingMode==='market'?'selected':''}>Market (buy materials)</option>
+          <option value="chain"  ${s.pricingMode==='chain' ?'selected':''}>Chain (refine materials)</option>
         </select>
       </div>` : '';
 
