@@ -527,7 +527,6 @@ function renderSidebar() {
       } else {
         State.view = { type: route };
       }
-      if (window.__closeMenu) window.__closeMenu();  // collapse the mobile menu
       render();
     });
   });
@@ -1245,8 +1244,6 @@ function render() {
 // TOPBAR ACTIONS
 // =============================================================================
 function bindTopbar() {
-  bindMenuToggle();
-
   // Floating Home button on the right edge — returns to the landing page.
   const homeFab = document.getElementById('homeFab');
   if (homeFab) homeFab.addEventListener('click', () => {
@@ -1266,23 +1263,6 @@ function bindTopbar() {
   });
 }
 
-/** Wire the mobile "Menu" toggle: expands/collapses the sidebar nav inline
- *  (in normal document flow — not an overlay). The button lives in static
- *  markup so it's bound once; the collapse itself is pure CSS keyed off the
- *  `menu-open` class on <body>. Auto-closes when the viewport grows back to
- *  desktop width, where the sidebar is always shown. */
-function bindMenuToggle() {
-  const toggle = document.getElementById('menuToggle');
-  const setOpen = (open) => {
-    document.body.classList.toggle('menu-open', open);
-    if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  };
-  if (toggle) toggle.addEventListener('click', () =>
-    setOpen(!document.body.classList.contains('menu-open')));
-  window.addEventListener('resize', () => { if (window.innerWidth > 880) setOpen(false); });
-  window.__closeMenu = () => setOpen(false);
-}
-
 // =============================================================================
 // LOGIN OVERLAY
 // =============================================================================
@@ -1299,8 +1279,7 @@ function hideLogin() {
   toggleAppChrome(true);
 }
 function toggleAppChrome(loggedIn) {
-  const ids = ['logoutBtn', 'current-user', 'resetBtn', 'menuToggle'];
-  if (!loggedIn) document.body.classList.remove('menu-open');
+  const ids = ['logoutBtn', 'current-user', 'resetBtn'];
   for (const id of ids) {
     const el = document.getElementById(id);
     if (el) el.hidden = !loggedIn;
