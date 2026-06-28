@@ -360,21 +360,44 @@ function chainProduceCost(sheet, tier, ench) {
   return result;
 }
 
-/** Public entry for refining cells. Returns { cost, mode, missing }
- *  where mode is 'M' (market) or 'C' (chain) — used to render the badge. */
-function refiningCellCost(sheet, recipe, ench) {
-  const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
-  if (!items) return { cost: null, mode: null, missing: [] };
-  const tier = Number((recipe.tierLabel.match(/(\d+)/) || [])[1] || 0);
-  const family = REFINING_OUTPUT_FAMILY[sheet];
+// Set of every refined-output material id (CLOTH_T4.1, BLOCKS_T4, ...), built
+// once from the loaded data. Lets a (tier, ench) cell map to the exact material
+// whose market price the user entered — handling the per-tier-only ids that
+// Stone (BLOCKS_T4) uses vs the per-enchant ids the others use (CLOTH_T4.1).
+let _refinedIdSet = null;
+function refinedIds() {
+  if (!_refinedIdSet) {
+    _refinedIdSet = new Set(
+      ((State.data && State.data.materials) || [])
+        .filter(m => m.kind === 'refined')
+        .map(m => m.id)
+    );
+  }
+  return _refinedIdSet;
+}
+/** Market-price material id for the refined item produced at (tier, ench). */
+function refinedOutputId(sheet, tier, ench) {
+  const fam = REFINING_OUTPUT_FAMILY[sheet];
+  if (!fam) return null;
+  const ids = refinedIds();
+  const withEnch = `${fam}_T${tier}.${ench}`;
+  if (ids.has(withEnch)) return withEnch;
+  const noEnch = `${fam}_T${tier}`;
+  if (ids.has(noEnch)) return noEnch;
+  return null;
+}
 
-  // Compute the row's cost twice: once with market prices for prev-tier-refined,
-  // once with the chain-produced cost.
+/** Cost to REFINE this item yourself, sourcing each lower-tier refined
+ *  ingredient the cheapest way (buy it or make it). Returns { cost, missing };
+ *  cost is null if any required price is missing. */
+function refineCostWithMissing(sheet, recipe, tier, ench) {
+  const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
+  if (!items) return { cost: null, missing: [] };
+  const family = REFINING_OUTPUT_FAMILY[sheet];
   const ret = returnFactor(sheet);
   const useHearts = !!State.settings.useHearts;
-  const missingMarket = new Set(), missingChain = new Set();
-  let costMarket = 0, costChain = 0;
-  let hasMarket = true, hasChain = true;
+  let total = 0;
+  const missing = [];
 
   for (const it of items) {
     if (it.heartGated && !useHearts) continue;
@@ -382,75 +405,71 @@ function refiningCellCost(sheet, recipe, ench) {
     if (it.heartReducesQty && useHearts) qty = Math.max(0, qty - 1);
     if (qty <= 0) continue;
 
-    const noDiscount = it.heartGated || it.noReturnDiscount;
-    const factor = noDiscount ? 1 : (1 - ret);
+    let unitPrice;
     const parsed = parseRefinedMatId(it.mat);
     const isPrevRefined = parsed && family && parsed.family === family && parsed.tier < tier;
-
-    // Market branch
-    const marketPrice = priceFor(it.mat);
-    if (marketPrice != null) {
-      costMarket += qty * marketPrice * factor;
-    } else {
-      hasMarket = false; missingMarket.add(it.mat);
-    }
-
-    // Chain branch
     if (isPrevRefined) {
+      // Lower-tier refined input: use the cheaper of its market price or the
+      // cost to chain-refine it.
+      const market   = priceFor(it.mat);
       const produced = chainProduceCost(sheet, parsed.tier, parsed.ench);
-      if (produced != null) {
-        costChain += qty * produced * factor;
-      } else {
-        hasChain = false; missingChain.add(it.mat);
-      }
-    } else if (marketPrice != null) {
-      costChain += qty * marketPrice * factor;
+      const cands = [market, produced].filter(v => v != null && !isNaN(v));
+      unitPrice = cands.length ? Math.min(...cands) : null;
     } else {
-      hasChain = false; missingChain.add(it.mat);
+      unitPrice = priceFor(it.mat);
     }
+    if (unitPrice == null) { missing.push(it.mat); continue; }
+
+    const noDiscount = it.heartGated || it.noReturnDiscount;
+    total += qty * unitPrice * (noDiscount ? 1 : (1 - ret));
   }
 
-  // Station fee — paid per craft, NOT refunded by return rate. Formula
-  // matches the spreadsheet & crafting branch: iv * 0.1125 * stationFee / 100.
-  // For stone, recipe.iv[ench] = base_block_iv * output_count, so this is
-  // already the per-craft total IV. Dividing by outCount below gives the
-  // correct per-block fee. For plank/steel/cloth/leather, output is 1 per
-  // craft so per-craft == per-block automatically.
+  // Station fee (paid per craft, not refunded), then per-unit by output count.
   const iv = (recipe.iv && (recipe.iv[String(ench)] ?? recipe.iv[ench])) || 0;
   const stationFee = Number(State.settings.stationFee) || 0;
-  const feeCost = iv * 0.1125 * stationFee / 100;
-  costMarket += feeCost;
-  costChain  += feeCost;
-
-  // Stone Refining outputs N blocks per craft for enchanted columns
-  // (1 / 2 / 4 / 8 for Base / Uncommon / Rare / Exceptional). The cost we
-  // computed above is per-craft; divide so the cell shows per-block.
+  total += iv * 0.1125 * stationFee / 100;
   const outCount = refiningOutputCount(sheet, ench);
-  if (outCount > 1) {
-    costMarket /= outCount;
-    costChain  /= outCount;
-  }
+  if (outCount > 1) total /= outCount;
+
+  return { cost: missing.length ? null : total, missing };
+}
+
+/** Public entry for refining cells. Compares the two real ways to obtain this
+ *  item and returns the cheaper, with mode:
+ *    'C' = cheaper to refine it yourself
+ *    'M' = cheaper to buy it from the market (the price entered for this item)
+ *  Returns { cost, mode, missing }. */
+function refiningCellCost(sheet, recipe, ench) {
+  const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
+  if (!items) return { cost: null, mode: null, missing: [] };
+  const tier = Number((recipe.tierLabel.match(/(\d+)/) || [])[1] || 0);
+
+  const refine  = refineCostWithMissing(sheet, recipe, tier, ench);
+  const outId   = refinedOutputId(sheet, tier, ench);
+  const buyCost = outId ? priceFor(outId) : null;
 
   const mode = State.settings.pricingMode || 'auto';
-  if (mode === 'market') {
-    return hasMarket
-      ? { cost: costMarket, mode: 'M', missing: [] }
-      : { cost: null, mode: 'M', missing: [...missingMarket] };
-  }
   if (mode === 'chain') {
-    return hasChain
-      ? { cost: costChain, mode: 'C', missing: [] }
-      : { cost: null, mode: 'C', missing: [...missingChain] };
+    return refine.cost != null
+      ? { cost: refine.cost, mode: 'C', missing: [] }
+      : { cost: null, mode: 'C', missing: refine.missing };
   }
-  // Auto: pick cheaper of the two that's available
-  if (hasMarket && hasChain) {
-    return costChain < costMarket
-      ? { cost: costChain, mode: 'C', missing: [] }
-      : { cost: costMarket, mode: 'M', missing: [] };
+  if (mode === 'market') {
+    return buyCost != null
+      ? { cost: buyCost, mode: 'M', missing: [] }
+      : { cost: null, mode: 'M', missing: outId ? [outId] : [] };
   }
-  if (hasMarket) return { cost: costMarket, mode: 'M', missing: [...missingChain] };
-  if (hasChain)  return { cost: costChain,  mode: 'C', missing: [...missingMarket] };
-  return { cost: null, mode: null, missing: [...new Set([...missingMarket, ...missingChain])] };
+  // Auto: cheaper of refining vs buying this item (ties → refine).
+  if (refine.cost != null && buyCost != null) {
+    return refine.cost <= buyCost
+      ? { cost: refine.cost, mode: 'C', missing: [] }
+      : { cost: buyCost,     mode: 'M', missing: [] };
+  }
+  if (refine.cost != null) return { cost: refine.cost, mode: 'C', missing: [] };
+  if (buyCost != null)     return { cost: buyCost,     mode: 'M', missing: [] };
+  const miss = new Set(refine.missing);
+  if (outId) miss.add(outId);
+  return { cost: null, mode: null, missing: [...miss] };
 }
 
 /** Compute total cost for one craft of a given recipe entry.
@@ -624,16 +643,16 @@ function renderSettingsControls({ compact = false, sheet = null } = {}) {
         <label>&nbsp;</label>
         <label class="toggle"><input type="checkbox" id="set-hearts" ${s.useHearts?'checked':''}/> Use Hearts</label>
       </div>` : '';
-  // Pricing mode is refining-only: chooses between market price for the
-  // previous refined tier and your own chained cost.
+  // Pricing mode is refining-only: for each item, compare refining it yourself
+  // against buying it from the market, and choose how to value the cell.
   const showPricing = !sheet || REFINING_SHEETS.has(sheet);
   const pricingField = showPricing ? `
       <div class="field">
         <label for="set-pricing">Pricing</label>
         <select id="set-pricing">
           <option value="auto"   ${s.pricingMode==='auto'  ?'selected':''}>Auto (cheapest)</option>
-          <option value="market" ${s.pricingMode==='market'?'selected':''}>Market only</option>
-          <option value="chain"  ${s.pricingMode==='chain' ?'selected':''}>Chain only</option>
+          <option value="market" ${s.pricingMode==='market'?'selected':''}>Market only (buy)</option>
+          <option value="chain"  ${s.pricingMode==='chain' ?'selected':''}>Chain only (refine)</option>
         </select>
       </div>` : '';
 
@@ -1128,10 +1147,10 @@ function pageSheet(sheet) {
     : '';
   const refiningCaption = isRefining ? `
     <div class="page-caption">
-      Each number is the cost to <strong>refine this item yourself</strong> (not its market price).
-      The badge shows how the cheaper <strong>lower-tier refined ingredient</strong> was priced:<br>
-      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> refined yourself (chain) — cheaper to make the lower tier<br>
-      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> bought from the Market — cheaper to buy the lower tier
+      Each cell shows the <strong>cheaper way to get that item</strong> — refine it yourself vs buy it
+      from the market (using the price you entered for it):<br>
+      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> cheaper to <strong>refine</strong> it yourself<br>
+      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> cheaper to <strong>buy</strong> it from the market
     </div>` : '';
 
   return `
