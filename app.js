@@ -440,11 +440,13 @@ function refineCostWithMissing(sheet, recipe, tier, ench, sourcing = 'auto') {
   return { cost: missing.length ? null : total, missing };
 }
 
-/** Public entry for refining cells. Returns { cost, mode, missing }.
- *  - Auto: cheaper of refining it yourself (cheapest ingredient sourcing) vs
- *    buying the finished item — badge 'C' (refine) or 'M' (buy item).
- *  - Market: refine it, buying all ingredients from the market.
- *  - Chain:  refine it, chain-refining the lower-tier ingredients yourself. */
+/** Public entry for refining cells. The cell number is ALWAYS the cost to
+ *  refine the item yourself (so it reacts to Focus / return-rate settings).
+ *  Returns { cost, mode, missing }, where mode is a buy-vs-refine flag:
+ *    'M' = buying the finished item would be cheaper than refining it
+ *    'C' = refining is the cheaper (or equal) option
+ *    null = no market price entered for the item, so nothing to compare
+ *  Market / Chain pricing modes just force how the ingredients are sourced. */
 function refiningCellCost(sheet, recipe, ench) {
   const items = recipe.enchantments[String(ench)] || recipe.enchantments[ench];
   if (!items) return { cost: null, mode: null, missing: [] };
@@ -460,20 +462,16 @@ function refiningCellCost(sheet, recipe, ench) {
     return { cost: r.cost, mode: 'C', missing: r.cost == null ? r.missing : [] };
   }
 
-  // Auto: refine-it-yourself (cheapest inputs) vs buy the finished item.
+  // Auto: always show the refine cost (cheapest ingredient sourcing). Flag it
+  // 'M' when buying the finished item would be cheaper, 'C' when refining wins.
   const refine  = refineCostWithMissing(sheet, recipe, tier, ench, 'auto');
   const outId   = refinedOutputId(sheet, tier, ench);
   const buyCost = outId ? priceFor(outId) : null;
-  if (refine.cost != null && buyCost != null) {
-    return refine.cost <= buyCost
-      ? { cost: refine.cost, mode: 'C', missing: [] }
-      : { cost: buyCost,     mode: 'M', missing: [] };
+  if (refine.cost != null) {
+    const flag = buyCost == null ? null : (buyCost < refine.cost ? 'M' : 'C');
+    return { cost: refine.cost, mode: flag, missing: [] };
   }
-  if (refine.cost != null) return { cost: refine.cost, mode: 'C', missing: [] };
-  if (buyCost != null)     return { cost: buyCost,     mode: 'M', missing: [] };
-  const miss = new Set(refine.missing);
-  if (outId) miss.add(outId);
-  return { cost: null, mode: null, missing: [...miss] };
+  return { cost: null, mode: null, missing: refine.missing };
 }
 
 /** Compute total cost for one craft of a given recipe entry.
@@ -1151,10 +1149,10 @@ function pageSheet(sheet) {
     : '';
   const refiningCaption = isRefining ? `
     <div class="page-caption">
-      Each cell shows the <strong>cheaper way to get that item</strong> — refine it yourself vs buy it
-      from the market (using the price you entered for it):<br>
-      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> cheaper to <strong>refine</strong> it yourself<br>
-      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> cheaper to <strong>buy</strong> it from the market
+      Each number is your cost to <strong>refine that item</strong> (it reacts to your Focus &amp;
+      return-rate settings). The badge compares it to the market price you entered for the item:<br>
+      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> <strong>refining</strong> is cheaper than buying it<br>
+      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> <strong>buying</strong> it from the market is cheaper than refining
     </div>` : '';
 
   return `
