@@ -462,13 +462,14 @@ function refiningCellCost(sheet, recipe, ench) {
     return { cost: r.cost, mode: 'C', missing: r.cost == null ? r.missing : [] };
   }
 
-  // Auto: always show the refine cost (cheapest ingredient sourcing). Flag it
-  // 'M' when buying the finished item would be cheaper, 'C' when refining wins.
+  // Auto: always show the refine cost (cheapest ingredient sourcing). Default
+  // the badge to 'C' (you're refining it) and only flip to 'M' when a market
+  // price was entered for the item AND buying it is actually cheaper.
   const refine  = refineCostWithMissing(sheet, recipe, tier, ench, 'auto');
   const outId   = refinedOutputId(sheet, tier, ench);
   const buyCost = outId ? priceFor(outId) : null;
   if (refine.cost != null) {
-    const flag = buyCost == null ? null : (buyCost < refine.cost ? 'M' : 'C');
+    const flag = (buyCost != null && buyCost < refine.cost) ? 'M' : 'C';
     return { cost: refine.cost, mode: flag, missing: [] };
   }
   return { cost: null, mode: null, missing: refine.missing };
@@ -1150,9 +1151,9 @@ function pageSheet(sheet) {
   const refiningCaption = isRefining ? `
     <div class="page-caption">
       Each number is your cost to <strong>refine that item</strong> (it reacts to your Focus &amp;
-      return-rate settings). The badge compares it to the market price you entered for the item:<br>
-      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> <strong>refining</strong> is cheaper than buying it<br>
-      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> <strong>buying</strong> it from the market is cheaper than refining
+      return-rate settings). The badge:<br>
+      <span class="cost-badge cost-badge--c" style="margin: 0 4px 0 0;">C</span> cheaper to <strong>refine</strong> it yourself<br>
+      <span class="cost-badge cost-badge--m" style="margin: 0 4px 0 0;">M</span> cheaper to <strong>buy</strong> it from the market (market price you entered is lower)
     </div>` : '';
 
   return `
